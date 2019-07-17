@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#fff">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+    <script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "62bd7008"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#fff">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="链路层总览">
+<meta name="keywords" content="计算机网络,笔记,链路层">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计网链路层">
+<meta property="og:url" content="http://api.niran.vip/2019/07/15/计网链路层/index.html">
+<meta property="og:site_name" content="倪然的博客">
+<meta property="og:description" content="链路层总览">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.niran.vip/%E9%93%BE%E8%B7%AF%E5%B1%82%E6%80%BB%E8%A7%88.PNG">
+<meta property="og:image" content="http://img.niran.vip/1925650-77a43c708462b1c5.webp">
+<meta property="og:image" content="http://img.niran.vip/2693525702-5a1b8780ab661_articlex.png">
+<meta property="og:image" content="http://img.niran.vip/1925650-1e4eb5484eb82d95.webp">
+<meta property="og:image" content="http://img.niran.vip/3077314819-5a1b8b52e45bf_articlex.png">
+<meta property="og:image" content="http://img.niran.vip/%E4%BB%8B%E8%B4%A8%E6%8E%A7%E5%88%B6.PNG">
+<meta property="og:image" content="http://img.niran.vip/PPP.PNG">
+<meta property="og:updated_time" content="2019-07-15T08:28:38.707Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计网链路层">
+<meta name="twitter:description" content="链路层总览">
+<meta name="twitter:image" content="http://img.niran.vip/%E9%93%BE%E8%B7%AF%E5%B1%82%E6%80%BB%E8%A7%88.PNG">
+
+
+
+
+
+
+  <link rel="canonical" href="http://api.niran.vip/2019/07/15/计网链路层/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>计网链路层 | 倪然的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">倪然的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-futbol-o"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-reading">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/reading/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>读书/观影</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://api.niran.vip/2019/07/15/计网链路层/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="倪然">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://img.niran.vip/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="倪然的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计网链路层
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建于：2019-07-15 16:12:03 / 更新于：16:28:38" itemprop="dateCreated datePublished" datetime="2019-07-15T16:12:03+08:00">2019-07-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/15/计网链路层/" class="leancloud_visitors" data-flag-title="计网链路层">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃<span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </span></span></div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="链路层总览"><a href="#链路层总览" class="headerlink" title="链路层总览"></a>链路层总览</h1><p><img src="http://img.niran.vip/%E9%93%BE%E8%B7%AF%E5%B1%82%E6%80%BB%E8%A7%88.PNG" alt="此处输入图片的描述"></p>
+<a id="more"></a>
+<h1 id="基本概念及基本问题"><a href="#基本概念及基本问题" class="headerlink" title="基本概念及基本问题"></a>基本概念及基本问题</h1><h2 id="数据链路层的功能"><a href="#数据链路层的功能" class="headerlink" title="数据链路层的功能"></a>数据链路层的功能</h2><p>数据链路层使用物理层提供的服务在通信信道上发送和接收比特。<br><strong>功能包括：</strong><br>（1）向网络层提供一个定义良好的接口<br>（2）处理传输错误<br>（3）调节数据流，确保慢速的接收方不会被快速的发送方淹没<br><strong>提供的服务：</strong><br>（1）确认的无连接服务 （局域网）<br>（2）有确认的无连接服务 （无线通信）<br>（3）有确认的有连接服务 （电话）</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>数据链路层的简单模型</strong><br><img src="http://img.niran.vip/1925650-77a43c708462b1c5.webp" alt="此处输入图片的描述"></p>
+<p><strong>数据链路层的信道类型</strong><br>数据链路层使用的信道主要有以下两种类型：<br>1、点对点信道：这种信道使用一对一的点对点通信方式<br>2、广播信道：这种信道使用一对多的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用抓用的共享信道协议来协调这些主机的数据发送。<br><strong>链路与数据链路</strong><br>1、链路是一条点到点的物理线路段，中间没有任何其他的交换结点。一条链路只是一条通路的一个组成部分。<br>2、数据链路除了物理线路外，还必须有通信协议来控制这些数据的传输。若把实现这些协议的硬件和软件加到链路上，就构成了数据链路。现今最常用的方法是使用适配器（即网卡）来实现这些协议的硬件和软件。一般的适配器都包括了数据链路层和物理层这两层的功能。<br><strong>帧</strong><br><img src="http://img.niran.vip/2693525702-5a1b8780ab661_articlex.png" alt="此处输入图片的描述"></p>
+<p><strong>说明</strong>：网络层中传递过来的数据报加上帧头和帧尾以及校验之后就变为数据帧了。数据链路层就像一个数字管道，所以常常在两个对等的数据链路层之间画出一个数字管道，而在这条数字管道上传输的数据单位就是帧。</p>
+<h2 id="三个基本问题"><a href="#三个基本问题" class="headerlink" title="三个基本问题"></a>三个基本问题</h2><h3 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h3><p>将网络层交付下来的ip数据报的前后添加首部和尾部，封装成帧。首部和尾部的重要作用是进行帧定界。为了提高传输效率，需要尽量增大数据部分的长度，但是每个链路层协议都规定了帧数据部分的长度上限，最大传输单元MTU(Maximum Transfer Unit)。当数据是可打印的ASCII码，帧定界可以用特殊的帧定界符SOH(Start of Header)(00000001)和EOT(End of Transmission)(00000100)<br>1、封装成帧就是在一段数据的前后分别添加首部和尾部，然后就构成了一个帧。确定帧的界限。<br>2、首部和尾部的一个重要作用就是进行帧定界。<br><img src="http://img.niran.vip/1925650-1e4eb5484eb82d95.webp" alt="此处输入图片的描述"></p>
+<h3 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h3><p>传输的数据中任何8比特的组合不允许和帧定界的控制字符比特一样，否则会出现帧定界错误。文本文件不会产生这样的问题，可以实现透明传输。但是如果是二进制文件，可能会找到错误的帧边界。</p>
+<ul>
+<li><p>字节填充法<br>在SOH和EOT的前面加上转义字符ESC(1B)，如果数据中存在转义字符，就在转义字符前插入个转义字符。<br><img src="http://img.niran.vip/3077314819-5a1b8b52e45bf_articlex.png" alt="此处输入图片的描述"></p>
+</li>
+<li><p>零比特填充法<br>比特填充法是采用一特定的比特组合01111110来标志帧的边界，也就是一个标志字节。这种方法既允许数据帧包含任意长度的字符，也允许每个字符有任意长度的位。为了避免在传送的数据信息中心出现相同比特组合被误认为是帧的首、尾标志，必须对其进行比特填充(bit stuffing)，即使用“零比特插入、删除”技术<br>零比特填充法的具体做法是：在发送端，当一串比特流尚未加上标志字段时，先用硬件扫描整个帧。只要发现5个连续1，则立即填入一个0。因此经过这种零比特填充后的数据，就可以保证不会出现6个连续1。在接收一个帧时，先找到F字段以确定帧的边界。接着再用硬件对其中的比特流进行扫描。每当发现5个连续1时，就将这5个连续1后的一个0删除，以还原成原来的比特流。这样就保证了在所传送的比特流中，不管出现什么样的比特组合，也不至于引起帧边界的判断错误。</p>
+</li>
+</ul>
+<h3 id="流量控制和可靠传输"><a href="#流量控制和可靠传输" class="headerlink" title="流量控制和可靠传输"></a>流量控制和可靠传输</h3><p><a href="https://www.jianshu.com/p/74ae7306e3e2" target="_blank" rel="noopener">连接</a></p>
+<h3 id="差错控制"><a href="#差错控制" class="headerlink" title="差错控制"></a>差错控制</h3><p>传输过程中可能会产生比特差错：1可能会变成0，而0也可能变成1。在一段时间内，传输错误的比特占所传输比特总数的比率称为误码率BER（Bit Error Rate）。误码率与信噪比有很大关系。为了保证数据传输的可靠性，在计算机网络传输数据时，必须采用各种差错检测措施。数据链路层中如果发现数据有误会直接将其扔掉，而是否需要重发是由传输层来决定。</p>
+<ul>
+<li>奇偶校验法</li>
+<li>CRC循环冗余检测</li>
+</ul>
+<h1 id="介质访问控制"><a href="#介质访问控制" class="headerlink" title="介质访问控制"></a>介质访问控制</h1><p><strong>传输数据的两种链路</strong></p>
+<ul>
+<li><p>点到点链路<br>两个相邻节点通过一个链路相连，没有第三者。应用：PPP协议，常用于广域网</p>
+</li>
+<li><p>广播式链路<br>所有主机共享通信介质。应用：早期的总线以太网、无线局域网，常用于局域网。</p>
+</li>
+</ul>
+<p><img src="http://img.niran.vip/%E4%BB%8B%E8%B4%A8%E6%8E%A7%E5%88%B6.PNG" alt="此处输入图片的描述"></p>
+<h1 id="广域网使用的链路协议"><a href="#广域网使用的链路协议" class="headerlink" title="广域网使用的链路协议"></a>广域网使用的链路协议</h1><h2 id="点对点协议PPP（Point-to-Point-Protocol）"><a href="#点对点协议PPP（Point-to-Point-Protocol）" class="headerlink" title="点对点协议PPP（Point-to-Point Protocol）"></a>点对点协议PPP（Point-to-Point Protocol）</h2><ul>
+<li><p><strong>PPP协议功能</strong><br>(1) 简单：在同一条物理链路上进行点对点的数据传输，对数据链路层的帧不进行纠错，不需要序号，不需要流量控制。<br>(2) 封装成帧：加入帧界定符。<br>(3) 透明性：字节填充法。<br>(4) 多种网络层协议：在同一条物理链路上同时支持多种网络层协议（如IP和IPX等）的运行。<br>(5) 多种链路类型：PPP必须能够在多种类型的链路上运行，例如串行或并行链路。<br>(6) 差错检测：接收方收到一个帧后进行CRC检验，若正确就收下这个帧，反之则丢弃。<br>(7) 检测连接状态：自动检测链路是否处于正常工作状态。</p>
+</li>
+<li><p><strong>不具备的功能</strong><br>(1) 纠错<br>(2) 流量控制<br>(3) 序号<br>(4) 多点线路<br>(5) 半双工或单工链路</p>
+</li>
+<li><p><strong>PPP协议组成</strong><br>(1) 提供一个将IP数据报封装到串行链路的方法。IP数据报在PPP帧中就是信息部分，长度受最大传送单元MTU的限制。PPP支持异步链路（无奇偶校验的8比特数据）和面向比特的同步链路。<br>(2) 链路控制协议LCP（Link Control Protocol）<br>当线路不再需要时，挑出这些线路，测试它们，商议选择，并仔细地再次释放链路控制协议。<br>(3) 一套网络控制协议NCP（Network Control Protocol）<br>其中每一个协议支持不同的网络层协议，如IP、OSI的网络层等。<br>(4) 认证协议<br>最常用的包括口令验证协议PAP（Password Authentication Protocol）和挑战握手验证协议CHAP（Challenge-Handshake Authentication Protocol）。</p>
+</li>
+<li><p><strong>PPP协议的透明传输（字节填充）</strong><br>1.字节填充<br>将信息字段中出现的每个0x7E字节变成2字节序列（0x7D，0x5E）。<br>若信息字段中出现一个0x7D的字节，则将其转变为2字节序列（0x7D，0x5D）。<br>若信息字段中出现ASCII码的控制字符（数值小于0x20的字符），则在该字符前加入一个0x7D字节，同时将该字符的编码加以改变。<br>2.零比特填充</p>
+</li>
+<li><p><strong>PPP帧格式</strong><br><img src="http://img.niran.vip/PPP.PNG" alt="此处输入图片的描述"></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th align="right">长度</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F</td>
+<td align="right">1字节</td>
+<td>标志字段F，固定为0x7E，标志一个帧的开始或结束。连续2个帧之间只需要一个标志字段，如果出现连续两个标志字段，表示这是一个空帧。</td>
+</tr>
+<tr>
+<td>A</td>
+<td align="right">1字节</td>
+<td>地址字段A是固定不变的，为0xFF。</td>
+</tr>
+<tr>
+<td>C</td>
+<td align="right">1字节</td>
+<td>控制字段C是固定不变的，为 0x03。</td>
+</tr>
+<tr>
+<td>协议</td>
+<td align="right">2字节</td>
+<td>协议字段不同，后面信息部分表示的数据类型不同。<br>0x0021——信息字段是IP数据报<br>0xC021——信息字段是链路控制数据LCP<br>0x8021——信息字段是网络控制数据NCP<br>0xC023——信息字段是安全性认证PAP<br>0xC025——信息字段是LQR<br>0xC223——信息字段是安全性认证CHAP</td>
+</tr>
+</tbody></table>
+<h1 id="链路层设备"><a href="#链路层设备" class="headerlink" title="链路层设备"></a>链路层设备</h1><ul>
+<li>网卡<br>网卡又称为网络适配器，涉及帧的发送与接收、帧的封装与拆分、数据的编码与解码等功能。MAC地址是用十六进制表示的，总共48位，前24位用来表示厂商编号，后24位用来表示设备序列号。</li>
+<li>网桥<br>网桥（Bridge）是一种存储转发设备，可以隔离冲突域，意思就是当网桥已经学习到目标MAC地址是在某个端口上的，那么它就一定不会转发给另一个端口；只有当网桥不知道目标MAC地址在哪个端口上时才会广播。网桥通常只有两个端口，因此其具有两个冲突域和一个广播域。</li>
+<li>交换机<br>交换机（Switch）维护着一张MAC地址表，最初MAC地址表示空的，随着慢慢地学习来丰富自己的MAC地址表。<br>对于上图Cisco Packet Tracer中交换机的MAC地址表的变化过程是这样的：<br>交换机工作过程：根据源MAC地址学习，目标MAC地址转发。<br>具体表现为：<ol>
+<li>当交换机从某个端口收到一个数据包，它先读取包头中的源MAC地址，这样它就知道源MAC地址的机器连在哪个端口上的；</li>
+<li>再去读取包头中的目的MAC地址，并在地址表中查找相应的端口；</li>
+<li>如表中有与这目的MAC地址对应的端口，把数据包直接复制到这端口上；</li>
+<li>如表中找不到相应的端口则把数据包广播到所有端口上，当目的机器对源机器回应时，交换机又可以学习一目的MAC地址与哪个端口对应，在下次传送数据时就不再需要对所有端口进行广播了。</li>
+</ol>
+</li>
+</ul>
+<p>不断的循环这个过程，对于全网的MAC地址信息都可以学习到，二层交换机就是这样建立和维护它自己的地址。<br>交换机通常具有8、12、16、24个，甚至是48个端口，那么它有几个端口，就有几个冲突域，但是其广播域还是只有一个。</p>
+<ul>
+<li>网桥和交换机的区别<br>（1）交换机的端口多于网桥；<br>（2）交换机的数据传输速率高于网桥；<br>（3）网桥是使用软件进行转发，而交换机是使用硬件进行转发，所以交换机的造价更低。</li>
+</ul>
+
+      
+    </div>
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+          
+            
+          
+    </div>
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i>计算机网络</a>
+          
+            <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i>笔记</a>
+          
+            <a href="/tags/链路层/" rel="tag"><i class="fa fa-tag"></i>链路层</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/17/计网网络层/" rel="prev" title="计网网络层">
+                 <i class="fa fa-chevron-left"></i> 计网网络层
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/14/计网物理层/" rel="next" title="计网物理层">
+                计网物理层 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div id="gitalk-container">
+    </div>
+    
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+            <a href="/">
+              <img class="site-author-image" itemprop="image" src="http://img.niran.vip/touxiang.jpg" alt="倪然">
+            </a>
+            
+              <p class="site-author-name" itemprop="name">倪然</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/niran666" title="GitHub &rarr; https://github.com/niran666" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:1261614525@qq.com" title="E-Mail &rarr; mailto:1261614525@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://plus.google.com" title="Google &rarr; https://plus.google.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/ni1291614525" title="Twitter &rarr; https://twitter.com/ni1291614525" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="http://www.baidu.com/" rel="noopener" target="_blank">baidu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">google</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#链路层总览"><span class="nav-number">1.</span> <span class="nav-text">链路层总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念及基本问题"><span class="nav-number">2.</span> <span class="nav-text">基本概念及基本问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据链路层的功能"><span class="nav-number">2.1.</span> <span class="nav-text">数据链路层的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">2.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三个基本问题"><span class="nav-number">2.3.</span> <span class="nav-text">三个基本问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装成帧"><span class="nav-number">2.3.1.</span> <span class="nav-text">封装成帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#透明传输"><span class="nav-number">2.3.2.</span> <span class="nav-text">透明传输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流量控制和可靠传输"><span class="nav-number">2.3.3.</span> <span class="nav-text">流量控制和可靠传输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#差错控制"><span class="nav-number">2.3.4.</span> <span class="nav-text">差错控制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#介质访问控制"><span class="nav-number">3.</span> <span class="nav-text">介质访问控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#广域网使用的链路协议"><span class="nav-number">4.</span> <span class="nav-text">广域网使用的链路协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#点对点协议PPP（Point-to-Point-Protocol）"><span class="nav-number">4.1.</span> <span class="nav-text">点对点协议PPP（Point-to-Point Protocol）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链路层设备"><span class="nav-number">5.</span> <span class="nav-text">链路层设备</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">倪然</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+
+  
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css">
+
+  
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+    
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'eb5bbed58a15239d8ab7',
+          clientSecret: '17b324a4d3178abb03f7766c7b94b876fb33babe',
+          repo: 'niran666.github.io',
+          owner: 'niran666',
+          admin: ['niran666'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "mtpW2sIlIHeJQk0FGq2ddMVQ-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "mtpW2sIlIHeJQk0FGq2ddMVQ-gzGzoHsz",
+                'X-LC-Key': "S8VWUb1LK61DctReez2JM8P1",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

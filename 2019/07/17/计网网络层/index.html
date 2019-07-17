@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#fff">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+    <script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "62bd7008"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#fff">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1. 网络层概述1.1 主要任务网络层的工作主要是把数据报从一台发送主机转发到一台接收主机。网络层取得来自运输层的报文段，将每个报文段封装成一个数据报（即网络层的一个分组），然后将这个数据报转发到另一个主机。在这个过程中，主要涉及了网络层两个功能——转发与路由选择。 1.2 功能 路由选择与分组转发 异构网络互连 拥塞控制（开环控制、闭环控制）">
+<meta name="keywords" content="计算机网络,笔记,网络层">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计网网络层">
+<meta property="og:url" content="http://api.niran.vip/2019/07/17/计网网络层/index.html">
+<meta property="og:site_name" content="倪然的博客">
+<meta property="og:description" content="1. 网络层概述1.1 主要任务网络层的工作主要是把数据报从一台发送主机转发到一台接收主机。网络层取得来自运输层的报文段，将每个报文段封装成一个数据报（即网络层的一个分组），然后将这个数据报转发到另一个主机。在这个过程中，主要涉及了网络层两个功能——转发与路由选择。 1.2 功能 路由选择与分组转发 异构网络互连 拥塞控制（开环控制、闭环控制）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.niran.vip/%E6%8A%A5%E6%96%87%E4%BA%A4%E6%8D%A2.PNG">
+<meta property="og:image" content="http://img.niran.vip/%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2.PNG">
+<meta property="og:image" content="http://img.niran.vip/%E8%99%9A%E7%94%B5%E8%B7%AF.PNG">
+<meta property="og:image" content="http://img.niran.vip/bijiao.PNG">
+<meta property="og:image" content="http://img.niran.vip/ip%E6%A0%BC%E5%BC%8F.PNG">
+<meta property="og:image" content="http://img.niran.vip/5573582_12791951440JPr.png">
+<meta property="og:image" content="http://img.niran.vip/5573582_1279195145NPrA.png">
+<meta property="og:image" content="http://img.niran.vip/5573582_127924946840lL.png">
+<meta property="og:image" content="http://img.niran.vip/ip%E5%88%86%E7%B1%BB.PNG">
+<meta property="og:image" content="http://img.niran.vip/%E7%89%B9%E6%AE%8Aip.PNG">
+<meta property="og:image" content="http://img.niran.vip/%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86.PNG">
+<meta property="og:image" content="http://img.niran.vip/%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91.PNG">
+<meta property="og:image" content="http://img.niran.vip/NAT.PNG">
+<meta property="og:image" content="http://img.niran.vip/33595294_1947_20190717-090505.png">
+<meta property="og:image" content="http://img.niran.vip/ipv6.PNG">
+<meta property="og:image" content="http://img.niran.vip/33595294_0726_20190717-084332.png">
+<meta property="og:image" content="http://img.niran.vip/%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95.PNG">
+<meta property="og:image" content="http://img.niran.vip/%E8%B7%AF%E7%94%B1%E5%99%A8.PNG">
+<meta property="og:image" content="http://img.niran.vip/%E8%BE%93%E5%85%A5%E7%AB%AF%E5%8F%A3.PNG">
+<meta property="og:image" content="http://img.niran.vip/%E8%BE%93%E5%87%BA%E7%AB%AF%E5%8F%A3.PNG">
+<meta property="og:updated_time" content="2019-07-17T02:53:02.173Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计网网络层">
+<meta name="twitter:description" content="1. 网络层概述1.1 主要任务网络层的工作主要是把数据报从一台发送主机转发到一台接收主机。网络层取得来自运输层的报文段，将每个报文段封装成一个数据报（即网络层的一个分组），然后将这个数据报转发到另一个主机。在这个过程中，主要涉及了网络层两个功能——转发与路由选择。 1.2 功能 路由选择与分组转发 异构网络互连 拥塞控制（开环控制、闭环控制）">
+<meta name="twitter:image" content="http://img.niran.vip/%E6%8A%A5%E6%96%87%E4%BA%A4%E6%8D%A2.PNG">
+
+
+
+
+
+
+  <link rel="canonical" href="http://api.niran.vip/2019/07/17/计网网络层/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>计网网络层 | 倪然的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">倪然的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-futbol-o"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-reading">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/reading/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>读书/观影</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://api.niran.vip/2019/07/17/计网网络层/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="倪然">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://img.niran.vip/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="倪然的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计网网络层
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建于：2019-07-17 10:38:31 / 更新于：10:53:02" itemprop="dateCreated datePublished" datetime="2019-07-17T10:38:31+08:00">2019-07-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/17/计网网络层/" class="leancloud_visitors" data-flag-title="计网网络层">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃<span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </span></span></div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<h1 id="1-网络层概述"><a href="#1-网络层概述" class="headerlink" title="1. 网络层概述"></a>1. 网络层概述</h1><h2 id="1-1-主要任务"><a href="#1-1-主要任务" class="headerlink" title="1.1 主要任务"></a>1.1 主要任务</h2><p>网络层的工作主要是把数据报从一台发送主机转发到一台接收主机。网络层取得来自运输层的报文段，将每个报文段封装成一个数据报（即网络层的一个分组），然后将这个数据报转发到另一个主机。在这个过程中，主要涉及了网络层两个功能——转发与路由选择。</p>
+<h2 id="1-2-功能"><a href="#1-2-功能" class="headerlink" title="1.2 功能"></a>1.2 功能</h2><ol>
+<li>路由选择与分组转发</li>
+<li>异构网络互连</li>
+<li>拥塞控制（开环控制、闭环控制）<a id="more"></a>
+
+</li>
+</ol>
+<h1 id="2-数据交换"><a href="#2-数据交换" class="headerlink" title="2. 数据交换"></a>2. 数据交换</h1><h2 id="2-1-电路交换"><a href="#2-1-电路交换" class="headerlink" title="2.1 电路交换"></a>2.1 电路交换</h2><p>线路交换是相对于分组交换的一个概念。电路交换要求必须首先在通信双方之间建立连接通道。在连接建立成功之后，双方的通信活动才能开始。通信双方需要传递的信息都是通过已经建立好的连接来进行传递的，并且这个连接也将一直被维持到双方的通信结束。在某次通信活动的整个过程中，该连接将始终占用着连接建立开始时通信系统分配给它的资源（通道、带宽、时隙、码字等等），这也体现了电路交换区别于分组交换的本质特征。</p>
+<p><strong>优点：</strong></p>
+<ol>
+<li>通信时延小</li>
+<li>有序传输</li>
+<li>没有冲突</li>
+<li>实时性强</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>建立连接时间长</li>
+<li>线路独占，使用效率低</li>
+<li>灵活性差</li>
+<li>无差错控制能力</li>
+</ol>
+<p>线路交换的特点是：数据传输可靠、迅速、有序，但线路利用率低、浪费严重，不适合计算机网络。<br>e.g.:电话网络</p>
+<h2 id="2-2-报文交换"><a href="#2-2-报文交换" class="headerlink" title="2.2 报文交换"></a>2.2 报文交换</h2><p><img src="http://img.niran.vip/%E6%8A%A5%E6%96%87%E4%BA%A4%E6%8D%A2.PNG" alt="此处输入图片的描述"></p>
+<p>是数据交换的三种方式之一，报文整个地发送，一次一跳。报文交换是分组交换的前身，是由列奥纳德·克莱因饶克于1961年提出的。<br>主要特点：<br>存储接受到的报文，判断其目标地址以选择路由，最<br>后，在下一跳路由空闲时，将数据转发给下一跳路由。报文交换系统现今都由分组交换或电路交换网络所承载。<br>报文交换采用”存储-转发”方式进行传送，无需事先建立线路，事后更无需拆除。<br>优点是：</p>
+<ol>
+<li>线路利用率高</li>
+<li>故障的影响小</li>
+<li>可以实现多目的报文</li>
+<li>无需建立连接</li>
+<li>存储转发，动态分配线路；<br>缺点是：</li>
+<li>延迟时间长且不定</li>
+<li>对中间节点的要求高</li>
+<li>通信不可靠、失序等<br>报文的优点是：高效、灵活、迅速、可靠、经济，但存在如下的缺点：有一定的延迟时间、额外的开销会影响传输效率、实现技术复杂等。</li>
+</ol>
+<h2 id="2-3-分组交换"><a href="#2-3-分组交换" class="headerlink" title="2.3 分组交换"></a>2.3 分组交换</h2><p><img src="http://img.niran.vip/%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2.PNG" alt="此处输入图片的描述"></p>
+<p><strong>优点：</strong></p>
+<ol>
+<li>无需建立连接</li>
+<li>存储转发，动态分配线路</li>
+<li>线路可靠性高</li>
+<li>线路利用率高</li>
+<li>相对于报文交换，存储管理更容易</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>有存储转发时延</li>
+<li>需要传输额外的信息量</li>
+<li>乱序到目的主机时要对分组排序重组</li>
+</ol>
+<p>分组交换适用于计算机网络，在实际应用中有两种类型：虚电路方式和数据报方式。虚电路方式类似”线路交换”，只不过对信道的使用是非独占方式；数据报方式类似”报文交换”。</p>
+<h3 id="2-3-1-数据报方式"><a href="#2-3-1-数据报方式" class="headerlink" title="2.3.1 数据报方式"></a>2.3.1 数据报方式</h3><p>e.g.:因特网<br>数据报方式为网络层提供无连接服务<br>每个分组携带源和目的地址<br>路由器根据分组的目的地址转发分组<br><strong>无连接服务</strong>：不事先为分组的传输确定传输路径，每个分组独立确定传输路径，不同分组传输路径可能不同。<br><strong>连接服务</strong>：首先为分组的传输确定传输路径（建立连接），然后沿该路径（连接）传输系列分组，系列分组传输路径相同，传输结束后拆除连接。</p>
+<h3 id="2-3-2-虚电路方式"><a href="#2-3-2-虚电路方式" class="headerlink" title="2.3.2 虚电路方式"></a>2.3.2 虚电路方式</h3><p>虚电路方式为网络层提供有连接服务<br>虚电路将数据宝方式和电路交换方式结合，以发挥两者优点。<br><strong>虚电路：</strong>一条源主机到目的主机类似于电路的路径（逻辑连接），路径上所有结点都要维持这条虚电路的建立，都维持一张虚电路表，每一项记录了一个打开的虚电路的信息。<br><strong>通信过程：</strong><br><img src="http://img.niran.vip/%E8%99%9A%E7%94%B5%E8%B7%AF.PNG" alt="此处输入图片的描述"></p>
+<h3 id="2-3-3-数据报-amp-虚电路"><a href="#2-3-3-数据报-amp-虚电路" class="headerlink" title="2.3.3 数据报&amp;虚电路"></a>2.3.3 数据报&amp;虚电路</h3><table>
+<thead>
+<tr>
+<th></th>
+<th align="center">数据报服务</th>
+<th align="center">虚电路服务</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>连接的建立</td>
+<td align="center">不要</td>
+<td align="center">必须有</td>
+</tr>
+<tr>
+<td>目的地址</td>
+<td align="center">每个分组都有完整的目的地址</td>
+<td align="center">仅在建立连接阶段使用，之后每个分组使用长度较短的虚电路号</td>
+</tr>
+<tr>
+<td>路由选择</td>
+<td align="center">每个分组独立地进行路由选择和转发</td>
+<td align="center">属于同一条虚电路的分组按照同一路由转发</td>
+</tr>
+<tr>
+<td>分组顺序</td>
+<td align="center">不保证分组的有序到达</td>
+<td align="center">保证分组的有序到达可靠性由网络保证</td>
+</tr>
+<tr>
+<td>可靠性</td>
+<td align="center">不保证可靠通信，可靠性由用户主机来保证</td>
+<td align="center">可靠性由网络保证</td>
+</tr>
+<tr>
+<td>对网络故障的适应性</td>
+<td align="center">出故障的结点丢失分组，其他分组路径选择发生变化，可正常传输</td>
+<td align="center">所有经过故障结点的虛电路均不能正常工作</td>
+</tr>
+<tr>
+<td>差错处理和流量控制</td>
+<td align="center">由用户主机进行流量控制，不保证数据报的可靠性</td>
+<td align="center">可由分组交换网负责，也可由用户主机负责</td>
+</tr>
+</tbody></table>
+<h2 id="2-4-三种交换方式比较"><a href="#2-4-三种交换方式比较" class="headerlink" title="2.4 三种交换方式比较"></a>2.4 三种交换方式比较</h2><p><img src="http://img.niran.vip/bijiao.PNG" alt="此处输入图片的描述"></p>
+<ol>
+<li>报文交换和分组交换都采用存储转发</li>
+<li>传输数据量大，且传送时间远大于呼叫时，选择电路交换。电路交换传输时延最小</li>
+<li>从信道利用率看，报文交换和分组交换优于电路交换，其中分组交换时延更小</li>
+</ol>
+<h1 id="3-IP数据报格式"><a href="#3-IP数据报格式" class="headerlink" title="3. IP数据报格式"></a>3. IP数据报格式</h1><h2 id="3-1-IP数据报格式"><a href="#3-1-IP数据报格式" class="headerlink" title="3.1 IP数据报格式"></a>3.1 IP数据报格式</h2><p><img src="http://img.niran.vip/ip%E6%A0%BC%E5%BC%8F.PNG" alt="此处输入图片的描述"></p>
+<ol>
+<li><p>版本号：占用4位二进制数，表示该IP数据报使用的IP协议版本。目前Internet中使用的主要是TCP/IP协议族中版本号为4的IP协议。</p>
+</li>
+<li><p>首部长度：占用4位二进制位，此域指出整个报头的长度（包括选项），该长度是以32位二进制数为一个计数单位的，接收端通过此域可以计算出报头在何处结束及从何处开始读数据。普通IP数据报（没有任何选项）该字段的值是5（即20个字节的长度）。</p>
+</li>
+<li><p>服务类型（TOS、type ofservice）：<br>占用8位二进制位，用于规定本数据报的处理方式。服务类型字段的8位分成了5个子域：<br>(1)—优先权（0-7）数越大，表示该数据报优先权越高。网络中路由器可以使用优先权进行拥塞控制，如当网络发生拥塞时可以根据数据报的优先权来决定数据报的取舍。<br>(2)—短延迟位D(Delay)：该位置1时，数据报请求以短延迟信道传输，0表示正常延时。<br>(3)—高吞吐量位T(Throughput)：该位置1时，数据报请求以高吞吐量信道传输，0表示普通。<br>(4)—高可靠位R(Reliability)：该位置1时，数据报请求以高可靠性信道传输，0表示普通。<br>(5)—保留位。<br>目前在Internet中使用的TCP/IP协议大多数情况下网络并未对TOS进行处理，但在实际编程时，有专门的函数来设置该字段的各域。一些重要的网际应用协议中都设置了建议使用的TOS值：<br><img src="http://img.niran.vip/5573582_12791951440JPr.png" alt="此处输入图片的描述"><br>从上表可以看出，对于与用户直接交互的应用，一般使用短延时；对于有大量数据需要进行传输的应用，一般选用高吞吐量；对于数据报要传输控制信息的应用，一般选用高可靠性。在数据报的生存期内不支持TOS的，TOS字段就设置为0x00。</p>
+</li>
+<li><p>总长度：占用16位二进制位，总长度字段是指整个IP数据报的长度（报头区+数据区），以字节为单位。利用头部长度字段和总长度字段就可以计算出IP数据报中数据内容的起始位置和长度。由于该字段长度为16位二进制数，因此理论上IP数据报最长可达65536个字节（事实上受物理网络的限制，要比这个数值小很多）。</p>
+</li>
+<li><p>生存时间（TTL，time to live）：占用8位二进制位，它指定了数据报可以在网络中传输的最长时间。实际应用中把生存时间字段设置成了数据报可以经过的最大路由器数。TTL的初始值由源主机设置（通常为32、64、128或256），一旦经过一个处理它的路由器，它的值就减1。当该字段为0时，数据报就丢弃，并发送ICMP报文通知源主机，因此可以防止进入一个循环回路时，数据报无休止地传输下去。</p>
+</li>
+<li><p>上层协议标识：占用8位二进制位，IP协议可以承载各种上层协议，目标端根据协议标识就可以把收到的IP数据报送到TCP或UDP等处理此报文的上层协议了。<br>常用网际协议编号：<br><img src="http://img.niran.vip/5573582_1279195145NPrA.png" alt="此处输入图片的描述"></p>
+</li>
+<li><p>校验和：占用16位二进制数，用于协议头数据有效性的校验，可以保证IP报头区在传输时的正确性和完整性。头部检验和字段是根据IP协议头计算出的检验和，它不对头部后面的数据进行计算。<br><br>原理：发送端首先将检验和字段置0，然后对头部中每16位二进制数进行反码求和的运算，并将结果存在校验和字段中。 由于接收方在计算过程中包含了发送方放在头部的校验和，因此，如果头部在传输过程中没有发生任何差错，那么接收方计算的结果应该是全1。</p>
+</li>
+<li><p>源地址：占用32位二进制数，表示发送端IP地址。</p>
+</li>
+<li><p>目的地址：占用32位二进制数，表述目的端IP地址。</p>
+</li>
+<li><p>可选字段：0~40B,用来支持排错、测量以及安全等措施。</p>
+</li>
+<li><p>填充：全0，把首部补成4B的整数倍。</p>
+</li>
+</ol>
+<h2 id="3-2-IP数据报分片"><a href="#3-2-IP数据报分片" class="headerlink" title="3.2 IP数据报分片"></a>3.2 IP数据报分片</h2><p>把一个数据报为了适合网络传输而分成多个数据报的过程称为分片，被分片后的各个IP数据报可能经过不同的路径到达目标主机。<br>一个IP数据报在传输过程中可能被分片，也可能不被分片。如果被分片，分片后的IP数据报和原来没有分片的IP数据报结构是相同的，即也是由IP头部和IP数据区两个部分组成：<br><img src="http://img.niran.vip/5573582_127924946840lL.png" alt="此处输入图片的描述"><br>分片后的IP数据报，数据区是原IP数据报数据区的一个连续部分，头部是原IP数据报头部的复制，但与原来未分片的IP数据报头部有两点主要不同：标志和片偏移：</p>
+<ol>
+<li><p>标识：同意数据报的分片使用同一标识</p>
+</li>
+<li><p>标志：在IP数据报头部有一个叫“标志”的字段，用3位二进制数表示（只有两位有意义x _ _）：<br>中间位DF（Do not Fragment）标志如果被置1，则数据报在传输过程中不能被分片，如网络连通性测试命令ping就可以用-F参数设置为在数据传输时不分片，但这样当数据不能通过MTU较小的网络时，将产生数据不可达的错误。<br>最低位MF（More Fragment）标志如果被置1，说明该数据报不是分片后的最后一个数据报，最后一个数据报的该位被置0。</p>
+</li>
+<li><p>片偏移：IP数据报被分片后，各片数据区在原来IP数据区中的位置用13位片偏移来表示。上图中分片1的偏移为0；分片2的偏移为600；分片3的偏移为1200实际在IP地址中,由于偏移是以8个字节为单位进行计算的,因而在IP数据报中分片1的偏移是0；分片2的偏移是75；分片3的偏移是150。</p>
+</li>
+</ol>
+<h1 id="4-IP分类"><a href="#4-IP分类" class="headerlink" title="4. IP分类"></a>4. IP分类</h1><h2 id="4-1-IP分类"><a href="#4-1-IP分类" class="headerlink" title="4.1 IP分类"></a>4.1 IP分类</h2><p><img src="http://img.niran.vip/ip%E5%88%86%E7%B1%BB.PNG" alt="此处输入图片的描述"></p>
+<table>
+<thead>
+<tr>
+<th align="center">网络类别</th>
+<th align="center">最大可用网络数</th>
+<th align="center">第一个可用网络号</th>
+<th align="center">最后一个可用网络号</th>
+<th align="center">每个网络中的最大主机数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A</td>
+<td align="center">$2^7-2$(去掉全0全1)</td>
+<td align="center">1</td>
+<td align="center">126</td>
+<td align="center">$2^{24}-2 $(去掉全0全1)</td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="center">$2^{14}-1$(去掉全0)</td>
+<td align="center">128.1</td>
+<td align="center">191.255</td>
+<td align="center">$2^{16}-2$(去掉全0全1)</td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center">$2^{21}-1$(去掉全0)</td>
+<td align="center">192.0.1</td>
+<td align="center">223.255.255</td>
+<td align="center">$2^8-2$(去掉全0全1)</td>
+</tr>
+</tbody></table>
+<h2 id="4-2-特殊IP地址"><a href="#4-2-特殊IP地址" class="headerlink" title="4.2 特殊IP地址"></a>4.2 特殊IP地址</h2><p><img src="http://img.niran.vip/%E7%89%B9%E6%AE%8Aip.PNG" alt="此处输入图片的描述"></p>
+<h2 id="4-3-私有IP地址"><a href="#4-3-私有IP地址" class="headerlink" title="4.3 私有IP地址"></a>4.3 私有IP地址</h2><table>
+<thead>
+<tr>
+<th align="center">地址类别</th>
+<th align="left">地址范围</th>
+<th align="center">网段个数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A类</td>
+<td align="left">10.0.0.0~10.255.255.255</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">B类</td>
+<td align="left">172.16.0.0~172.31.255.255</td>
+<td align="center">16</td>
+</tr>
+<tr>
+<td align="center">C类</td>
+<td align="left">192.168.0.0~192.168.255.255</td>
+<td align="center">256</td>
+</tr>
+</tbody></table>
+<h2 id="4-4-子网划分"><a href="#4-4-子网划分" class="headerlink" title="4.4 子网划分"></a>4.4 子网划分</h2><p><strong>两级IP地址的缺点：</strong></p>
+<ol>
+<li>IP地址空间的利用率有时很低。</li>
+<li>两级IP地址不够灵活。</li>
+</ol>
+<p><img src="http://img.niran.vip/%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86.PNG" alt="此处输入图片的描述"></p>
+<h3 id="4-4-1-子网掩码"><a href="#4-4-1-子网掩码" class="headerlink" title="4.4.1 子网掩码"></a>4.4.1 子网掩码</h3><p>子网掩码32位与IP地址32位对应,如果某位是网络地址，则子网掩码为1，否则为0。<br><strong>子网掩码和ip地址的关系：</strong><br>具体说就是两台计算机各自的IP地址与子网掩码进行“与”运算后，可以得出该主机所在的子网网络号。<br><strong>使用子网时分组的转发：</strong><br><img src="http://img.niran.vip/%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91.PNG" alt="此处输入图片的描述"><br>第四步：将分组的目的IP地址与路由表中所有的子网掩码依次进行’与’运算,若结果与路由表中的目的网络地址匹配则进行转发，否则进入第五步</p>
+<h2 id="4-5-无分类编址CIDR"><a href="#4-5-无分类编址CIDR" class="headerlink" title="4.5 无分类编址CIDR"></a>4.5 无分类编址CIDR</h2><p>特点：<br>（1）CIDR消除了传统的A类、B类和C类地址以及划分子网的概念。CIDR把32位的IP地址划分为前后两部分，前面部分是“网络前缀”，用来指明网络，后面部分则用来指明主机。其记法是：</p>
+<center>IP地址::={<网络前缀>,<主机号>}</主机号></网络前缀></center>
+
+<p>CIDR还使用“斜线记法”（CIDR记法），即在IP地址后面加上斜线“/”，然后写上网络前缀所占的位数。<br>（2）CIDR把网络前缀都相同的连续IP地址组成一个“CIDR地址块”，只要知道地址块中任何一个地址，就可以知道这个地址块的最小、最大地址，以及地址块中的地址数。</p>
+<p>PS：“CIDR不使用子网”是指CIDR并没有在32位地址中指明若干位作为子网字段。但分配到一个CIDR地址块的单位，仍然可以在本单位内根据需要划分出一些子网。这些子网也都只有一个网络前缀和一台主机号字段，但子网的网络前缀比整个单位的网络前缀要长些。</p>
+<p>由于一个CIDR地址块中有很多地址，多以在路由表中就利用CIDR地址块来查找目的网络。这种地址的聚合常称为路由聚合，它使路由表中的一个项目可以表示原来传统分类地址的很多个路由。路由聚合也称为构成超网。路由聚合有利于减少路由器之间的路由选择信息的交换，从而提高了整个互联网的性能。</p>
+<h2 id="4-6-构成超网"><a href="#4-6-构成超网" class="headerlink" title="4.6 构成超网"></a>4.6 构成超网</h2><p>将多个子网聚合成一个较大的子网，叫做构成超网，或路由聚合。<br><strong>超网的作用</strong><br>超网的功能是将多个连续的C类的网络地址聚合起来映射到一个物理网络上。这样，这个物理网络就可以使用这个聚合起来的C类地址的共同地址前缀作为其网络号。<br>超网创建用来解决路由列表超出现有软件和管理人力的问题以及提供B类网络地址空间耗尽的解决办法。超网允许一个路由列表入口表示一个网络集合，就如一个区域代码表示一个区域的电话号码的集合一样。<br>超网（路由聚合）技术是为了解决路由表的内容冗余问题，使用路由聚合能够缩小路由表的规模，减少路由表的内存。<br><strong>最长前缀匹配</strong><br>在使用CIDR时，路由表中的每个项目由“网络前缀”和“下一跳地址”组成，在查找路由表时可能会得到不止一个匹配结果。应当从匹配结果中选择具有最长网络前缀的路由，这叫做最长前缀匹配。因为网络前缀越长，其地址块就越小，路由就越具体。</p>
+<p><strong>方法</strong>：将网络前缀缩短</p>
+<h1 id="5-网络地址转换NAT"><a href="#5-网络地址转换NAT" class="headerlink" title="5. 网络地址转换NAT"></a>5. 网络地址转换NAT</h1><p><img src="http://img.niran.vip/NAT.PNG" alt="此处输入图片的描述"></p>
+<h1 id="6-ARP协议"><a href="#6-ARP协议" class="headerlink" title="6. ARP协议"></a>6. ARP协议</h1><h2 id="6-1-工作原理"><a href="#6-1-工作原理" class="headerlink" title="6.1 工作原理"></a>6.1 工作原理</h2><ol>
+<li>每个主机都会在自己的 ARP 缓冲区中建立一个 ARP 列表，以表示 IP 地址和 MAC 地址之间的对应关系。</li>
+<li>主机（网络接口）新加入网络时（也可能只是mac地址发生变化，接口重启等）， 会发送免费ARP报文把自己IP地址与Mac地址的映射关系广播给其他主机。</li>
+<li>网络上的主机接收到免费ARP报文时，会更新自己的ARP缓冲区。将新的映射关系更新到自己的ARP表中。</li>
+<li>某个主机需要发送报文时，首先检查 ARP 列表中是否有对应 IP 地址的目的主机的 MAC 地址，如果有，则直接发送数据，如果没有，就向本网段的所有主机发送 ARP 数据包，该数据包包括的内容有：源主机 IP 地址，源主机 MAC 地址，目的主机的 IP 地址等。</li>
+<li>当本网络的所有主机收到该 ARP 数据包时：<br>（A）首先检查数据包中的 IP 地址是否是自己的 IP 地址，如果不是，则忽略该数据包。<br>（B）如果是，则首先从数据包中取出源主机的 IP 和 MAC 地址写入到 ARP 列表中，如果已经存在，则覆盖。<br>（C）然后将自己的 MAC 地址写入 ARP 响应包中，告诉源主机自己是它想要找的 MAC 地址。</li>
+<li>源主机收到 ARP 响应包后。将目的主机的 IP 和 MAC 地址写入 ARP 列表，并利用此信息发送数据。如果源主机一直没有收到 ARP 响应数据包，表示 ARP 查询失败。</li>
+</ol>
+<h1 id="7-IPv6"><a href="#7-IPv6" class="headerlink" title="7. IPv6"></a>7. IPv6</h1><p><img src="http://img.niran.vip/33595294_1947_20190717-090505.png" alt="此处输入图片的描述"></p>
+<h2 id="7-1-IPv6数据报格式"><a href="#7-1-IPv6数据报格式" class="headerlink" title="7.1 IPv6数据报格式"></a>7.1 IPv6数据报格式</h2><p><img src="http://img.niran.vip/ipv6.PNG" alt="此处输入图片的描述"><br><img src="http://img.niran.vip/33595294_0726_20190717-084332.png" alt="此处输入图片的描述"></p>
+<h2 id="7-2-IPv6和IPv4"><a href="#7-2-IPv6和IPv4" class="headerlink" title="7.2 IPv6和IPv4"></a>7.2 IPv6和IPv4</h2><ol>
+<li>IPv6将地址从32位(4B) 扩大到128位(16B)，更大的地址空间。</li>
+<li>IPv6将IPv4的校验和字段彻底移除，以减少每跳的处理时间。</li>
+<li>IPv6将IPv4的可选字段移出首部，变成了扩展首部，成为灵活的首部格式，路由器通常不对扩展首部进行检查,大大提高了路由器的处理效率。</li>
+<li>IPv6支持即插即用(即自动配置)，不需要DHCP协议。</li>
+<li>IPv6首部长度必须是8B的整数倍，IPv4首部是4B的整数倍。</li>
+<li>IPv6只能在主机处分片，IPv4可以在路由器和主机处分片。</li>
+<li>ICMPv6:附加报文类型“分组过大”。</li>
+<li>IPv6支持资源的预分配，支持实时视像等要求，保证一定的带宽和时延的应用。</li>
+<li>IPv6取消了协议字段，改成下一个首部字段。</li>
+<li>IPv6取消了总长度字段，改用有效载荷长度字段。</li>
+<li>IPv6取消了服务类型字段。</li>
+</ol>
+<h2 id="7-3-IPv6地址格式"><a href="#7-3-IPv6地址格式" class="headerlink" title="7.3 IPv6地址格式"></a>7.3 IPv6地址格式</h2><p>IPv6的地址长度是128位（bit）。<br>将这128位的地址按每16位划分为一个段，将每个段转换成十六进制数字，并用冒号隔开。<br>例如：2000:0000:0000:0000:0001:2345:6789:abcd<br>这个地址很长，可以用两种方法对这个地址进行压缩，</p>
+<ul>
+<li>前导零压缩法：<br>将每一段的前导零省略，但是每一段都至少应该有一个数字<br>例如：2000:0:0:0:1:2345:6789:abcd</li>
+<li>双冒号法：<br>如果一个以冒号十六进制数表示法表示的IPv6地址中，如果几个连续的段值都是0，那么这些0可以简记为::。每个地址中只能有一个::。<br>例如：2000::1:2345:6789:abcd</li>
+</ul>
+<h1 id="8-路由算法分类"><a href="#8-路由算法分类" class="headerlink" title="8. 路由算法分类"></a>8. 路由算法分类</h1><p><img src="http://img.niran.vip/%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95.PNG" alt="此处输入图片的描述"></p>
+<h1 id="9-网络层设备"><a href="#9-网络层设备" class="headerlink" title="9. 网络层设备"></a>9. 网络层设备</h1><h2 id="9-1-路由器"><a href="#9-1-路由器" class="headerlink" title="9.1 路由器"></a>9.1 路由器</h2><p><img src="http://img.niran.vip/%E8%B7%AF%E7%94%B1%E5%99%A8.PNG" alt="此处输入图片的描述"></p>
+<ul>
+<li><p>输入端口对线路上收到的分组的管理<br><img src="http://img.niran.vip/%E8%BE%93%E5%85%A5%E7%AB%AF%E5%8F%A3.PNG" alt="此处输入图片的描述"></p>
+</li>
+<li><p>输出端口对分组的管理<br><img src="http://img.niran.vip/%E8%BE%93%E5%87%BA%E7%AB%AF%E5%8F%A3.PNG" alt="此处输入图片的描述"></p>
+</li>
+</ul>
+<p>若路由器处理分组的速率赶不上分组进入队列的速率，则队列的存储空间最终必定减少到零，这就是后面再进入队列的分组由于没有存储空间而只能被丢弃。<br><strong>路由器的输入或输出队列产生溢出是造成分组丢失的重要原因。</strong></p>
+<h2 id="9-2-三层设备区别"><a href="#9-2-三层设备区别" class="headerlink" title="9.2 三层设备区别"></a>9.2 三层设备区别</h2><p>路由器：可以互联两个不同网络层协议的网段。<br>网桥：可以互联两个物理层和链路层不同的网段。<br>集线器：不能互联两个物理层不同的网段。<br>| | | 能否隔离冲突域|能否隔离广播域|<br>| :–:|:–:|:–:|<br>|物理层设备(中继器，集线器）|×|√|<br>|链路层设备（网桥，交换机）|√|×|<br>|网络层设备（路由器）|√|√|</p>
+
+      
+    </div>
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+          
+            
+          
+    </div>
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i>计算机网络</a>
+          
+            <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i>笔记</a>
+          
+            <a href="/tags/网络层/" rel="tag"><i class="fa fa-tag"></i>网络层</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/17/hello-world/" rel="prev" title="Hello World">
+                 <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/15/计网链路层/" rel="next" title="计网链路层">
+                计网链路层 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div id="gitalk-container">
+    </div>
+    
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+            <a href="/">
+              <img class="site-author-image" itemprop="image" src="http://img.niran.vip/touxiang.jpg" alt="倪然">
+            </a>
+            
+              <p class="site-author-name" itemprop="name">倪然</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/niran666" title="GitHub &rarr; https://github.com/niran666" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:1261614525@qq.com" title="E-Mail &rarr; mailto:1261614525@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://plus.google.com" title="Google &rarr; https://plus.google.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/ni1291614525" title="Twitter &rarr; https://twitter.com/ni1291614525" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="http://www.baidu.com/" rel="noopener" target="_blank">baidu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">google</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-网络层概述"><span class="nav-number">1.</span> <span class="nav-text">1. 网络层概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-主要任务"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 主要任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-功能"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-数据交换"><span class="nav-number">2.</span> <span class="nav-text">2. 数据交换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-电路交换"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 电路交换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-报文交换"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 报文交换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-分组交换"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 分组交换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-数据报方式"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1 数据报方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-虚电路方式"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2 虚电路方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-数据报-amp-虚电路"><span class="nav-number">2.3.3.</span> <span class="nav-text">2.3.3 数据报&amp;虚电路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-三种交换方式比较"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 三种交换方式比较</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-IP数据报格式"><span class="nav-number">3.</span> <span class="nav-text">3. IP数据报格式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-IP数据报格式"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 IP数据报格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-IP数据报分片"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 IP数据报分片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-IP分类"><span class="nav-number">4.</span> <span class="nav-text">4. IP分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-IP分类"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 IP分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-特殊IP地址"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 特殊IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-私有IP地址"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 私有IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-子网划分"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 子网划分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-1-子网掩码"><span class="nav-number">4.4.1.</span> <span class="nav-text">4.4.1 子网掩码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-无分类编址CIDR"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 无分类编址CIDR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-构成超网"><span class="nav-number">4.6.</span> <span class="nav-text">4.6 构成超网</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-网络地址转换NAT"><span class="nav-number">5.</span> <span class="nav-text">5. 网络地址转换NAT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-ARP协议"><span class="nav-number">6.</span> <span class="nav-text">6. ARP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-工作原理"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 工作原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-IPv6"><span class="nav-number">7.</span> <span class="nav-text">7. IPv6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-IPv6数据报格式"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 IPv6数据报格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-IPv6和IPv4"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 IPv6和IPv4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-IPv6地址格式"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 IPv6地址格式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-路由算法分类"><span class="nav-number">8.</span> <span class="nav-text">8. 路由算法分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-网络层设备"><span class="nav-number">9.</span> <span class="nav-text">9. 网络层设备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-路由器"><span class="nav-number">9.1.</span> <span class="nav-text">9.1 路由器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-三层设备区别"><span class="nav-number">9.2.</span> <span class="nav-text">9.2 三层设备区别</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">倪然</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+
+  
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css">
+
+  
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+    
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'eb5bbed58a15239d8ab7',
+          clientSecret: '17b324a4d3178abb03f7766c7b94b876fb33babe',
+          repo: 'niran666.github.io',
+          owner: 'niran666',
+          admin: ['niran666'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "mtpW2sIlIHeJQk0FGq2ddMVQ-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "mtpW2sIlIHeJQk0FGq2ddMVQ-gzGzoHsz",
+                'X-LC-Key': "S8VWUb1LK61DctReez2JM8P1",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+    overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
