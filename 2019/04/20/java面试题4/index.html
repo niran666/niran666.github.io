@@ -613,7 +613,7 @@
 <p>引用计数法思路是这样的，给对象添加一个引用计数器，有地方引用时，计数器就加1；当引用失效时就减1；当计数为0的时候就判定对象需要被回收</p>
 <p>引用计数法有一个难以解决的问题就是相互循环引用问题。</p>
 <p>例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj1.instance=obj2.instance;</span><br><span class="line">obj2.instance=obj1.instance;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">obj1.instance=obj2.instance;</span><br><span class="line">obj2.instance=obj1.instance;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>可达性分析算法</li>
@@ -762,7 +762,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
