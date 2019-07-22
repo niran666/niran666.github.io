@@ -2008,7 +2008,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #58ff14;
+  background: #96ff39;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3340,7 +3340,8 @@ ul.breadcrumb li+li:last-child {
   }
 }
 blockquote {
-  background: #c8c8c8;
+  background: #f9f6f6;
+  border-left: 4px solid #e27676;
 }
 code {
   color: #ff7600;
