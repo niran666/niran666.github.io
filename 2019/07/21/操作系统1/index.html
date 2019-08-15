@@ -182,9 +182,9 @@
 
 
   <meta name="description" content="1. 进程1.1 为什么要引入进程？刻画系统的动态性，发挥系统的并发性，提高资源利用率它能解决系统的“共享性”，正确描述程序的执行状态">
-<meta name="keywords" content="笔记,操作系统">
+<meta name="keywords" content="操作系统,笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="操作系统 处理器管理（一）">
+<meta property="og:title" content="操作系统 处理器管理(一)">
 <meta property="og:url" content="http://api.niran.vip/2019/07/21/操作系统1/index.html">
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:description" content="1. 进程1.1 为什么要引入进程？刻画系统的动态性，发挥系统的并发性，提高资源利用率它能解决系统的“共享性”，正确描述程序的执行状态">
@@ -211,9 +211,9 @@
 <meta property="og:image" content="http://img.niran.vip/youxian3.PNG">
 <meta property="og:image" content="http://img.niran.vip/duoji1.PNG">
 <meta property="og:image" content="http://img.niran.vip/duoji2.PNG">
-<meta property="og:updated_time" content="2019-07-21T07:20:46.138Z">
+<meta property="og:updated_time" content="2019-08-12T02:00:52.754Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="操作系统 处理器管理（一）">
+<meta name="twitter:title" content="操作系统 处理器管理(一)">
 <meta name="twitter:description" content="1. 进程1.1 为什么要引入进程？刻画系统的动态性，发挥系统的并发性，提高资源利用率它能解决系统的“共享性”，正确描述程序的执行状态">
 <meta name="twitter:image" content="http://img.niran.vip/%E8%BF%9B%E7%A8%8B.PNG">
 
@@ -232,7 +232,7 @@
   };
 </script>
 
-  <title>操作系统 处理器管理（一） | 倪然的博客</title>
+  <title>操作系统 处理器管理(一) | 倪然的博客</title>
   
 
 
@@ -511,7 +511,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">操作系统 处理器管理（一）
+          <h1 class="post-title" itemprop="name headline">操作系统 处理器管理(一)
               
             
           </h1>
@@ -536,12 +536,24 @@
                 
               
 
-              <time title="创建于：2019-07-21 14:32:26 / 更新于：15:20:46" itemprop="dateCreated datePublished" datetime="2019-07-21T14:32:26+08:00">2019-07-21</time>
+              <time title="创建于：2019-07-21 14:32:26" itemprop="dateCreated datePublished" datetime="2019-07-21T14:32:26+08:00">2019-07-21</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2019-08-12 10:00:52" itemprop="dateModified" datetime="2019-08-12T10:00:52+08:00">2019-08-12</time>
               
             
           </span>
@@ -572,7 +584,7 @@
 
           
           
-             <span id="/2019/07/21/操作系统1/" class="leancloud_visitors" data-flag-title="操作系统 处理器管理（一）">
+             <span id="/2019/07/21/操作系统1/" class="leancloud_visitors" data-flag-title="操作系统 处理器管理(一)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -615,7 +627,7 @@
 <li>异步性(制约性)：进程按各自独立的、不可预知的速度向前推进</li>
 <li>并发性：多个进程同存于内存中，能在一段时间内同时运行。</li>
 </ul>
-<h2 id="1-4-状态和转换"><a href="#1-4-状态和转换" class="headerlink" title="1.4 状态和转换"></a>1.4 <font color="red">状态和转换</font></h2><h3 id="1-4-1-三态模型"><a href="#1-4-1-三态模型" class="headerlink" title="1.4.1 三态模型"></a>1.4.1 三态模型</h3><ul>
+<h2 id="1-4-状态和转换"><a href="#1-4-状态和转换" class="headerlink" title="1.4 状态和转换"></a>1.4 状态和转换</h2><h3 id="1-4-1-三态模型"><a href="#1-4-1-三态模型" class="headerlink" title="1.4.1 三态模型"></a>1.4.1 三态模型</h3><ul>
 <li><p>就绪态：进程已经获得除CPU之外的所有资源</p>
 </li>
 <li><p>运行态：进程已获得CPU，正在CPU上运行</p>
@@ -626,8 +638,6 @@
 </ul>
 <blockquote>
 <p>引起进程状态转换的具体原因如下：</p>
-</blockquote>
-<blockquote>
 <ul>
 <li>运行态—→等待态：等待使用资源；如等待外设传输；等待人工干预。</li>
 <li>等待态—→就绪态：资源得到满足；如外设传输结束；人工干预完成。</li>
@@ -644,8 +654,6 @@
 <p>类似地，进程的终止也要通过两个步骤，首先,是等待操作系统进行善后，然后,退出主存。当一个进<br>程到达了自然结束点，或是出现了无法克服的错误，或是被操作系统所终结，或是被其他有终止权的进<br>程所终结，它将进入终止态。进入终止态的进程以后不再执行，但依然临时保留在操作系统中等待善后 。<br>一旦其他进程完成了对终止态进程的信息抽取之后，操作系统将删除该进程。</p>
 <blockquote>
 <p>引起进程状态转换的具体原因如下：</p>
-</blockquote>
-<blockquote>
 <ul>
 <li>NULL—→新建态：执行一个程序，创建一个子进程。</li>
 <li>新建态—→就绪态：当操作系统完成了进程创建的必要操作，并且当前系统的性能和虚拟内存的容量均允许。</li>
@@ -655,26 +663,26 @@
 <li>等待态—→终止态：未在状态转换图中显示，但某些操作系统允许父进程终结子进程。</li>
 </ul>
 </blockquote>
-<h2 id="1-4-3-PCB"><a href="#1-4-3-PCB" class="headerlink" title="1.4.3 PCB"></a>1.4.3 PCB</h2><p>进程控制块PCB，是操作系统用于记录和刻划进程状态及有关信息的数据结构<br>PCB中记录了操作系统所需的、用于描述进程的当前情况以及控制进程运行的全部信息<br>PCB的作用：使一个在多道程序环境下不能独立运行的程序，成为一个能独立运行的基<br>本单位。OS是根据PCB来对并发执行的进程进行控制和管理的。</p>
+<h3 id="1-4-3-PCB"><a href="#1-4-3-PCB" class="headerlink" title="1.4.3 PCB"></a>1.4.3 PCB</h3><p>进程控制块PCB，是操作系统用于记录和刻划进程状态及有关信息的数据结构<br>PCB中记录了操作系统所需的、用于描述进程的当前情况以及控制进程运行的全部信息<br>PCB的作用：使一个在多道程序环境下不能独立运行的程序，成为一个能独立运行的基<br>本单位。OS是根据PCB来对并发执行的进程进行控制和管理的。</p>
 <p><font color="red">PCB是进程存在的唯一标识。</font></p>
-<h2 id="1-4-4-进程通信"><a href="#1-4-4-进程通信" class="headerlink" title="1.4.4 进程通信"></a>1.4.4 进程通信</h2><p><strong>什么是进程通信</strong></p>
+<h3 id="1-4-4-进程通信"><a href="#1-4-4-进程通信" class="headerlink" title="1.4.4 进程通信"></a>1.4.4 进程通信</h3><p><strong>什么是进程通信</strong></p>
 <blockquote>
 <p>进程之间的信息交换，用户通过操作系统提供的一组通信指令高效地传送大量数据而不需关注通信实现方式</p>
 </blockquote>
 <p>为了保证安全，<font color="red">一个进程不能直接访问另一个进程的地址空间。</font><br>但是进程之间的信息交换又是必须实现的，操作系统提供了一些方法。</p>
-<h3 id="1-4-5-共享存储器系统"><a href="#1-4-5-共享存储器系统" class="headerlink" title="1.4.5 共享存储器系统"></a>1.4.5 共享存储器系统</h3><ul>
+<h4 id="1-4-4-1-共享存储器系统"><a href="#1-4-4-1-共享存储器系统" class="headerlink" title="1.4.4.1 共享存储器系统"></a>1.4.4.1 共享存储器系统</h4><ul>
 <li>共享数据结构的通信方式<br>要求进程公用某些数据结构实现进程间的信息交换。如前篇文章中生产者与消费者模型中的缓冲池就是共享数据结构。缺点是共享数据结构需要由程序员维护并且只适合传递相对少量的数据、速度慢、限制多，是一种低级通信方式。</li>
 <li>共享存储区的通信方式<br>在存储器中划出了一块共享存储区，进程可以通过对共享存储区中数据的读或写实现通信。进程在通信之前，先向系统申请获得共享存储区中的一个分区，并指定该分区的关键字，如果系统已经给其他进程分配了这样的分区，则将该分区的描述符返回给申请者，然后申请者把获得的共享存储区 链接到本进程上。速度更快，是一种高级通信方式。</li>
 </ul>
-<p><strong>两个进程对共享空间的访问必须是互斥的</strong></p>
-<h3 id="1-4-6-管道通信系统"><a href="#1-4-6-管道通信系统" class="headerlink" title="1.4.6 管道通信系统"></a>1.4.6 管道通信系统</h3><ol>
+<p><font color="red">两个进程对共享空间的访问必须是互斥的</font></p>
+<h4 id="1-4-4-2-管道通信系统"><a href="#1-4-4-2-管道通信系统" class="headerlink" title="1.4.4.2 管道通信系统"></a>1.4.4.2 管道通信系统</h4><ol>
 <li>管道只能采用半双工通信，某一时间段内只能实现单向的传输。如果要实现双向同时通信，则需要设置<br>两个管道。</li>
 <li>各进程要互斥地访问管道。</li>
 <li>数据以字符流的形式写入管道，当管道写满时，写进程的write()系统调用将被阻塞，等待读进程将数据<br>取走。当读进程将数据全部取走后，管道变空，此时读进程的read()系统调用将被阻塞。</li>
 <li>如果没写满，就不允许读。如果没读空，就不允许写。</li>
 <li>数据一旦被读出，就从管道中被抛弃，这就意味着读进程最多只能有一个，否则可能会有读错数据的情</li>
 </ol>
-<h3 id="1-4-7-消息传递系统"><a href="#1-4-7-消息传递系统" class="headerlink" title="1.4.7 消息传递系统"></a>1.4.7 消息传递系统</h3><p>消息传递系统是当前应用最为广泛的一种进程间的通信机制，进程之间的数据交换以格式化的消息为单位，程序员直接利用操作系统提供的一组通信命令实现消息的传递。可以根据实现方式的不同分为直接通信方式和间接通信方式</p>
+<h4 id="1-4-4-3-消息传递系统"><a href="#1-4-4-3-消息传递系统" class="headerlink" title="1.4.4.3 消息传递系统"></a>1.4.4.3 消息传递系统</h4><p>消息传递系统是当前应用最为广泛的一种进程间的通信机制，进程之间的数据交换以格式化的消息为单位，程序员直接利用操作系统提供的一组通信命令实现消息的传递。可以根据实现方式的不同分为直接通信方式和间接通信方式</p>
 <p><strong>直接通信方式</strong><br>发送进程利用OS所提供的发送命令，直接把消息发送给目标进程，此时发送进程和接收进程都以显示方式提供对方的标识符。可以用如下两条原语表示：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Send(Receiver, message);  <span class="comment">//发送消息，Receiver指定发给哪个进程</span></span><br><span class="line">Receiver(Sender, message);  <span class="comment">//接收消息</span></span><br></pre></td></tr></table></figure>
 
@@ -688,21 +696,21 @@
 <li>若系统支持线程运行，那么每个进程至少有一个执行线程。</li>
 </ul>
 <blockquote>
-<p>进程中能够并发的实体，是进程的组成部分，也是处理器调度和分配的基本单位。允许<br>进程中包含多个线程，这些线程共享进程的主存空间和资源，可以为完成某一项任务而<br>协同工作<br>线程是进程中的一条执行路径，有自己私用的堆栈和处理机执行环境，共享父进程的主存，单个进程可以创建许多个线程。</p>
+<p>进程中能够并发的实体，是进程的组成部分，也是处理器调度和分配的基本单位。允许进程中包含多个线程，这些线程共享进程的主存空间和资源，可以为完成某一项任务而协同工作<br>线程是进程中的一条执行路径，有自己私用的堆栈和处理机执行环境，共享父进程的主存，单个进程可以创建许多个线程。</p>
 </blockquote>
 <p><strong>线程引入？</strong></p>
 <blockquote>
-<p>操作系统中再引入线程，则是为了减少程序并发执行时所付出的时空开销，使得并发粒<br>度更细、并发性更好。引入线程后不仅是进程之间可以并发，进程内的个线程也可以并发，从而进一步提升了系统的并发度，使得一个进程内也可以并发处理各种任务（如QQ视频、文字聊天、传文件等）。引入线程后，进程只作为除CPU之外的系统资源的分配单元</p>
+<p>操作系统中再引入线程，则是为了减少程序并发执行时所付出的时空开销，使得并发粒度更细、并发性更好。引入线程后不仅是进程之间可以并发，进程内的个线程也可以并发，从而进一步提升了系统的并发度，使得一个进程内也可以并发处理各种任务（如QQ视频、文字聊天、传文件等）。引入线程后，进程只作为除CPU之外的系统资源的分配单元</p>
 </blockquote>
 <p><strong>引入后变化</strong><br><img src="http://img.niran.vip/%E4%BB%85%E9%99%90.PNG" alt="此处输入图片的描述"></p>
 <h2 id="2-2-线程属性"><a href="#2-2-线程属性" class="headerlink" title="2.2 线程属性"></a>2.2 线程属性</h2><ul>
 <li>线程是处理机调度的单位</li>
 <li>多CPU计算机中，各个线程可占用不同的CPU</li>
-<li>入每个线程都有-一个线程ID、线程控制块(TCB)</li>
+<li>每个线程都有一个线程ID、线程控制块(TCB)</li>
 <li>线程也有就绪、阻塞、运行三种基本状态</li>
 <li>线程几乎不拥有系统资源</li>
-<li>同-进程的不同线程间共享进程的资源</li>
-<li>由于共享内存地址空间，同- -进程中的线程间通信甚至无需系统干预</li>
+<li>同一进程的不同线程间共享进程的资源</li>
+<li>由于共享内存地址空间，同一进程中的线程间通信甚至无需系统干预</li>
 <li>同一进程中的线程切换，不会引起进程切换</li>
 <li>不同进程中的线程切换，会引起进程切换</li>
 <li>切换同进程内的线程，系统开销很小，切换进程系统开销大</li>
@@ -906,9 +914,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i>笔记</a>
-          
             <a href="/tags/操作系统/" rel="tag"><i class="fa fa-tag"></i>操作系统</a>
+          
+            <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i>笔记</a>
           
         </div>
       
@@ -1011,7 +1019,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1032,7 +1040,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1083,7 +1095,23 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1176,7 +1204,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-进程"><span class="nav-text">1. 进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-为什么要引入进程？"><span class="nav-text">1.1 为什么要引入进程？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-进程定义"><span class="nav-text">1.2 进程定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-特性"><span class="nav-text">1.3 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-状态和转换"><span class="nav-text">1.4 状态和转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-1-三态模型"><span class="nav-text">1.4.1 三态模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-2-五态模型"><span class="nav-text">1.4.2 五态模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-3-PCB"><span class="nav-text">1.4.3 PCB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-4-进程通信"><span class="nav-text">1.4.4 进程通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-5-共享存储器系统"><span class="nav-text">1.4.5 共享存储器系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-6-管道通信系统"><span class="nav-text">1.4.6 管道通信系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-7-消息传递系统"><span class="nav-text">1.4.7 消息传递系统</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-线程"><span class="nav-text">2. 线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-什么是线程，为什么要引入线程"><span class="nav-text">2.1 什么是线程，为什么要引入线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-线程属性"><span class="nav-text">2.2 线程属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-线程实现方式"><span class="nav-text">2.3 线程实现方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-多线程模型"><span class="nav-text">2.4 多线程模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-调度算法的评价指标"><span class="nav-text">3. 调度算法的评价指标</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-CPU利用率"><span class="nav-text">3.1 CPU利用率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-系统吞吐量"><span class="nav-text">3.2 系统吞吐量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-等待时间"><span class="nav-text">3.3 等待时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-响应时间"><span class="nav-text">3.4 响应时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-调度算法"><span class="nav-text">4. 调度算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-先来先服务-FCFS"><span class="nav-text">4.1 先来先服务(FCFS)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-短作业优先-SJF"><span class="nav-text">4.2 短作业优先(SJF)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-最短剩余时间优先-SRTN"><span class="nav-text">4.3 最短剩余时间优先(SRTN)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-高响应比优先-HRRN"><span class="nav-text">4.4 高响应比优先(HRRN)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-时间片轮转法（RR"><span class="nav-text">4.5 时间片轮转法（RR)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-优先级调度算法"><span class="nav-text">4.5 优先级调度算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-多级反馈队列"><span class="nav-text">4.6 多级反馈队列</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-进程"><span class="nav-text">1. 进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-为什么要引入进程？"><span class="nav-text">1.1 为什么要引入进程？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-进程定义"><span class="nav-text">1.2 进程定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-特性"><span class="nav-text">1.3 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-状态和转换"><span class="nav-text">1.4 状态和转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-1-三态模型"><span class="nav-text">1.4.1 三态模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-2-五态模型"><span class="nav-text">1.4.2 五态模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-3-PCB"><span class="nav-text">1.4.3 PCB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-4-进程通信"><span class="nav-text">1.4.4 进程通信</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-4-1-共享存储器系统"><span class="nav-text">1.4.4.1 共享存储器系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-4-2-管道通信系统"><span class="nav-text">1.4.4.2 管道通信系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-4-3-消息传递系统"><span class="nav-text">1.4.4.3 消息传递系统</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-线程"><span class="nav-text">2. 线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-什么是线程，为什么要引入线程"><span class="nav-text">2.1 什么是线程，为什么要引入线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-线程属性"><span class="nav-text">2.2 线程属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-线程实现方式"><span class="nav-text">2.3 线程实现方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-多线程模型"><span class="nav-text">2.4 多线程模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-调度算法的评价指标"><span class="nav-text">3. 调度算法的评价指标</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-CPU利用率"><span class="nav-text">3.1 CPU利用率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-系统吞吐量"><span class="nav-text">3.2 系统吞吐量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-等待时间"><span class="nav-text">3.3 等待时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-响应时间"><span class="nav-text">3.4 响应时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-调度算法"><span class="nav-text">4. 调度算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-先来先服务-FCFS"><span class="nav-text">4.1 先来先服务(FCFS)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-短作业优先-SJF"><span class="nav-text">4.2 短作业优先(SJF)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-最短剩余时间优先-SRTN"><span class="nav-text">4.3 最短剩余时间优先(SRTN)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-高响应比优先-HRRN"><span class="nav-text">4.4 高响应比优先(HRRN)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-时间片轮转法（RR"><span class="nav-text">4.5 时间片轮转法（RR)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-优先级调度算法"><span class="nav-text">4.5 优先级调度算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-多级反馈队列"><span class="nav-text">4.6 多级反馈队列</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1798,6 +1826,36 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+    overflow: auto hidden;
+}
+</style>
+
+    
   
 
 

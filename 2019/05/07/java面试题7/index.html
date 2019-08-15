@@ -181,18 +181,20 @@
 
 
 
-  <meta name="keywords" content="java,java面试题,数组">
+  <meta name="description" content="1、Java中的集合及其继承关系关于集合的体系是每个人都应该烂熟于心的,尤其是对我们经常使用的List,Map的原理更该如此.这里我们看这张图即可:">
+<meta name="keywords" content="java,java面试题,数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="(整理)java面试题(七)数组相关">
 <meta property="og:url" content="http://api.niran.vip/2019/05/07/java面试题7/index.html">
 <meta property="og:site_name" content="倪然的博客">
+<meta property="og:description" content="1、Java中的集合及其继承关系关于集合的体系是每个人都应该烂熟于心的,尤其是对我们经常使用的List,Map的原理更该如此.这里我们看这张图即可:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=05071759">
-<meta property="og:image" content="http://pq57ykm1i.bkt.clouddn.com/6287044-268f7e1fa11b5102.webp">
-<meta property="og:updated_time" content="2019-05-07T10:02:07.170Z">
+<meta property="og:image" content="http://img.niran.vip/1010726-20170621004734695-988542448.png">
+<meta property="og:updated_time" content="2019-08-10T07:51:53.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(整理)java面试题(七)数组相关">
-<meta name="twitter:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=05071759">
+<meta name="twitter:description" content="1、Java中的集合及其继承关系关于集合的体系是每个人都应该烂熟于心的,尤其是对我们经常使用的List,Map的原理更该如此.这里我们看这张图即可:">
+<meta name="twitter:image" content="http://img.niran.vip/1010726-20170621004734695-988542448.png">
 
 
 
@@ -513,12 +515,24 @@
                 
               
 
-              <time title="创建于：2019-05-07 17:59:05 / 更新于：18:02:07" itemprop="dateCreated datePublished" datetime="2019-05-07T17:59:05+08:00">2019-05-07</time>
+              <time title="创建于：2019-05-07 17:59:05" itemprop="dateCreated datePublished" datetime="2019-05-07T17:59:05+08:00">2019-05-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2019-08-10 15:51:53" itemprop="dateModified" datetime="2019-08-10T15:51:53+08:00">2019-08-10</time>
               
             
           </span>
@@ -581,9 +595,10 @@
       
 
       
-        <p><img src="https://s0.xinger.ink/acgimg/acgurl.php?q=05071759" alt="avatar"></p>
+        <p><strong>1、Java中的集合及其继承关系</strong><br>关于集合的体系是每个人都应该烂熟于心的,尤其是对我们经常使用的List,Map的原理更该如此.这里我们看这张图即可:<br><img src="http://img.niran.vip/1010726-20170621004734695-988542448.png" alt="此处输入图片的描述"></p>
 <a id="more"></a>
-<p><strong>1、Java中的集合及其继承关系</strong><br>关于集合的体系是每个人都应该烂熟于心的,尤其是对我们经常使用的List,Map的原理更该如此.这里我们看这张图即可:<br><img src="http://pq57ykm1i.bkt.clouddn.com/6287044-268f7e1fa11b5102.webp" alt="此处输入图片的描述"><br><strong>2、poll()方法和remove()方法区别？</strong><br>poll() 和 remove() 都是从队列中取出一个元素，但是 poll() 在获取元素失败的时候会返回空，但是 remove() 失败的时候会抛出异常。</p>
+
+<p><strong>2、poll()方法和remove()方法区别？</strong><br>poll() 和 remove() 都是从队列中取出一个元素，但是 poll() 在获取元素失败的时候会返回空，但是 remove() 失败的时候会抛出异常。</p>
 <p><strong>3、LinkedHashMap和PriorityQueue的区别</strong><br>PriorityQueue 是一个优先级队列,保证最高或者最低优先级的的元素总是在队列头部，但是 LinkedHashMap 维持的顺序是元素插入的顺序。当遍历一个 PriorityQueue 时，没有任何顺序保证，但是 LinkedHashMap 课保证遍历顺序是元素插入的顺序。</p>
 <p>优先级队列PriorityQueue；迭代不是按照元素的排列顺序访问。删除总是删掉列表中优先级数最小的那个元素</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        PriorityQueue&lt;LocalDate&gt; pq=<span class="keyword">new</span> PriorityQueue&lt;&gt;();</span><br><span class="line">        pq.add(LocalDate.of(<span class="number">1906</span>,<span class="number">12</span>,<span class="number">9</span>));</span><br><span class="line">        pq.add(LocalDate.of(<span class="number">1815</span>,<span class="number">12</span>,<span class="number">9</span>));</span><br><span class="line">        pq.add(LocalDate.of(<span class="number">1903</span>,<span class="number">12</span>,<span class="number">9</span>));</span><br><span class="line">        pq.add(LocalDate.of(<span class="number">1910</span>,<span class="number">12</span>,<span class="number">9</span>));</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"Iterating elements..."</span>);</span><br><span class="line">        <span class="keyword">for</span> (LocalDate ld:pq)</span><br><span class="line">            System.out.println(ld);<span class="comment">//迭代不是按照元素的排列顺序访问。</span></span><br><span class="line">        System.out.println(<span class="string">"Removing elements..."</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!pq.isEmpty())</span><br><span class="line">            System.out.println(pq.remove());<span class="comment">//删除总是删掉列表中优先级数最小的那个元素</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">运行结果：</span><br><span class="line">Iterating elements...</span><br><span class="line"><span class="number">1815</span>-<span class="number">12</span>-<span class="number">09</span></span><br><span class="line"><span class="number">1906</span>-<span class="number">12</span>-<span class="number">09</span></span><br><span class="line"><span class="number">1903</span>-<span class="number">12</span>-<span class="number">09</span></span><br><span class="line"><span class="number">1910</span>-<span class="number">12</span>-<span class="number">09</span></span><br><span class="line">Removing elements...</span><br><span class="line"><span class="number">1815</span>-<span class="number">12</span>-<span class="number">09</span></span><br><span class="line"><span class="number">1903</span>-<span class="number">12</span>-<span class="number">09</span></span><br><span class="line"><span class="number">1906</span>-<span class="number">12</span>-<span class="number">09</span></span><br><span class="line"><span class="number">1910</span>-<span class="number">12</span>-<span class="number">09</span></span><br></pre></td></tr></table></figure>
@@ -773,7 +788,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -794,7 +809,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -845,7 +864,23 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

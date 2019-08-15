@@ -188,7 +188,7 @@
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=05041521">
-<meta property="og:updated_time" content="2019-05-04T07:24:16.471Z">
+<meta property="og:updated_time" content="2019-08-10T07:40:27.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(整理)java面试题(六)线程相关">
 <meta name="twitter:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=05041521">
@@ -512,12 +512,24 @@
                 
               
 
-              <time title="创建于：2019-05-04 15:21:42 / 更新于：15:24:16" itemprop="dateCreated datePublished" datetime="2019-05-04T15:21:42+08:00">2019-05-04</time>
+              <time title="创建于：2019-05-04 15:21:42" itemprop="dateCreated datePublished" datetime="2019-05-04T15:21:42+08:00">2019-05-04</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2019-08-10 15:40:27" itemprop="dateModified" datetime="2019-08-10T15:40:27+08:00">2019-08-10</time>
               
             
           </span>
@@ -608,8 +620,9 @@
 <p>jdk 1.6:<br>ConcurrentHashMap是线程安全的，但是与Hashtablea相比，实现线程安全的方式不同。Hashtable是通过对hash表结构进行锁定，是阻塞式的，当一个线程占有这个锁时，其他线程必须阻塞等待其释放锁。ConcurrentHashMap是采用分离锁的方式，它并没有对整个hash表进行锁定，而是局部锁定，也就是说当一个线程占有这个局部锁时，不影响其他线程对hash表其他地方的访问。<br>具体实现:ConcurrentHashMap内部有一个Segment.</p>
 <p>jdk 1.8<br>在jdk 8中，ConcurrentHashMap不再使用Segment分离锁，而是采用一种乐观锁CAS算法来实现同步问题，但其底层还是“数组+链表-&gt;红黑树”的实现。</p>
 <p><strong>14、CyclicBarrier和CountDownLatch区别</strong><br>这两个类非常类似，都在java.util.concurrent下，都可以用来表示代码运行到某个点上，二者的区别在于：</p>
-<p>CyclicBarrier的某个线程运行到某个点上之后，该线程即停止运行，直到所有的线程都到达了这个点，所有线程才重新运行；CountDownLatch则不是，某线程运行到某个点上之后，只是给某个数值-1而已，该线程继续运行。<br>CyclicBarrier只能唤起一个任务，CountDownLatch可以唤起多个任务<br>CyclicBarrier可重用，CountDownLatch不可重用，计数值为0该CountDownLatch就不可再用了。<br>java中的++操作符线程安全么?<br>不是线程安全的操作。它涉及到多个指令，如读取变量值，增加，然后存储回内存，这个过程可能会出现多个线程交差。</p>
-<p><strong>15、你有哪些多线程开发良好的实践?</strong></p>
+<p>CyclicBarrier的某个线程运行到某个点上之后，该线程即停止运行，直到所有的线程都到达了这个点，所有线程才重新运行；CountDownLatch则不是，某线程运行到某个点上之后，只是给某个数值-1而已，该线程继续运行。<br>CyclicBarrier只能唤起一个任务，CountDownLatch可以唤起多个任务<br>CyclicBarrier可重用，CountDownLatch不可重用，计数值为0该CountDownLatch就不可再用了。</p>
+<p><strong>15、java中的++操作符线程安全么?</strong><br>不是线程安全的操作。它涉及到多个指令，如读取变量值，增加，然后存储回内存，这个过程可能会出现多个线程交差。</p>
+<p><strong>16、你有哪些多线程开发良好的实践?</strong></p>
 <ul>
 <li>给线程命名</li>
 <li>最小化同步范围</li>
@@ -754,7 +767,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -775,7 +788,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -826,7 +843,23 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

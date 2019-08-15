@@ -188,8 +188,7 @@
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=05031641">
-<meta property="og:image" content="http://pq57ykm1i.bkt.clouddn.com/v2-364d796e15e35faa67943e25d354d79c_r.jpg">
-<meta property="og:updated_time" content="2019-05-03T08:48:49.794Z">
+<meta property="og:updated_time" content="2019-08-10T03:10:18.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(整理)java面试题(五)线程相关">
 <meta name="twitter:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=05031641">
@@ -513,12 +512,24 @@
                 
               
 
-              <time title="创建于：2019-05-03 16:41:26 / 更新于：16:48:49" itemprop="dateCreated datePublished" datetime="2019-05-03T16:41:26+08:00">2019-05-03</time>
+              <time title="创建于：2019-05-03 16:41:26" itemprop="dateCreated datePublished" datetime="2019-05-03T16:41:26+08:00">2019-05-03</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2019-08-10 11:10:18" itemprop="dateModified" datetime="2019-08-10T11:10:18+08:00">2019-08-10</time>
               
             
           </span>
@@ -632,7 +643,31 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Main.java</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">        Test test = <span class="keyword">new</span> Test();</span><br><span class="line">        test.test1();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> Object o = <span class="keyword">new</span> Object();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (o) &#123;</span><br><span class="line">                    System.out.println(<span class="string">"child thread: holdLock: "</span> +</span><br><span class="line">                            Thread.holdsLock(o));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">        System.out.println(<span class="string">"main thread: holdLock: "</span> + Thread.holdsLock(o));</span><br><span class="line">        Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">运行结果：</span><br><span class="line">    main thread: holdLock: <span class="keyword">false</span></span><br><span class="line">    child thread: holdLock: <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>7、Runnable和Callable的区别</strong><br>Runnable接口中的run()方法的返回值是void，它做的事情只是纯粹地去执行run()方法中的代码而已；Callable接口中的call()方法是有返回值的，是一个泛型，和Future、FutureTask配合可以用来获取异步执行的结果。<br>这其实是很有用的一个特性，因为多线程相比单线程更难、更复杂的一个重要原因就是因为多线程充满着未知性，某条线程是否执行了？某条线程执行了多久？某条线程执行的时候我们期望的数据是否已经赋值完毕？无法得知，我们能做的只是等待这条多线程的任务执行完毕而已。而Callable+Future/FutureTask却可以方便获取多线程运行的结果，可以在等待时间太长没获取到需要的数据的情况下取消该线程的任务。</p>
-<p><strong>8、什么导致线程阻塞</strong><br>阻塞指的是暂停一个线程的执行以等待某个条件发生（如某资源就绪），学过操作系统的同学对它一定已经很熟悉了。Java 提供了大量方法来支持阻塞，下面让我们逐一分析。<br><img src="http://pq57ykm1i.bkt.clouddn.com/v2-364d796e15e35faa67943e25d354d79c_r.jpg" alt="此处输入图片的描述"></p>
+<p><strong>8、什么导致线程阻塞</strong><br>阻塞指的是暂停一个线程的执行以等待某个条件发生（如某资源就绪）。Java 提供了大量方法来支持阻塞，下面让我们逐一分析。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sleep()</td>
+<td>sleep()允许指定以毫秒为单位的一段时间作为参数，它使得线程在指定的时间内进入阻塞状态，不能得到CPU时间，指定的时间一过，线程重新进入可执行状态。典型地， sleep() 被用在等待某个资源就绪的情形:测试发现条件不满足后，让线程阻塞一段时间后 重新测试，直到条件满足为止</td>
+</tr>
+<tr>
+<td>suspend()和resume()</td>
+<td>两个方法配套使用，suspend()使得线程进入阻塞状态，并且不会自动恢复，必须其对应的resume()被调用，才能使得线程重新进入可执行状态。典型地，suspend() 和resume()被用在等待另一个线程产生的结果的情形:测试发现结果还没有产生后，让线程阻塞，另一个线程产生了结果后，调用resume()使其恢复。</td>
+</tr>
+<tr>
+<td>yield()</td>
+<td>yield()使当前线程放弃当前已经分得的CPU时间，但不使当前线程阻塞，即线程仍处于可执行状态，随时可能再次分得CPU时间。调用yield(的效果等价于调度程序认为该线程已执行了足够的时间从而转到另- -个线程</td>
+</tr>
+<tr>
+<td>wait()和notify()</td>
+<td>两个方法配套使用，wait() 使得线程进入阻塞状态，它有两种形式，一种允许指定以毫秒为单位的一段时间作为参数，另一种没有参数，前者当对应的notify() 被调用或者超出指定时间时线程重新进入可执行状态，后者则必须对应的notify()被调用。</td>
+</tr>
+</tbody></table>
 <p><strong>9、wait(),notify()和suspend(),resume()之间的区别</strong></p>
 <p>初看起来它们与 suspend() 和 resume() 方法对没有什么分别，但是事实上它们是截然不同的。区别的核心在于，前面叙述的所有方法，阻塞时都不会释放占用的锁（如果占用了的话），而这一对方法则相反。上述的核心区别导致了一系列的细节上的区别。</p>
 <p>首先，前面叙述的所有方法都隶属于 Thread 类，但是这一对却直接隶属于 Object 类，也就是说，所有对象都拥有这一对方法。初看起来这十分不可思议，但是实际上却是很自然的，因为这一对方法阻塞时要释放占用的锁，而锁是任何对象都具有的，调用任意对象的 wait() 方法导致线程阻塞，并且该对象上的锁被释放。而调用 任意对象的notify()方法则导致从调用该对象的 wait() 方法而阻塞的线程中随机选择的一个解除阻塞（但要等到获得锁后才真正可执行）。</p>
@@ -825,7 +860,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -846,7 +881,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -897,7 +936,23 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

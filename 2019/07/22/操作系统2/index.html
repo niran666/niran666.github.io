@@ -182,7 +182,7 @@
 
 
   <meta name="description" content="1. 进程互斥由于进程具有独立性和异步性等并发特征，计算机的资源有限，导致了进程之间的资源竞争和共享，也导致了对进程执行过程的制约。">
-<meta name="keywords" content="笔记,操作系统">
+<meta name="keywords" content="操作系统,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统 处理器管理(二)">
 <meta property="og:url" content="http://api.niran.vip/2019/07/22/操作系统2/index.html">
@@ -194,7 +194,7 @@
 <meta property="og:image" content="http://img.niran.vip/2.jpg">
 <meta property="og:image" content="http://img.niran.vip/pv.PNG">
 <meta property="og:image" content="http://img.niran.vip/pv2.jpg">
-<meta property="og:updated_time" content="2019-07-22T03:25:06.086Z">
+<meta property="og:updated_time" content="2019-08-12T03:55:02.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统 处理器管理(二)">
 <meta name="twitter:description" content="1. 进程互斥由于进程具有独立性和异步性等并发特征，计算机的资源有限，导致了进程之间的资源竞争和共享，也导致了对进程执行过程的制约。">
@@ -519,12 +519,24 @@
                 
               
 
-              <time title="创建于：2019-07-22 11:18:35 / 更新于：11:25:06" itemprop="dateCreated datePublished" datetime="2019-07-22T11:18:35+08:00">2019-07-22</time>
+              <time title="创建于：2019-07-22 11:18:35" itemprop="dateCreated datePublished" datetime="2019-07-22T11:18:35+08:00">2019-07-22</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2019-08-12 11:55:02" itemprop="dateModified" datetime="2019-08-12T11:55:02+08:00">2019-08-12</time>
               
             
           </span>
@@ -624,7 +636,7 @@
 <p>S.value的初值表示系统中某种资源的数目。</p>
 <p>对信号量 S 的一次 P 操作意味着进程请求一个单位的该 类资源，因此需要执行 S.value–，表示资源数减1，当 S.value &lt; 0  时表示该类资源己分配完毕，因此进程应调用 block 原语进行自我阻塞（当前运行的进程从运行态 →阻塞态），主动放弃处理机，并插入该类资源的等<br>待队列 S.L 中。可见，该机制遵循了“让权等待”原则， 不会出现“忙等”现象。</p>
 <p>对信号量 S 的一次 V 操作意味着进程释放一个单位的 该类资源，因此需要执行 S.value++，表示资源数加1， 若加1后仍是 S.value &lt;= 0，表示依然有进程在等待该类资源，因此应调用 wakeup原语唤醒等待队列中的第一个进程（被唤醒进程从阻塞态→就绪态）。</p>
-<h2 id="2-3-利用信号量实现进程同步"><a href="#2-3-利用信号量实现进程同步" class="headerlink" title="2.3 利用信号量实现进程同步"></a>2.3 利用信号量实现进程同步</h2><p>信号量机构能用于解决进程间各种同步问题。设S为实现进程P1、P2同步的公共信号量，初值为0。进程P2中的语句y要使用进程P1中语句x的运行结果，所以只有当语句x执行完成之后语句y才可以执行。其实现进程同步的算法如下：</p>
+<h2 id="2-3-利用信号量实现进程同步"><a href="#2-3-利用信号量实现进程同步" class="headerlink" title="2.3 利用信号量实现进程同步"></a>2.3 利用信号量实现进程同步</h2><p>信号量机制能用于解决进程间各种同步问题。设S为实现进程P1、P2同步的公共信号量，初值为0。进程P2中的语句y要使用进程P1中语句x的运行结果，所以只有当语句x执行完成之后语句y才可以执行。其实现进程同步的算法如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">semaphore S = 0;  //初始化信号量</span><br><span class="line">P1()&#123;</span><br><span class="line">    // …</span><br><span class="line">    x;  //语句x</span><br><span class="line">    V(S);  //告诉进程P2,语句乂已经完成</span><br><span class="line">&#125;</span><br><span class="line">P2()&#123;</span><br><span class="line">    // …</span><br><span class="line">    P(S) ;  //检查语句x是否运行完成</span><br><span class="line">    y;  // 检查无误，运行y语句</span><br><span class="line">    // …</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-4-利用信号量实现进程互斥"><a href="#2-4-利用信号量实现进程互斥" class="headerlink" title="2.4 利用信号量实现进程互斥"></a>2.4 利用信号量实现进程互斥</h2><p>信号量机构也能很方便地解决进程互斥问题。设S为实现进程Pl、P2互斥的信号量，由于每次只允许一个进程进入临界区，所以S的初值应为1（即可用资源数为1)。只需把临界区置于P(S)和V(S)之间，即可实现两进程对临界资源的互斥访问。其算法如下：</p>
@@ -704,9 +716,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i>笔记</a>
-          
             <a href="/tags/操作系统/" rel="tag"><i class="fa fa-tag"></i>操作系统</a>
+          
+            <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i>笔记</a>
           
         </div>
       
@@ -729,8 +741,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/21/操作系统1/" rel="next" title="操作系统 处理器管理（一）">
-                操作系统 处理器管理（一） <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/21/操作系统1/" rel="next" title="操作系统 处理器管理(一)">
+                操作系统 处理器管理(一) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -809,7 +821,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -830,7 +842,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -881,7 +897,23 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1596,6 +1628,36 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+    overflow: auto hidden;
+}
+</style>
+
+    
   
 
 

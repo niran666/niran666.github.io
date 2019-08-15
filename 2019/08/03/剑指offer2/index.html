@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#fff">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+    <script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "62bd7008"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#fff">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1. 二叉搜索树第k个结点题目描述：  给定一棵二叉搜索树，请找出其中的第k小的结点。例如， （5，3，7，2，4，6，8）    中，按结点数值大小顺序第三小结点的值为4。">
+<meta name="keywords" content="数据结构,剑指offer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer刷题总结(二)二叉树">
+<meta property="og:url" content="http://api.niran.vip/2019/08/03/剑指offer2/index.html">
+<meta property="og:site_name" content="倪然的博客">
+<meta property="og:description" content="1. 二叉搜索树第k个结点题目描述：  给定一棵二叉搜索树，请找出其中的第k小的结点。例如， （5，3，7，2，4，6，8）    中，按结点数值大小顺序第三小结点的值为4。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.niran.vip/offer24.JPG">
+<meta property="og:updated_time" content="2019-08-03T00:23:11.213Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="剑指offer刷题总结(二)二叉树">
+<meta name="twitter:description" content="1. 二叉搜索树第k个结点题目描述：  给定一棵二叉搜索树，请找出其中的第k小的结点。例如， （5，3，7，2，4，6，8）    中，按结点数值大小顺序第三小结点的值为4。">
+<meta name="twitter:image" content="http://img.niran.vip/offer24.JPG">
+
+
+
+
+
+
+  <link rel="canonical" href="http://api.niran.vip/2019/08/03/剑指offer2/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>剑指offer刷题总结(二)二叉树 | 倪然的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">倪然的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-futbol-o"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-reading">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/reading/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>读书/观影</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://api.niran.vip/2019/08/03/剑指offer2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="倪然">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://img.niran.vip/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="倪然的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">剑指offer刷题总结(二)二叉树
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建于：2019-08-03 08:21:50 / 更新于：08:23:11" itemprop="dateCreated datePublished" datetime="2019-08-03T08:21:50+08:00">2019-08-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/03/剑指offer2/" class="leancloud_visitors" data-flag-title="剑指offer刷题总结(二)二叉树">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃<span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </span></span></div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-二叉搜索树第k个结点"><a href="#1-二叉搜索树第k个结点" class="headerlink" title="1. 二叉搜索树第k个结点"></a>1. 二叉搜索树第k个结点</h2><p>题目描述：</p>
+<blockquote>
+<p>给定一棵二叉搜索树，请找出其中的第k小的结点。例如， （5，3，7，2，4，6，8）    中，按结点数值大小顺序第三小结点的值为4。</p>
+</blockquote>
+<a id="more"></a>
+
+
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">public class TreeNode &#123;</span></span><br><span class="line"><span class="comment">    int val = 0;</span></span><br><span class="line"><span class="comment">    TreeNode left = null;</span></span><br><span class="line"><span class="comment">    TreeNode right = null;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    public TreeNode(int val) &#123;</span></span><br><span class="line"><span class="comment">        this.val = val;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> TreeNode treeNode;</span><br><span class="line">    <span class="function">TreeNode <span class="title">KthNode</span><span class="params">(TreeNode pRoot, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pRoot!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            treeNode=KthNode(pRoot.left,k);</span><br><span class="line">            count++;</span><br><span class="line">            <span class="keyword">if</span>(count==k)&#123;</span><br><span class="line">                <span class="keyword">return</span> pRoot;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(count&gt;k)&#123;</span><br><span class="line">                <span class="keyword">return</span> treeNode;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                treeNode=KthNode(pRoot.right,k);</span><br><span class="line">                <span class="keyword">return</span> treeNode;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-从上往下打印二叉树"><a href="#2-从上往下打印二叉树" class="headerlink" title="2.从上往下打印二叉树"></a>2.从上往下打印二叉树</h2><p>题目描述：</p>
+<blockquote>
+<p>从上往下打印出二叉树的每个节点，同层节点从左至右打印。</p>
+</blockquote>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> problem2</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> TODO</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> 倪然</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/7/31 17:27</span></span><br><span class="line"><span class="comment"> * Version 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">public class TreeNode &#123;</span></span><br><span class="line"><span class="comment">    int val = 0;</span></span><br><span class="line"><span class="comment">    TreeNode left = null;</span></span><br><span class="line"><span class="comment">    TreeNode right = null;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    public TreeNode(int val) &#123;</span></span><br><span class="line"><span class="comment">        this.val = val;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">problem2</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 1.根节点放到队列里面，队列不空，就打印队列头，打印这个节点，马上把这个节点的左右子节点放到队列中。</span></span><br><span class="line"><span class="comment">     * 2.再要访问一个节点，把这个节点的左右放入，此时队头是同层的，对位是打印出来的左右。依次先入先出就可以得到结果。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> root</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">PrintFromTopToBottom</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">        ArrayList&lt;Integer&gt; arrayList=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        LinkedList&lt;TreeNode&gt; linkedList=<span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> arrayList;</span><br><span class="line">        linkedList.add(root);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(!linkedList.isEmpty())&#123;</span><br><span class="line">            TreeNode treeNode=linkedList.poll(); <span class="comment">//取出队头节点</span></span><br><span class="line">            arrayList.add(treeNode.val);</span><br><span class="line">            <span class="keyword">if</span>(treeNode.left!=<span class="keyword">null</span>)</span><br><span class="line">                linkedList.add(treeNode.left);   <span class="comment">//将取出的节点的左孩子节点和右孩子节点加入队尾</span></span><br><span class="line">            <span class="keyword">if</span>(treeNode.right!=<span class="keyword">null</span>)</span><br><span class="line">                linkedList.add(treeNode.right);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span>  arrayList;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-二叉树打印成多行"><a href="#3-二叉树打印成多行" class="headerlink" title="3. 二叉树打印成多行"></a>3. 二叉树打印成多行</h2><p>题目描述：</p>
+<blockquote>
+<p>从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。</p>
+</blockquote>
+<p>题目思路：</p>
+<ul>
+<li>开始时，last=节点1，nLast=null,把节点1放入队列queue,遍历开始，queue={1}。</li>
+<li>从queue中弹出节点1并打印，然后把节点1的孩子依次放入queue,放入节点2时nlast节点2。放入节点3时，nlast=节点3此时发现弹出的节点1=last.所以换行，井令last=nlast=节点3, queue={2,3}。</li>
+<li>从queue中弹出点2并打印，然后把节点2的孩子放入queue,放入节点4时nLast=节点4, queue={3,4}。</li>
+</ul>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> problem3</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 二叉树打印多行</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> 倪然</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/1 8:17</span></span><br><span class="line"><span class="comment"> * Version 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">problem3</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    ArrayList&lt;ArrayList&lt;Integer&gt;&gt; Print(TreeNode pRoot) &#123;</span><br><span class="line">        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; resultlist=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span>(pRoot==<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> resultlist;</span><br><span class="line">        TreeNode last=pRoot;</span><br><span class="line">        TreeNode nlast=<span class="keyword">null</span>;</span><br><span class="line">        Queue&lt;TreeNode&gt; queue=<span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        queue.add(pRoot);</span><br><span class="line">        ArrayList&lt;Integer&gt; arrayList=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">            TreeNode treeNode=queue.poll();     <span class="comment">//将队首节点取出</span></span><br><span class="line">            arrayList.add(treeNode.val);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(treeNode.left!=<span class="keyword">null</span>)&#123;       </span><br><span class="line">                nlast=treeNode.left;           </span><br><span class="line">                queue.add(treeNode.left);       <span class="comment">//将左孩子加入队列</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(treeNode.right!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                nlast=treeNode.right;           <span class="comment">//更新nlast位置</span></span><br><span class="line">                queue.add(treeNode.right);      <span class="comment">//将右孩子加入队列</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(treeNode==last)&#123;</span><br><span class="line">                resultlist.add(arrayList);      </span><br><span class="line">                arrayList=<span class="keyword">new</span> ArrayList&lt;&gt;();    <span class="comment">//换行</span></span><br><span class="line">                last=nlast;                     <span class="comment">//更新last节点位置</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resultlist;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-按之字形顺序打印二叉树"><a href="#4-按之字形顺序打印二叉树" class="headerlink" title="4. 按之字形顺序打印二叉树"></a>4. 按之字形顺序打印二叉树</h2><p>题目描述：</p>
+<blockquote>
+<p>请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。</p>
+</blockquote>
+<p>思路：<br>利用两个栈的辅助空间分别存储奇数偶数层的节点，然后打印输出。或使用链表的辅助空间来实现，利用链表的反向迭实现逆序输出。</p>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> problem4</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 按之字形顺序打印二叉树</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> 倪然</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/1 9:35</span></span><br><span class="line"><span class="comment"> * Version 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">problem4</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> ArrayList&lt;ArrayList&lt;Integer&gt;&gt; Print(TreeNode pRoot) &#123;</span><br><span class="line">        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; resultlist=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span>(pRoot==<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> resultlist;</span><br><span class="line"></span><br><span class="line">        Stack&lt;TreeNode&gt; stack1 = <span class="keyword">new</span> Stack&lt;&gt;();     <span class="comment">//奇数行栈</span></span><br><span class="line">        Stack&lt;TreeNode&gt; stack2 = <span class="keyword">new</span> Stack&lt;&gt;();     <span class="comment">//偶数行栈</span></span><br><span class="line">        stack1.add(pRoot);</span><br><span class="line">        ArrayList&lt;Integer&gt; arrayList;</span><br><span class="line"></span><br><span class="line">        stack1.add(pRoot);</span><br><span class="line">        <span class="keyword">boolean</span> isOdd=<span class="keyword">true</span>;         <span class="comment">//是否为奇数行</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(!stack1.isEmpty()||!stack2.isEmpty())&#123;</span><br><span class="line">            arrayList=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            <span class="keyword">if</span>(isOdd)&#123;                  <span class="comment">//如果为奇数行就将栈里的节点依次取出并将子孩子节点从左向右加入偶数栈</span></span><br><span class="line">                <span class="keyword">while</span>(!stack1.isEmpty()) &#123;</span><br><span class="line">                    TreeNode treeNode = stack1.pop();</span><br><span class="line">                    <span class="keyword">if</span> (treeNode.left != <span class="keyword">null</span>)</span><br><span class="line">                        stack2.push(treeNode.left);</span><br><span class="line">                    <span class="keyword">if</span> (treeNode.right != <span class="keyword">null</span>)</span><br><span class="line">                        stack2.push(treeNode.right);</span><br><span class="line">                    arrayList.add(treeNode.val);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;                       <span class="comment">//如果是偶数行就将栈里的节点依次取出并将子孩子节点从右向左加入奇数栈</span></span><br><span class="line">                <span class="keyword">while</span> (!stack2.isEmpty())&#123;</span><br><span class="line">                    TreeNode treeNode =stack2.pop();</span><br><span class="line">                    <span class="keyword">if</span> (treeNode.right != <span class="keyword">null</span>)</span><br><span class="line">                        stack1.push(treeNode.right);</span><br><span class="line">                    <span class="keyword">if</span> (treeNode.left != <span class="keyword">null</span>)</span><br><span class="line">                        stack1.push(treeNode.left);</span><br><span class="line">                    arrayList.add(treeNode.val);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            isOdd=!isOdd;</span><br><span class="line">            resultlist.add(arrayList);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>  resultlist;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-二叉树中和为某一值的路径"><a href="#5-二叉树中和为某一值的路径" class="headerlink" title="5. 二叉树中和为某一值的路径"></a>5. 二叉树中和为某一值的路径</h2><p>题目描述：</p>
+<blockquote>
+<p>输入一颗二叉树的跟节点和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。(注意: 在返回值的list中，数组长度大的数组靠前)</p>
+</blockquote>
+<p>思路：</p>
+<ol>
+<li>首先将根节点放入链表，target减去这个根节点</li>
+<li>判断target是否为零同时是叶子节点，如果是就将当前的链表放在结果连表里</li>
+<li>如果不是，就递归去访问左右子节点。</li>
+<li>无论是找到没有，都要回退一步</li>
+</ol>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">public class TreeNode &#123;</span></span><br><span class="line"><span class="comment">    int val = 0;</span></span><br><span class="line"><span class="comment">    TreeNode left = null;</span></span><br><span class="line"><span class="comment">    TreeNode right = null;</span></span><br><span class="line"><span class="comment">    public TreeNode(int val) &#123;</span></span><br><span class="line"><span class="comment">        this.val = val;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> problem5</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 二叉树中和为某一值的路径</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> niran</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/1 10:23</span></span><br><span class="line"><span class="comment"> * Version 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">problem5</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;ArrayList&lt;Integer&gt;&gt; resultlist=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    ArrayList&lt;Integer&gt; arrayList=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 代码步骤：一个链表记录路径，一个存放这个链表的链表记录最终的结果。前序遍历去访问。先访问根，在递归在左右子树找。注意回退</span></span><br><span class="line"><span class="comment">     * 1.首先将根节点放入链表，target减去这个根节点</span></span><br><span class="line"><span class="comment">     * 2.判断target是否为零同时是叶子节点，如果是就将当前的链表放在结果连表里</span></span><br><span class="line"><span class="comment">     * 3.如果不是，就递归去访问左右子节点。</span></span><br><span class="line"><span class="comment">     * 4.无论是找到没有，都要回退一步</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> root</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> ArrayList&lt;ArrayList&lt;Integer&gt;&gt; FindPath(TreeNode root, <span class="keyword">int</span> target) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> resultlist;</span><br><span class="line">        target-=root.val;</span><br><span class="line">        arrayList.add(root.val);</span><br><span class="line">        <span class="keyword">if</span>(target==<span class="number">0</span>&amp;&amp;root.right==<span class="keyword">null</span>&amp;&amp;root.left==<span class="keyword">null</span>) &#123;</span><br><span class="line">            resultlist.add(<span class="keyword">new</span> ArrayList&lt;Integer&gt;(arrayList));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(target&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            FindPath(root.left,target);</span><br><span class="line">            FindPath(root.right,target);</span><br><span class="line">        &#125;</span><br><span class="line">        arrayList.remove(arrayList.size()-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> resultlist;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-重建二叉树"><a href="#6-重建二叉树" class="headerlink" title="6. 重建二叉树"></a>6. 重建二叉树</h2><p>题目描述：</p>
+<blockquote>
+<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+</blockquote>
+<p>思路：</p>
+<p>由于在中序遍历序列中，有3个数字是左子树结点的值，因此左子树总共有3个左子结点。同样，在前序遍历的序列中，根结点后面的3个数字就是3个左子树结点的值，再后面的所有数字都是右子树结点的值。这样我们就在前序遍历和中序遍历两个序列中，分别找到了左右子树对应的子序列。<br><img src="http://img.niran.vip/offer24.JPG" alt="此处输入图片的描述"></p>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">public class TreeNode &#123;</span></span><br><span class="line"><span class="comment">    int val = 0;</span></span><br><span class="line"><span class="comment">    TreeNode left = null;</span></span><br><span class="line"><span class="comment">    TreeNode right = null;</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">    public TreeNode(int val) &#123;</span></span><br><span class="line"><span class="comment">        this.val = val;</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> problem6</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 重建二叉树</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> niran</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/1 13:06</span></span><br><span class="line"><span class="comment"> * Version 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">problem6</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">reConstructBinaryTree</span><span class="params">(<span class="keyword">int</span> [] pre,<span class="keyword">int</span> [] in)</span> </span>&#123;</span><br><span class="line">        TreeNode root=<span class="keyword">new</span> TreeNode(pre[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;in.length;i++)&#123;      <span class="comment">//找到中序遍历中根节点的位置</span></span><br><span class="line">            <span class="keyword">if</span>(in[i]==pre[<span class="number">0</span>])</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i!=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span>[] l_pre= Arrays.copyOfRange(pre,<span class="number">1</span>,i+<span class="number">1</span>); </span><br><span class="line">            <span class="keyword">int</span>[] l_in=Arrays.copyOfRange(in,<span class="number">0</span>,i);   <span class="comment">//根节点左边的树是左子树中序遍历的结果</span></span><br><span class="line">            root.left=reConstructBinaryTree(l_pre,l_in);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i!=in.length-<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span>[] r_pre= Arrays.copyOfRange(pre,i+<span class="number">1</span>,in.length);</span><br><span class="line">            <span class="keyword">int</span>[] r_in= Arrays.copyOfRange(in,i+<span class="number">1</span>,in.length);  <span class="comment">//根节点右边的数是右子树中序遍历的结果</span></span><br><span class="line">            root.right=reConstructBinaryTree(r_pre,r_in);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-树的子结构"><a href="#7-树的子结构" class="headerlink" title="7. 树的子结构"></a>7. 树的子结构</h2><p>题目描述:</p>
+<blockquote>
+<p>输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）</p>
+</blockquote>
+<p>思路：   </p>
+<ul>
+<li>先从根开始再把左作为根，再把右作为根由本函数决定。把一个为根的时候的具体比对过程是第二个函数决定。</li>
+<li>从根可以认为是一颗树，从左子树开始又可以认为是另外一颗树，从右子树开始又是另外一棵树。</li>
+<li>本函数就是判断这一整颗树包不包含树2，如果从根开始的不包含，就从左子树作为根节点开始判断，</li>
+<li>再不包含从右子树作为根节点开始判断。</li>
+<li>整体算法递归流程控制。</li>
+</ul>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">public class TreeNode &#123;</span></span><br><span class="line"><span class="comment">    int val = 0;</span></span><br><span class="line"><span class="comment">    TreeNode left = null;</span></span><br><span class="line"><span class="comment">    TreeNode right = null;</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">    public TreeNode(int val) &#123;</span></span><br><span class="line"><span class="comment">        this.val = val;</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> problem7</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> TODO</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> niran</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/1 13:59</span></span><br><span class="line"><span class="comment"> * Version 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">problem7</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 先从根开始再把左作为根，再把右作为根由本函数决定。把一个为根的时候的具体比对过程是第二个函数决定。</span></span><br><span class="line"><span class="comment">     * 从根可以认为是一颗树，从左子树开始又可以认为是另外一颗树，从右子树开始又是另外一棵树。</span></span><br><span class="line"><span class="comment">     * 本函数就是判断这一整颗树包不包含树2，如果从根开始的不包含，就从左子树作为根节点开始判断，</span></span><br><span class="line"><span class="comment">     * 再不包含从右子树作为根节点开始判断。</span></span><br><span class="line"><span class="comment">     * 是整体算法递归流程控制。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> root1</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> root2</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">HasSubtree</span><span class="params">(TreeNode root1,TreeNode root2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root1==<span class="keyword">null</span>||root2==<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> NodeEqule(root1,root2)||HasSubtree(root1.left,root2)||HasSubtree(root1.right,root2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">NodeEqule</span><span class="params">(TreeNode root1,TreeNode root2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root1==<span class="keyword">null</span>&amp;&amp;root2!=<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(root2==<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(root1.val==root2.val)&#123;</span><br><span class="line">            <span class="keyword">return</span> NodeEqule(root1.left,root2.left)&amp;&amp;NodeEqule(root1.right,root2.right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-二叉树的镜像"><a href="#8-二叉树的镜像" class="headerlink" title="8. 二叉树的镜像"></a>8. 二叉树的镜像</h2><p>题目描述:</p>
+<blockquote>
+<p>操作给定的二叉树，将其变换为源二叉树的镜像。</p>
+</blockquote>
+<p>输入描述:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">二叉树的镜像定义：源二叉树 </span><br><span class="line">    	    8</span><br><span class="line">    	   /  \</span><br><span class="line">    	  6   10</span><br><span class="line">    	 / \  / \</span><br><span class="line">    	5  7 9 11</span><br><span class="line">    	镜像二叉树</span><br><span class="line">    	    8</span><br><span class="line">    	   /  \</span><br><span class="line">    	  10   6</span><br><span class="line">    	 / \  / \</span><br><span class="line">    	11 9 7  5</span><br></pre></td></tr></table></figure>
+
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">public class TreeNode &#123;</span></span><br><span class="line"><span class="comment">    int val = 0;</span></span><br><span class="line"><span class="comment">    TreeNode left = null;</span></span><br><span class="line"><span class="comment">    TreeNode right = null;</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">    public TreeNode(int val) &#123;</span></span><br><span class="line"><span class="comment">        this.val = val;</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> problem8</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> TODO 二叉树的镜像</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> niran</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/1 15:06</span></span><br><span class="line"><span class="comment"> * Version 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">problem8</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 算法步骤</span></span><br><span class="line"><span class="comment">     * 1.节点为空直接返回</span></span><br><span class="line"><span class="comment">     * 2.递归对这个节点的左子树进行求镜像。对这个节点的右子树求镜像。</span></span><br><span class="line"><span class="comment">     * 3.交换节点的左右子树</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> root</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Mirror</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        Mirror(root.left);</span><br><span class="line">        Mirror(root.right);</span><br><span class="line">        TreeNode treeNode = root.left;</span><br><span class="line">        root.left = root.right;</span><br><span class="line">        root.right = treeNode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="9-二叉搜素树的后序遍历序列"><a href="#9-二叉搜素树的后序遍历序列" class="headerlink" title="9. 二叉搜素树的后序遍历序列"></a>9. 二叉搜素树的后序遍历序列</h2><p>题目描述:</p>
+<blockquote>
+<p>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。</p>
+</blockquote>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> problem9</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> TODO 二叉搜素树的后序遍历序列 </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> niran</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/1 15:29</span></span><br><span class="line"><span class="comment"> * Version 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">problem9</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**二叉搜索树的性质：</span></span><br><span class="line"><span class="comment">     * 所有左子树的节点小于根节点，所有右子树的节点值大于根节点的值。</span></span><br><span class="line"><span class="comment">     * 算法步骤：</span></span><br><span class="line"><span class="comment">     * 1.后序遍历的最后一个值为root，在前面的数组中找到第一个大于root值的位置。</span></span><br><span class="line"><span class="comment">     * 2.这个位置的前面是root的左子树，右边是右子树。然后左右子树分别进行这个递归操作。</span></span><br><span class="line"><span class="comment">     * 3.其中，如果右边子树中有比root值小的直接返回false</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sequence</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">VerifySquenceOfBST</span><span class="params">(<span class="keyword">int</span> [] sequence)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(sequence.length==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> rootVal=sequence[sequence.length-<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">boolean</span> isBST=<span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;sequence.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(sequence[i]&gt;rootVal)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;sequence.length-<span class="number">1</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(sequence[j]&lt;rootVal)</span><br><span class="line">                isBST=<span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(isBST&amp;&amp;i&gt;<span class="number">0</span>)</span><br><span class="line">            isBST=VerifySquenceOfBST(Arrays.copyOfRange(sequence,<span class="number">0</span>,i));</span><br><span class="line">        <span class="keyword">if</span>(isBST&amp;&amp;i&lt;sequence.length-<span class="number">1</span>)</span><br><span class="line">            isBST=VerifySquenceOfBST(Arrays.copyOfRange(sequence,i,sequence.length-<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> isBST;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-二叉搜索树与双向链表"><a href="#10-二叉搜索树与双向链表" class="headerlink" title="10. 二叉搜索树与双向链表"></a>10. 二叉搜索树与双向链表</h2><p>题目描述：</p>
+<blockquote>
+<p>输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。</p>
+</blockquote>
+<p>思路：<br>定义一个头结点指针和尾节点指针<br>中序遍历的步骤，在递归的中间部分不是输出节点值，而是调整尾节点指针指向。</p>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> problem10</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> TODO</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> niran</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/1 16:08</span></span><br><span class="line"><span class="comment"> * Version 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">problem10</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> TreeNode head;   <span class="comment">//头结点指针</span></span><br><span class="line">    <span class="keyword">private</span> TreeNode pop;    <span class="comment">//尾节点指针</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">Convert</span><span class="params">(TreeNode pRootOfTree)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (pRootOfTree == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        Convert(pRootOfTree.left);</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;   <span class="comment">//初始时为头结点和尾节点复制</span></span><br><span class="line">            head = pRootOfTree;</span><br><span class="line">            pop = pRootOfTree;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;               <span class="comment">//调整尾节点指针</span></span><br><span class="line">            pop.right = pRootOfTree;</span><br><span class="line">            pRootOfTree.left = pop;</span><br><span class="line">            pop = pop.right;</span><br><span class="line">        &#125;</span><br><span class="line">        Convert(pRootOfTree.right);</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="11-二叉树的深度"><a href="#11-二叉树的深度" class="headerlink" title="11. 二叉树的深度"></a>11. 二叉树的深度</h2><p>题目描述:</p>
+<blockquote>
+<p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
+</blockquote>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> problem11</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 二叉树的深度</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> niran</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/1 16:44</span></span><br><span class="line"><span class="comment"> * Version 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">problem11</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">TreeDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.max(TreeDepth(root.left)+<span class="number">1</span>,TreeDepth(root.right)+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="12-平衡二叉树"><a href="#12-平衡二叉树" class="headerlink" title="12. 平衡二叉树"></a>12. 平衡二叉树</h2><p>题目描述:</p>
+<blockquote>
+<p>输入一棵二叉树，判断该二叉树是否是平衡二叉树</p>
+</blockquote>
+<p>描述：如果某二叉树中任意节点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。</p>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> problem12</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> 平衡二叉树</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> niran</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/1 16:50</span></span><br><span class="line"><span class="comment"> * Version 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">problem12</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">IsBalanced_Solution</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(Math.abs(TreeDepth(root.left)-TreeDepth(root.right))&gt;<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> IsBalanced_Solution(root.left)&amp;&amp;IsBalanced_Solution(root.right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">TreeDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> Math.max(TreeDepth(root.left)+<span class="number">1</span>,TreeDepth(root.right)+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="13-二叉树的下一个节点"><a href="#13-二叉树的下一个节点" class="headerlink" title="13. 二叉树的下一个节点"></a>13. 二叉树的下一个节点</h2><p>题目描述：</p>
+<blockquote>
+<p>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
+</blockquote>
+<p>代码实现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line">public class TreeLinkNode &#123;</span><br><span class="line">    int val;</span><br><span class="line">    TreeLinkNode left = null;</span><br><span class="line">    TreeLinkNode right = null;</span><br><span class="line">    TreeLinkNode next = null;</span><br><span class="line">    TreeLinkNode(int val) &#123;</span><br><span class="line">        this.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @ClassName problem13</span><br><span class="line"> * @Description TODO 二叉树的下一个节点</span><br><span class="line"> * @Author niran</span><br><span class="line"> * @Date 2019/8/2 12:36</span><br><span class="line"> * Version 1.0</span><br><span class="line"> **/</span><br><span class="line">public class problem13 &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 1.如果有右孩子，后继节点就是最左边的</span><br><span class="line">     * 2.如果没有右孩子，判断是否是父节点的左孩子，是的话，返回，不是继续往上找</span><br><span class="line">     * 3.找不到就是null</span><br><span class="line">     * @param pNode</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public TreeLinkNode GetNext(TreeLinkNode pNode)</span><br><span class="line">    &#123;</span><br><span class="line">        if(pNode.right!=null)&#123;</span><br><span class="line">            pNode=pNode.right;</span><br><span class="line">            // 如果此时pNode没有左子树，那么它就是下一个结点 ，就是最左边的了</span><br><span class="line">            //如果有左子树，那就在左子树找最左边的</span><br><span class="line">            while(pNode.left!=null)&#123;</span><br><span class="line">                pNode=pNode.left;</span><br><span class="line">            &#125;</span><br><span class="line">            return pNode;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        while(pNode.next!=null)&#123;</span><br><span class="line">            // 找到一个结点是该其父亲的左孩子  ,找到就是返回父节点作为后记</span><br><span class="line">            if(pNode==pNode.next.left)&#123;</span><br><span class="line">                return pNode.next;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            //找不到这个左孩子的，就继续往上，next其实是parent</span><br><span class="line">            pNode=pNode.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="14-对称的二叉树"><a href="#14-对称的二叉树" class="headerlink" title="14. 对称的二叉树"></a>14. 对称的二叉树</h2><p>题目描述：</p>
+<blockquote>
+<p>请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。</p>
+</blockquote>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">public class TreeNode &#123;</span></span><br><span class="line"><span class="comment">    int val = 0;</span></span><br><span class="line"><span class="comment">    TreeNode left = null;</span></span><br><span class="line"><span class="comment">    TreeNode right = null;</span></span><br><span class="line"><span class="comment">    public TreeNode(int val) &#123;</span></span><br><span class="line"><span class="comment">        this.val = val;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> problem14</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> TODO</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> niran</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/2 13:16</span></span><br><span class="line"><span class="comment"> * Version 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">problem14</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 利用递归进行判断，</span></span><br><span class="line"><span class="comment">     * 若左子树的左孩子等于右子树的右孩子且左子树的右孩子等于右子树的左孩子，</span></span><br><span class="line"><span class="comment">     * 并且左右子树节点的值相等，则是对称的。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> pRoot</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isSymmetrical</span><span class="params">(TreeNode pRoot)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isSame(pRoot.left,pRoot.right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isSame</span><span class="params">(TreeNode left,TreeNode right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> same = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (left == <span class="keyword">null</span> &amp;&amp; right == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(left==<span class="keyword">null</span>||right==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left.val == right.val &amp;&amp; isSame(left.left, right.right) &amp;&amp; isSame(left.right, right.left);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="14-序列化二叉树"><a href="#14-序列化二叉树" class="headerlink" title="14. 序列化二叉树"></a>14. 序列化二叉树</h2><p>题目描述:</p>
+<blockquote>
+<p>请实现两个函数，分别用来序列化和反序列化二叉树</p>
+</blockquote>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> problem15</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> TODO</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> niran</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2019/8/2 14:14</span></span><br><span class="line"><span class="comment"> * Version 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">problem15</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">String <span class="title">Serialize</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"#!"</span>;</span><br><span class="line">        String str=root.val+<span class="string">"!"</span>;</span><br><span class="line">        str+=Serialize(root.left);</span><br><span class="line">        str+=Serialize(root.right);</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode <span class="title">Deserialize</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        String [] values = str.split(<span class="string">"!"</span>);</span><br><span class="line">        Queue&lt;String&gt; queue = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">            queue.offer(values[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> reconPre(queue);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode <span class="title">reconPre</span><span class="params">(Queue&lt;String&gt; queue)</span> </span>&#123;</span><br><span class="line">        String value = queue.poll();</span><br><span class="line">        <span class="keyword">if</span>(value.equals(<span class="string">"#"</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        TreeNode head = <span class="keyword">new</span> TreeNode(Integer.valueOf(value));</span><br><span class="line">        head.left = reconPre(queue);</span><br><span class="line">        head.right = reconPre(queue);</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+          
+            
+          
+    </div>
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i>数据结构</a>
+          
+            <a href="/tags/剑指offer/" rel="tag"><i class="fa fa-tag"></i>剑指offer</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/03/剑指offer3/" rel="prev" title="剑指offer刷题总结(三)字符串">
+                 <i class="fa fa-chevron-left"></i> 剑指offer刷题总结(三)字符串
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/31/剑指offer1/" rel="next" title="剑指offer刷题总结(一)位运算">
+                剑指offer刷题总结(一)位运算 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div id="gitalk-container">
+    </div>
+    
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+            <a href="/">
+              <img class="site-author-image" itemprop="image" src="http://img.niran.vip/touxiang.jpg" alt="倪然">
+            </a>
+            
+              <p class="site-author-name" itemprop="name">倪然</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/niran666" title="GitHub &rarr; https://github.com/niran666" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:1261614525@qq.com" title="E-Mail &rarr; mailto:1261614525@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://plus.google.com" title="Google &rarr; https://plus.google.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/ni1291614525" title="Twitter &rarr; https://twitter.com/ni1291614525" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="http://www.baidu.com/" rel="noopener" target="_blank">baidu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">google</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-二叉搜索树第k个结点"><span class="nav-text">1. 二叉搜索树第k个结点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-从上往下打印二叉树"><span class="nav-text">2.从上往下打印二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-二叉树打印成多行"><span class="nav-text">3. 二叉树打印成多行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-按之字形顺序打印二叉树"><span class="nav-text">4. 按之字形顺序打印二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-二叉树中和为某一值的路径"><span class="nav-text">5. 二叉树中和为某一值的路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-重建二叉树"><span class="nav-text">6. 重建二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-树的子结构"><span class="nav-text">7. 树的子结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-二叉树的镜像"><span class="nav-text">8. 二叉树的镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-二叉搜素树的后序遍历序列"><span class="nav-text">9. 二叉搜素树的后序遍历序列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-二叉搜索树与双向链表"><span class="nav-text">10. 二叉搜索树与双向链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-二叉树的深度"><span class="nav-text">11. 二叉树的深度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-平衡二叉树"><span class="nav-text">12. 平衡二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-二叉树的下一个节点"><span class="nav-text">13. 二叉树的下一个节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-对称的二叉树"><span class="nav-text">14. 对称的二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-序列化二叉树"><span class="nav-text">14. 序列化二叉树</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">倪然</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+
+  
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css">
+
+  
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+    
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'eb5bbed58a15239d8ab7',
+          clientSecret: '17b324a4d3178abb03f7766c7b94b876fb33babe',
+          repo: 'niran666.github.io',
+          owner: 'niran666',
+          admin: ['niran666'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "mtpW2sIlIHeJQk0FGq2ddMVQ-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "mtpW2sIlIHeJQk0FGq2ddMVQ-gzGzoHsz",
+                'X-LC-Key': "S8VWUb1LK61DctReez2JM8P1",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

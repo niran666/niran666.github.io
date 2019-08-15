@@ -182,7 +182,7 @@
 
 
   <meta name="description" content="1. 传输层功能传输层功能：  传输层提供进程与进程之间的逻辑通信 复用和分用 传输层对收到的报文进行差错检测">
-<meta name="keywords" content="计算机网络,笔记,网络层">
+<meta name="keywords" content="笔记,计算机网络,网络层">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计网传输层">
 <meta property="og:url" content="http://api.niran.vip/2019/07/18/计网传输层/index.html">
@@ -199,7 +199,7 @@
 <meta property="og:image" content="http://img.niran.vip/%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6.PNG">
 <meta property="og:image" content="http://img.niran.vip/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6.PNG">
 <meta property="og:image" content="http://img.niran.vip/%E5%BF%AB%E5%86%B2%E4%B8%B2.PNG">
-<meta property="og:updated_time" content="2019-07-18T02:08:17.896Z">
+<meta property="og:updated_time" content="2019-08-12T01:38:30.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计网传输层">
 <meta name="twitter:description" content="1. 传输层功能传输层功能：  传输层提供进程与进程之间的逻辑通信 复用和分用 传输层对收到的报文进行差错检测">
@@ -524,12 +524,24 @@
                 
               
 
-              <time title="创建于：2019-07-18 10:04:25 / 更新于：10:08:17" itemprop="dateCreated datePublished" datetime="2019-07-18T10:04:25+08:00">2019-07-18</time>
+              <time title="创建于：2019-07-18 10:04:25" itemprop="dateCreated datePublished" datetime="2019-07-18T10:04:25+08:00">2019-07-18</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2019-08-12 09:38:30" itemprop="dateModified" datetime="2019-08-12T09:38:30+08:00">2019-08-12</time>
               
             
           </span>
@@ -612,7 +624,7 @@
 <h2 id="3-2-UDP首部格式"><a href="#3-2-UDP首部格式" class="headerlink" title="3.2 UDP首部格式"></a>3.2 UDP首部格式</h2><p><img src="http://img.niran.vip/UDP%E9%A6%96%E9%83%A8.PNG" alt="此处输入图片的描述"></p>
 <h2 id="3-3-UDP校验"><a href="#3-3-UDP校验" class="headerlink" title="3.3 UDP校验"></a>3.3 UDP校验</h2><p><img src="http://img.niran.vip/UDP%E6%A0%A1%E9%AA%8C.PNG" alt="此处输入图片的描述"><br>伪首部只有在计算机校验时才出现，不想下传送也不向上提交<br>17：封装UDP报文的IP数据包首部协议字段是17。<br>UDP长度：UDP首部8B+数据部分长度（不包括伪首部）。<br><img src="http://img.niran.vip/%E6%A0%A1%E9%AA%8C.PNG" alt="此处输入图片的描述"></p>
 <ul>
-<li>在发送端:<br>1.填上伪首部<br>2.全0填充检验和字段<br>3.全0填充数据部分(UDP数据报要看成许多4B的字串接起来)4.伪首部+首部+数据部分采用二进制反码汞和<br>5.把和求反码填入检验和字段6.去掉伪首部，发送</li>
+<li>在发送端:<br>1.填上伪首部<br>2.全0填充检验和字段<br>3.全0填充数据部分(UDP数据报要看成许多4B的字串接起来)<br>4.伪首部+首部+数据部分采用二进制反码求和<br>5.把和求反码填入检验和字段<br>6.去掉伪首部，发送</li>
 <li>在接收端:<br>1.填上伪首部<br>2.伪首部+首部+数据部分采用二进制反码求和<br>3.结果全为1则无差错，否则丢弃数据报/交给应用层附上出差错的警告。</li>
 </ul>
 <h1 id="4-TCP协议"><a href="#4-TCP协议" class="headerlink" title="4. TCP协议"></a>4. TCP协议</h1><h2 id="4-1-TCP协议的特点"><a href="#4-1-TCP协议的特点" class="headerlink" title="4.1 TCP协议的特点"></a>4.1 TCP协议的特点</h2><ol>
@@ -654,20 +666,20 @@
 <ul>
 <li><p>ROUND 1:<br>客户端发送连接释放报文段，停止发送数据，主动关闭TCP连接。<br>FIN=1, seq=u</p>
 </li>
-<li><p>ROUND 2:<br>服务器端回送-一个确认报文段，客户到服务器这个方向的连接就释放了- - 一半关闭状态。<br>ACK=1,  seq=v, ack =u+1</p>
+<li><p>ROUND 2:<br>服务器端回送-一个确认报文段，客户到服务器这个方向的连接就释放了——半关闭状态。<br>ACK=1,  seq=v, ack =u+1</p>
 </li>
-<li><p>ROUND3:<br>服务器端发完数据，就发出连接释放报文段，主动关闭TCP连接。<br>FIN=1, ACK=1, seq=w, ack :u+1</p>
+<li><p>ROUND3:<br>服务器端发完数据，就发出连接释放报文段，主动关闭TCP连接。<br>FIN=1, ACK=1, seq=w, ack =u+1</p>
 </li>
-<li><p>ROUND 4:<br>客户端回送-一个确认报文段，再等到时间等待计时器设置的2MSL (最长报文段寿命)后、连接彻底关闭。</p>
+<li><p>ROUND 4:<br>客户端回送一个确认报文段，再等到时间等待计时器设置的2MSL (最长报文段寿命)后、连接彻底关闭。</p>
 </li>
 </ul>
 <h2 id="4-4-TCP可靠传输"><a href="#4-4-TCP可靠传输" class="headerlink" title="4.4 TCP可靠传输"></a>4.4 TCP可靠传输</h2><ul>
 <li>校验<br>与UDP校验一样，增加伪首部</li>
 <li>序号</li>
 <li>确认</li>
-<li>重传<br>确认重传不分家，TCP的发送方在规定的时间内没有收到确认就要重传已发送的报文段。<br><strong>超时重传重传时间</strong><br>TCP采用自适应算法，动态改变重传时间RTTs (加权平均往返时间)。<br><strong>冗余ACK (冗余确认)</strong><br>每当比期望序号大的失序报文段到达时，发送-一个冗余ACK，指明下一一个期待字节的序号。<br>发送方已发送1，2，3, 4, 5报文段<br>接收方收到1，返回给1的确认(确认号为2的第一个字节)<br>接收方收到3，仍返回给1的确认(确认号为2的第一个字节)<br>接收方收到4，仍返回给1的确认(确认号为2的第一个字节)<br>接收方收到5，仍返回给1的确认(确认号为2的第一个字节)<br>发送方收到3个对于报文段1的冗余ACK一认为2报文段丟失， 重传2号报文段快速重传</li>
+<li>重传<br>确认重传不分家，TCP的发送方在规定的时间内没有收到确认就要重传已发送的报文段。<br><strong>超时重传重传时间</strong><br>TCP采用自适应算法，动态改变重传时间RTTs (加权平均往返时间)。<br><strong>冗余ACK (冗余确认)</strong><br>每当比期望序号大的失序报文段到达时，发送一个冗余ACK，指明下一个期待字节的序号。<br>发送方已发送1，2，3, 4, 5报文段<br>接收方收到1，返回给1的确认(确认号为2的第一个字节)<br>接收方收到3，仍返回给1的确认(确认号为2的第一个字节)<br>接收方收到4，仍返回给1的确认(确认号为2的第一个字节)<br>接收方收到5，仍返回给1的确认(确认号为2的第一个字节)<br>发送方收到3个对于报文段1的冗余ACK一认为2报文段丟失， 重传2号报文段快速重传</li>
 </ul>
-<h2 id="4-5-TCP流量控制"><a href="#4-5-TCP流量控制" class="headerlink" title="4.5 TCP流量控制"></a>4.5 TCP流量控制</h2><p>A向B发送数据，连接建立时，B告诉A：“我的rwnd=400字节”，设每一个报文段100B，报文段初始值为1<br><img src="http://img.niran.vip/%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6.PNG" alt="此处输入图片的描述"><br>TCP为每一一个连接设有-一个持续计时器，只要TCP连接的一方收到对方的零窗口通知，就启动持续计时器。<br>若持续计时器设置的时间到期，就发送一个零窗口探测报文段。接收方收到探测报文段时给出现在的窗口值。<br>若窗口仍然是0，那么发送方就重新设置持续计时器</p>
+<h2 id="4-5-TCP流量控制"><a href="#4-5-TCP流量控制" class="headerlink" title="4.5 TCP流量控制"></a>4.5 TCP流量控制</h2><p>A向B发送数据，连接建立时，B告诉A：“我的rwnd=400字节”，设每一个报文段100B，报文段初始值为1<br><img src="http://img.niran.vip/%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6.PNG" alt="此处输入图片的描述"><br>TCP为每一个连接设有一个持续计时器，只要TCP连接的一方收到对方的零窗口通知，就启动持续计时器。<br>若持续计时器设置的时间到期，就发送一个零窗口探测报文段。接收方收到探测报文段时给出现在的窗口值。<br>若窗口仍然是0，那么发送方就重新设置持续计时器</p>
 <h2 id="4-6-TCP拥塞控制"><a href="#4-6-TCP拥塞控制" class="headerlink" title="4.6 TCP拥塞控制"></a>4.6 TCP拥塞控制</h2><p>出现资源拥塞的条件：对资源需求的综合大于可用资源</p>
 <p>假定:</p>
 <ol>
@@ -682,7 +694,7 @@
 </ul>
 <h3 id="4-6-2-慢开始和拥塞避免"><a href="#4-6-2-慢开始和拥塞避免" class="headerlink" title="4.6.2 慢开始和拥塞避免"></a>4.6.2 慢开始和拥塞避免</h3><p><img src="http://img.niran.vip/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6.PNG" alt="此处输入图片的描述"><br>说明：刚开始的时候速度增长是以2的倍数增加，当达到慢开始门限后，则是每次增加1的速度增加。当速度达到24时发现出现了拥塞，于是则要计算一个新的慢开始门限(新的门限值=出现网络拥塞时的cwnd/2），即此时速度的一般12，如果还是拥塞，则继续计算新的慢开始门限，之后则又开始慢慢增长，同时注意，此时的慢开始门限就是12了，而不是最开始的16。<br>注意：拥塞避免并非指完全能够避免拥塞。而是在说在拥塞避免阶段把拥塞窗口控制为按线性规律增长，使网络比较不容易出现拥塞。这是最开始的拥塞控制方法，之后又出现了新的方法，即快重传和快恢复。</p>
 <h3 id="4-6-3-快重传和快恢复"><a href="#4-6-3-快重传和快恢复" class="headerlink" title="4.6.3 快重传和快恢复"></a>4.6.3 快重传和快恢复</h3><ul>
-<li>快重传：<br>。比如此时发送端向接收端发送了1、2、3、4、5这样一个数据段，但是在发送的过程中第三个数据丢失了，根据之前讲的累积确认，此时还是必须等到第4、5个数据接收到之后才发送确认号，但是要知道只要收到的数为1、2、4，发送端就已经知道丢包了，于是此时会向发送端连续发送三个相同的确认号，让其发送第三个数据报，这就是快重传。</li>
+<li>快重传：<br>比如此时发送端向接收端发送了1、2、3、4、5这样一个数据段，但是在发送的过程中第三个数据丢失了，根据之前讲的累积确认，此时还是必须等到第4、5个数据接收到之后才发送确认号，但是要知道只要收到的数为1、2、4，发送端就已经知道丢包了，于是此时会向发送端连续发送三个相同的确认号，让其发送第三个数据报，这就是快重传。</li>
 <li>快恢复：<br>如上，丢失第三个数据报可能是因为拥塞，于是发送端会降低拥塞窗口，比如此时减小到了1，但是对于接收端发送的三个相同的确认号，此时却都收到了，这标明此时网络又是很好的，不再拥塞了，此时就不会向之前那样先指数再线性这样增长了，而是让拥塞窗口快速恢复到12，然后线性增长，这是相对慢开始来说的。</li>
 </ul>
 <p><img src="http://img.niran.vip/%E5%BF%AB%E5%86%B2%E4%B8%B2.PNG" alt="此处输入图片的描述"></p>
@@ -724,9 +736,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i>计算机网络</a>
-          
             <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i>笔记</a>
+          
+            <a href="/tags/计算机网络/" rel="tag"><i class="fa fa-tag"></i>计算机网络</a>
           
             <a href="/tags/网络层/" rel="tag"><i class="fa fa-tag"></i>网络层</a>
           
@@ -741,8 +753,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/21/操作系统1/" rel="prev" title="操作系统 处理器管理（一）">
-                 <i class="fa fa-chevron-left"></i> 操作系统 处理器管理（一）
+              <a href="/2019/07/21/操作系统1/" rel="prev" title="操作系统 处理器管理(一)">
+                 <i class="fa fa-chevron-left"></i> 操作系统 处理器管理(一)
               </a>
             
           </div>
@@ -831,7 +843,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -852,7 +864,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -903,7 +919,23 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1618,6 +1650,36 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+    overflow: auto hidden;
+}
+</style>
+
+    
   
 
 
