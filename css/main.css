@@ -185,8 +185,8 @@ th {
 }
 body {
   position: relative;
-  font-family: 'Lato', SimSun, sans-serif;
-  font-size: 16px;
+  font-family: 'Lato', Microsoft YaHei, sans-serif;
+  font-size: 14px;
   line-height: 2;
   color: #555;
   background: #eee;
@@ -203,7 +203,7 @@ body {
 }
 @media (min-width: 1200px) {
   body {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 h1,
@@ -216,7 +216,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
-  font-family: 'Roboto Slab', 'Lato', SimSun, sans-serif;
+  font-family: 'Roboto Slab', 'Lato', Microsoft YaHei, sans-serif;
 }
 h1,
 h2,
@@ -427,11 +427,6 @@ td {
   vertical-align: middle;
   font-weight: normal;
 }
-th,
-td {
-  border-bottom: 3px solid #ddd;
-  border-right: 1px solid #eee;
-}
 th {
   padding-bottom: 10px;
   font-weight: 700;
@@ -513,7 +508,7 @@ pre,
 }
 pre,
 code {
-  font-family: 'Roboto Mono', consolas, Menlo, SimSun, monospace;
+  font-family: 'Roboto Mono', consolas, Menlo, Microsoft YaHei, monospace;
 }
 code {
   overflow-wrap: break-word;
@@ -1141,7 +1136,7 @@ pre .javascript .function {
   line-height: 36px;
   font-size: 20px;
   font-weight: normal;
-  font-family: 'Lato', SimSun, sans-serif;
+  font-family: 'Lato', Microsoft YaHei, sans-serif;
 }
 .site-subtitle {
   margin-top: 10px;
@@ -1233,7 +1228,7 @@ pre .javascript .function {
 .post-body {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  font-family: 'Lato', SimSun, sans-serif;
+  font-family: 'Lato', Microsoft YaHei, sans-serif;
 }
 .post-body .exturl .fa {
   font-size: 14px;
@@ -1250,7 +1245,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: -20px auto 15px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1516,7 +1511,7 @@ pre .javascript .function {
 .posts-expand .post-meta {
   margin: 3px 0 60px 0;
   color: #999;
-  font-family: 'Lato', SimSun, sans-serif;
+  font-family: 'Lato', Microsoft YaHei, sans-serif;
   font-size: 12px;
   text-align: center;
 }
@@ -2008,7 +2003,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #96ff39;
+  background: #3608ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2666,7 +2661,7 @@ ul.breadcrumb {
   margin: 1em 0;
   padding: 0 2em;
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
 }
 ul.breadcrumb li {
   display: inline;
@@ -3368,9 +3363,6 @@ pre {
 .highlight .code pre {
   background: #282c34;
 }
-table>tbody>tr {
-  background-color: #fffdf9;
-}
 .highlight,
 code,
 pre {
@@ -3423,4 +3415,14 @@ img.img-topic {
 }
 .open:after {
   content: "▲";
+}
+.blockquote-Purple {
+  color: #555;
+  border-left: 4px solid #6f42c1;
+  background-color: #f5f0fa;
+}
+.blockquote-Gary {
+  color: #666;
+  border-left: 4px solid #ddd;
+  background: #ededed;
 }
