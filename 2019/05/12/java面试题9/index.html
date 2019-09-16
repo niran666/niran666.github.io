@@ -181,17 +181,18 @@
 
 
 
-  <meta name="keywords" content="java面试题,计算机网络">
+  <meta name="description" content="1、TCP为什么需要3次握手，4次断开？">
+<meta name="keywords" content="java面试题,计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="(整理)java面试题(九)计算机网络">
 <meta property="og:url" content="http://api.niran.vip/2019/05/12/java面试题9/index.html">
 <meta property="og:site_name" content="倪然的博客">
+<meta property="og:description" content="1、TCP为什么需要3次握手，4次断开？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=05121753">
-<meta property="og:updated_time" content="2019-08-15T03:31:54.823Z">
+<meta property="og:updated_time" content="2019-09-16T08:51:05.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(整理)java面试题(九)计算机网络">
-<meta name="twitter:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=05121753">
+<meta name="twitter:description" content="1、TCP为什么需要3次握手，4次断开？">
 
 
 
@@ -529,7 +530,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="更新于：2019-08-15 11:31:54" itemprop="dateModified" datetime="2019-08-15T11:31:54+08:00">2019-08-15</time>
+                <time title="更新于：2019-09-16 16:51:05" itemprop="dateModified" datetime="2019-09-16T16:51:05+08:00">2019-09-16</time>
               
             
           </span>
@@ -592,9 +593,9 @@
       
 
       
-        <p><img src="https://s0.xinger.ink/acgimg/acgurl.php?q=05121753" alt="avatar"></p>
-<a id="more"></a>
-<h3 id="1、TCP为什么需要3次握手，4次断开？"><a href="#1、TCP为什么需要3次握手，4次断开？" class="headerlink" title="1、TCP为什么需要3次握手，4次断开？"></a>1、TCP为什么需要3次握手，4次断开？</h3><p>“三次握手”的目的是“为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误”。 client发出的第一个连接请求报文段并没有丢失，而是在某个网络结点长时间的滞留了，以致延误到连接释放以后的某个时间才到达server。本来这是一个早已失效的报文段。但server收到此失效的连接请求报文段后，就误认为是client再次发出的一个新的连接请求。于是就向client发出确认报文段，同意建立连接。假设不采用“三次握手”，那么只要server发出确认，新的连接就建立了。由于现在client并没有发出建立连接的请求，因此不会理睬server的确认，也不会向server发送数据。但server却以为新的运输连接已经建立，并一直等待client发来数据。这样，server的很多资源就白白浪费掉了。采用“三次握手”的办法可以防止上述现象发生。例如刚才那种情况，client不会向server的确认发出确认。server由于收不到确认，就知道client并没有要求建立连接。”。主要目的防止server端一直等待，浪费资源。</p>
+        <h3 id="1、TCP为什么需要3次握手，4次断开？"><a href="#1、TCP为什么需要3次握手，4次断开？" class="headerlink" title="1、TCP为什么需要3次握手，4次断开？"></a>1、TCP为什么需要3次握手，4次断开？</h3><a id="more"></a>
+
+<p>“三次握手”的目的是“为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误”。 client发出的第一个连接请求报文段并没有丢失，而是在某个网络结点长时间的滞留了，以致延误到连接释放以后的某个时间才到达server。本来这是一个早已失效的报文段。但server收到此失效的连接请求报文段后，就误认为是client再次发出的一个新的连接请求。于是就向client发出确认报文段，同意建立连接。假设不采用“三次握手”，那么只要server发出确认，新的连接就建立了。由于现在client并没有发出建立连接的请求，因此不会理睬server的确认，也不会向server发送数据。但server却以为新的运输连接已经建立，并一直等待client发来数据。这样，server的很多资源就白白浪费掉了。采用“三次握手”的办法可以防止上述现象发生。例如刚才那种情况，client不会向server的确认发出确认。server由于收不到确认，就知道client并没有要求建立连接。”。主要目的防止server端一直等待，浪费资源。</p>
 <p><strong>为什么4次断开？</strong></p>
 <p>因为TCP有个半关闭状态，假设A.B要释放连接，那么A发送一个释放连接报文给B，B收到后发送确认，这个时候A不发数据，但是B如果发数据A还是要接受，这叫半关闭。然后B还要发给A连接释放报文，然后A发确认，所以是4次。<br>在tcp连接握手时为何ACK是和SYN一起发送，这里ACK却没有和FIN一起发送呢。原因是因为tcp是全双工模式，接收到FIN时意味将没有数据再发来，但是还是可以继续发送数据。</p>
 <h3 id="2、TCP和UDP有什么区别？"><a href="#2、TCP和UDP有什么区别？" class="headerlink" title="2、TCP和UDP有什么区别？"></a>2、TCP和UDP有什么区别？</h3><p>TCP是传输控制协议，提供的是面向连接、可靠的字节流服务。通信双方彼此交换数据前，必须先通过三次握手协议建立连接，之后才能传输数据。TCP提供超时重传，丢弃重复数据，检验数据，流量控制等功能，保证数据能从一端传到另一端。UDP是用户数据报协议，是一个简单的面向无连接的协议。UDP不提供可靠的服务。在数据数据前不用建立连接故而传输速度很快。UDP主要用户流媒体传输，IP电话等对数据可靠性要求不是很高的场合。</p>

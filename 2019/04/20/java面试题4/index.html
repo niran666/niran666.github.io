@@ -181,18 +181,20 @@
 
 
 
-  <meta name="keywords" content="java,java面试题">
+  <meta name="description" content="1、你知道哪些垃圾回收算法?垃圾回收从理论上非常容易理解,具体的方法有以下几种:">
+<meta name="keywords" content="java,java面试题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="(整理)java面试题(四)垃圾回收">
 <meta property="og:url" content="http://api.niran.vip/2019/04/20/java面试题4/index.html">
 <meta property="og:site_name" content="倪然的博客">
+<meta property="og:description" content="1、你知道哪些垃圾回收算法?垃圾回收从理论上非常容易理解,具体的方法有以下几种:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=420212547">
 <meta property="og:image" content="http://pq57ykm1i.bkt.clouddn.com/GC.PNG">
-<meta property="og:updated_time" content="2019-08-04T05:53:26.821Z">
+<meta property="og:updated_time" content="2019-09-16T08:50:06.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(整理)java面试题(四)垃圾回收">
-<meta name="twitter:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=420212547">
+<meta name="twitter:description" content="1、你知道哪些垃圾回收算法?垃圾回收从理论上非常容易理解,具体的方法有以下几种:">
+<meta name="twitter:image" content="http://pq57ykm1i.bkt.clouddn.com/GC.PNG">
 
 
 
@@ -530,7 +532,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="更新于：2019-08-04 13:53:26" itemprop="dateModified" datetime="2019-08-04T13:53:26+08:00">2019-08-04</time>
+                <time title="更新于：2019-09-16 16:50:06" itemprop="dateModified" datetime="2019-09-16T16:50:06+08:00">2019-09-16</time>
               
             
           </span>
@@ -593,9 +595,9 @@
       
 
       
-        <p><img src="https://s0.xinger.ink/acgimg/acgurl.php?q=420212547" alt="avatar"></p>
+        <p><strong>1、你知道哪些垃圾回收算法?</strong><br>垃圾回收从理论上非常容易理解,具体的方法有以下几种: </p>
 <a id="more"></a>
-<p><strong>1、你知道哪些垃圾回收算法?</strong><br>垃圾回收从理论上非常容易理解,具体的方法有以下几种: </p>
+
 <ol>
 <li><p>标记-清除<br>最基础的垃圾收集算法，算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成之后统一回收掉所有被标记的对象。<br>标记-清除算法的缺点有两个：首先，效率问题，标记和清除效率都不高。其次，标记清除之后会产生大量的不连续的内存碎片，空间碎片太多会导致当程序需要为较大对象分配内存时无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。</p>
 </li>

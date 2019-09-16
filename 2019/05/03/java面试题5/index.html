@@ -181,17 +181,18 @@
 
 
 
-  <meta name="keywords" content="java,java面试题,java多线程">
+  <meta name="description" content="1、说说进程，线程，协程之间的区别简而言之，进程是程序运行和资源分配的基本单位，一个程序至少有一个进程，一个进程至少有一个线程。进程在执行过程中拥有独立的内存单元，而多个线程共享内存资源，减少切换次数，从而效率更高。线程是进程的一个实体，是cpu调度和分派的基本单位，是比程序更小的能独立运行的基本单位。同一进程中的多个线程之间可以并发执行。">
+<meta name="keywords" content="java,java面试题,java多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="(整理)java面试题(五)线程相关">
 <meta property="og:url" content="http://api.niran.vip/2019/05/03/java面试题5/index.html">
 <meta property="og:site_name" content="倪然的博客">
+<meta property="og:description" content="1、说说进程，线程，协程之间的区别简而言之，进程是程序运行和资源分配的基本单位，一个程序至少有一个进程，一个进程至少有一个线程。进程在执行过程中拥有独立的内存单元，而多个线程共享内存资源，减少切换次数，从而效率更高。线程是进程的一个实体，是cpu调度和分派的基本单位，是比程序更小的能独立运行的基本单位。同一进程中的多个线程之间可以并发执行。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=05031641">
-<meta property="og:updated_time" content="2019-08-10T03:10:18.322Z">
+<meta property="og:updated_time" content="2019-09-16T08:50:19.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(整理)java面试题(五)线程相关">
-<meta name="twitter:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=05031641">
+<meta name="twitter:description" content="1、说说进程，线程，协程之间的区别简而言之，进程是程序运行和资源分配的基本单位，一个程序至少有一个进程，一个进程至少有一个线程。进程在执行过程中拥有独立的内存单元，而多个线程共享内存资源，减少切换次数，从而效率更高。线程是进程的一个实体，是cpu调度和分派的基本单位，是比程序更小的能独立运行的基本单位。同一进程中的多个线程之间可以并发执行。">
 
 
 
@@ -529,7 +530,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="更新于：2019-08-10 11:10:18" itemprop="dateModified" datetime="2019-08-10T11:10:18+08:00">2019-08-10</time>
+                <time title="更新于：2019-09-16 16:50:19" itemprop="dateModified" datetime="2019-09-16T16:50:19+08:00">2019-09-16</time>
               
             
           </span>
@@ -592,9 +593,9 @@
       
 
       
-        <p><img src="https://s0.xinger.ink/acgimg/acgurl.php?q=05031641" alt="avatar"></p>
+        <p><strong>1、说说进程，线程，协程之间的区别</strong><br>简而言之，进程是程序运行和资源分配的基本单位，一个程序至少有一个进程，一个进程至少有一个线程。进程在执行过程中拥有独立的内存单元，而多个线程共享内存资源，减少切换次数，从而效率更高。线程是进程的一个实体，是cpu调度和分派的基本单位，是比程序更小的能独立运行的基本单位。同一进程中的多个线程之间可以并发执行。</p>
 <a id="more"></a>
-<p><strong>1、说说进程，线程，协程之间的区别</strong><br>简而言之，进程是程序运行和资源分配的基本单位，一个程序至少有一个进程，一个进程至少有一个线程。进程在执行过程中拥有独立的内存单元，而多个线程共享内存资源，减少切换次数，从而效率更高。线程是进程的一个实体，是cpu调度和分派的基本单位，是比程序更小的能独立运行的基本单位。同一进程中的多个线程之间可以并发执行。</p>
+
 <ul>
 <li>进程：直观点说，保存在硬盘上的程序运行以后，会在内存空间里形成一个独立的内存体，这个内存体有自己的地址空间，有自己的堆，上级挂靠单位是操作系统。操作系统会以进程为单位，分配系统资源，所以我们也说，进程是资源分配的最小单位。</li>
 <li>线程：有时被称为轻量级进程(Lightweight Process，LWP），是操作系统调度（CPU调度）执行的最小单位。</li>
