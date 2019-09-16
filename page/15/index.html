@@ -181,39 +181,20 @@
 
 
 
-  <meta name="description" content="什么是依赖倒置原则？要了解控制反转( Inversion of Control ), 我觉得有必要先了解软件设计的一个重要思想：依赖倒置原则（Dependency Inversion Principle ）什么是依赖倒置原则？假设我们设计一辆汽车：先设计轮子，然后根据轮子大小设计底盘，接着根据底盘设计车身，最后根据车身设计好整个汽车。这里就出现了一个“依赖”关系：汽车依赖车身，车身依赖底盘，底盘依">
-<meta name="keywords" content="spring,SpringBoot,java">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Spring IoC好处">
-<meta property="og:url" content="http://api.niran.vip/2019/08/15/IoC2/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="倪然的博客">
+<meta property="og:url" content="http://api.niran.vip/page/15/index.html">
 <meta property="og:site_name" content="倪然的博客">
-<meta property="og:description" content="什么是依赖倒置原则？要了解控制反转( Inversion of Control ), 我觉得有必要先了解软件设计的一个重要思想：依赖倒置原则（Dependency Inversion Principle ）什么是依赖倒置原则？假设我们设计一辆汽车：先设计轮子，然后根据轮子大小设计底盘，接着根据底盘设计车身，最后根据车身设计好整个汽车。这里就出现了一个“依赖”关系：汽车依赖车身，车身依赖底盘，底盘依">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://img.niran.vip/v2-c68248bb5d9b4d64d22600571e996446_hd.jpg">
-<meta property="og:image" content="http://img.niran.vip/v2-e64bf72c5c04412f626b21753aa9e1a1_hd.jpg">
-<meta property="og:image" content="http://img.niran.vip/v2-ee924f8693cff51785ad6637ac5b21c1_hd.jpg">
-<meta property="og:image" content="http://img.niran.vip/v2-8ec294de7d0f9013788e3fb5c76069ef_hd.jpg">
-<meta property="og:image" content="http://img.niran.vip/v2-64e8b19eeb70d9cf87c27fe4c5c0fc81_hd.jpg">
-<meta property="og:image" content="http://img.niran.vip/v2-82e0c12a1b26f7979ed9241e169affda_hd.jpg">
-<meta property="og:image" content="http://img.niran.vip/v2-c920a0540ce0651003a5326f6ef9891d_hd.jpg">
-<meta property="og:image" content="http://img.niran.vip/v2-99ad2cd809fcb86dd791ff7f65fb1779_hd.jpg">
-<meta property="og:image" content="http://img.niran.vip/v2-861683acac47577c81f2b7493dd05649_hd.jpg">
-<meta property="og:image" content="http://img.niran.vip/v2-c845802f9187953ed576e0555f76da42_hd.jpg">
-<meta property="og:image" content="http://img.niran.vip/v2-555b2be7d76e78511a6d6fed3304927f_hd.jpg">
-<meta property="og:image" content="http://img.niran.vip/v2-24a96669241e81439c636e83976ba152_hd.jpg">
-<meta property="og:image" content="http://img.niran.vip/v2-5ca61395f37cef73c7bbe7808f9ea219_hd.jpg">
-<meta property="og:updated_time" content="2019-08-15T03:30:58.999Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring IoC好处">
-<meta name="twitter:description" content="什么是依赖倒置原则？要了解控制反转( Inversion of Control ), 我觉得有必要先了解软件设计的一个重要思想：依赖倒置原则（Dependency Inversion Principle ）什么是依赖倒置原则？假设我们设计一辆汽车：先设计轮子，然后根据轮子大小设计底盘，接着根据底盘设计车身，最后根据车身设计好整个汽车。这里就出现了一个“依赖”关系：汽车依赖车身，车身依赖底盘，底盘依">
-<meta name="twitter:image" content="http://img.niran.vip/v2-c68248bb5d9b4d64d22600571e996446_hd.jpg">
+<meta name="twitter:title" content="倪然的博客">
 
 
 
 
 
 
-  <link rel="canonical" href="http://api.niran.vip/2019/08/15/IoC2/">
+  <link rel="canonical" href="http://api.niran.vip/page/15/">
 
 
 
@@ -223,7 +204,7 @@
   };
 </script>
 
-  <title>Spring IoC好处 | 倪然的博客</title>
+  <title>倪然的博客</title>
   
 
 
@@ -272,7 +253,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -468,9 +450,9 @@
           
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -485,7 +467,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://api.niran.vip/2019/08/15/IoC2/">
+    <link itemprop="mainEntityOfPage" href="http://api.niran.vip/2019/04/19/java面试题1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="倪然">
@@ -502,7 +484,10 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring IoC好处
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/19/java面试题1/" class="post-title-link" itemprop="http://api.niran.vip/page/15/index.html">(整理)java面试题(一)基本概念</a>
               
             
           </h1>
@@ -527,17 +512,47 @@
                 
               
 
-              <time title="创建于：2019-08-15 11:27:30 / 更新于：11:30:58" itemprop="dateCreated datePublished" datetime="2019-08-15T11:27:30+08:00">2019-08-15</time>
+              <time title="创建于：2019-04-19 20:38:44" itemprop="dateCreated datePublished" datetime="2019-04-19T20:38:44+08:00">2019-04-19</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2019-08-15 11:33:49" itemprop="dateModified" datetime="2019-08-15T11:33:49+08:00">2019-08-15</time>
               
             
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java面试题/" itemprop="url" rel="index"><span itemprop="name">java面试题</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -545,7 +560,7 @@
 
           
           
-             <span id="/2019/08/15/IoC2/" class="leancloud_visitors" data-flag-title="Spring IoC好处">
+             <span id="/2019/04/19/java面试题1/" class="leancloud_visitors" data-flag-title="(整理)java面试题(一)基本概念">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -577,60 +592,34 @@
       
 
       
-        <h2 id="什么是依赖倒置原则？"><a href="#什么是依赖倒置原则？" class="headerlink" title="什么是依赖倒置原则？"></a>什么是依赖倒置原则？</h2><p>要了解<strong>控制反转( Inversion of Control )</strong>, 我觉得有必要先了解软件设计的一个重要思想：依赖倒置原则（Dependency Inversion Principle ）<br>什么是依赖倒置原则？假设我们设计一辆汽车：先设计轮子，然后根据轮子大小设计底盘，接着根据底盘设计车身，最后根据车身设计好整个汽车。这里就出现了一个“依赖”关系：汽车依赖车身，车身依赖底盘，底盘依赖轮子。</p>
-<a id="more"></a>
+        
+          <p><img src="https://s0.xinger.ink/acgimg/acgurl.php" alt="avatar"></p>
 
-<p><img src="http://img.niran.vip/v2-c68248bb5d9b4d64d22600571e996446_hd.jpg" alt="此处输入图片的描述"></p>
-<p>这样的设计看起来没问题，但是可维护性却很低。假设设计完工之后，上司却突然说根据市场需求的变动，要我们把车子的轮子设计都改大一码。这下我们就蛋疼了：因为我们是根据轮子的尺寸设计的底盘，轮子的尺寸一改，底盘的设计就得修改；同样因为我们是根据底盘设计的车身，那么车身也得改，同理汽车设计也得改——整个设计几乎都得改！</p>
-<p>我们现在换一种思路。我们先设计汽车的大概样子，然后根据汽车的样子来设计车身，根据车身来设计底盘，最后根据底盘来设计轮子。这时候，依赖关系就倒置过来了：轮子依赖底盘， 底盘依赖车身， 车身依赖汽车。<br><img src="http://img.niran.vip/v2-e64bf72c5c04412f626b21753aa9e1a1_hd.jpg" alt="此处输入图片的描述"></p>
-<p>这时候，上司再说要改动轮子的设计，我们就只需要改动轮子的设计，而不需要动底盘，车身，汽车的设计了。</p>
-<blockquote>
-<p>这就是<strong>依赖倒置原则</strong>——把原本的高层建筑依赖底层建筑“倒置”过来，变成底层建筑依赖高层建筑。高层建筑决定需要什么，底层去实现这样的需求，但是高层并不用管底层是怎么实现的。这样就不会出现前面的“牵一发动全身”的情况。</p>
-</blockquote>
-<h2 id="控制反转"><a href="#控制反转" class="headerlink" title="控制反转"></a>控制反转</h2><p>控制反转（Inversion of Control） 就是依赖倒置原则的一种代码设计的思路。具体采用的方法就是所谓的依赖注入（Dependency Injection）。其实这些概念初次接触都会感到云里雾里的。说穿了，这几种概念的关系大概如下：<br><img src="http://img.niran.vip/v2-ee924f8693cff51785ad6637ac5b21c1_hd.jpg" alt="此处输入图片的描述"></p>
-<p>为了理解这几个概念，我们还是用上面汽车的例子。只不过这次换成代码。我们先定义四个Class，车，车身，底盘，轮胎。然后初始化这辆车，最后跑这辆车。代码结构如下：</p>
-<p><img src="http://img.niran.vip/v2-8ec294de7d0f9013788e3fb5c76069ef_hd.jpg" alt="此处输入图片的描述"></p>
-<p>这样，就相当于上面第一个例子，上层建筑依赖下层建筑——每一个类的构造函数都直接调用了底层代码的构造函数。假设我们需要改动一下轮胎（Tire）类，把它的尺寸变成动态的，而不是一直都是30。我们需要这样改：<br><img src="http://img.niran.vip/v2-64e8b19eeb70d9cf87c27fe4c5c0fc81_hd.jpg" alt="此处输入图片的描述"></p>
-<p>由于我们修改了轮胎的定义，为了让整个程序正常运行，我们需要做以下改动：<br><img src="http://img.niran.vip/v2-82e0c12a1b26f7979ed9241e169affda_hd.jpg" alt="此处输入图片的描述"></p>
-<p>由此我们可以看到，仅仅是为了修改轮胎的构造函数，这种设计却需<strong>要修改整个上层所有类的构造函数</strong>！在软件工程中，<strong>这样的设计几乎是不可维护的</strong>——在实际工程项目中，有的类可能会是几千个类的底层，如果每次修改这个类，我们都要修改所有以它作为依赖的类，那软件的维护成本就太高了。</p>
-<p>所以我们需要进行<strong>控制反转（IoC）</strong>，及上层控制下层，而不是下层控制着上层。我们用依赖注入（Dependency Injection）这种方式来实现控制反转。<strong>所谓依赖注入，就是把底层类作为参数传入上层类，实现上层类对下层类的“控制”</strong>。这里我们用构造方法传递的依赖注入方式重新写车类的定义：</p>
-<p><img src="http://img.niran.vip/v2-c920a0540ce0651003a5326f6ef9891d_hd.jpg" alt="此处输入图片的描述"></p>
-<p>这里我们再把轮胎尺寸变成动态的，同样为了让整个系统顺利运行，我们需要做如下修改：</p>
-<p><img src="http://img.niran.vip/v2-99ad2cd809fcb86dd791ff7f65fb1779_hd.jpg" alt="此处输入图片的描述"></p>
-<p>这里我只需要修改轮胎类就行了，不用修改其他任何上层类。这显然是更容易维护的代码。不仅如此，在实际的工程中，这种设计模式还<strong>有利于不同组的协同合作和单元测试</strong>：比如开发这四个类的分别是四个不同的组，那么只要定义好了接口，四个不同的组可以同时进行开发而不相互受限制；而对于单元测试，如果我们要写Car类的单元测试，就只需要Mock一下Framework类传入Car就行了，而不用把Framework, Bottom, Tire全部new一遍再来构造Car。</p>
-<p>这里我们是采用的<strong>构造函数传入的方式</strong>进行的依赖注入。其实还有另外两种方法：Setter传递和接口传递。这里就不多讲了，核心思路都是一样的，都是为了实现控制反转。</p>
-<p><img src="http://img.niran.vip/v2-861683acac47577c81f2b7493dd05649_hd.jpg" alt="此处输入图片的描述"></p>
-<p>看到这里你应该能理解什么<strong>控制反转和依赖注入</strong>了。那什么是控制反转容器(IoC Container)呢？其实上面的例子中，对车类进行初始化的那段代码发生的地方，就是控制反转容器。<br><img src="http://img.niran.vip/v2-c845802f9187953ed576e0555f76da42_hd.jpg" alt="此处输入图片的描述"></p>
-<p>显然你也应该观察到了，因为采用了依赖注入，在初始化的过程中就不可避免的会写大量的new。这里IoC容器就解决了这个问题。这个容器可以自动对你的代码进行初始化，你只需要维护一个Configuration（可以是xml可以是一段代码），而不用每次初始化一辆车都要亲手去写那一大段初始化的代码。这是引入IoC Container的第一个好处。</p>
-<p>IoC Container的第二个好处是：我们在创建实例的时候不需要了解其中的细节。在上面的例子中，我们自己手动创建一个车instance时候，是从底层往上层new的：<br><img src="http://img.niran.vip/v2-555b2be7d76e78511a6d6fed3304927f_hd.jpg" alt="此处输入图片的描述"></p>
-<p>这个过程中，我们需要了解整个Car/Framework/Bottom/Tire类构造函数是怎么定义的，才能一步一步new/注入。而IoC Container在进行这个工作的时候是反过来的，它先从最上层开始往下找依赖关系，到达最底层之后再往上一步一步new（有点像深度优先遍历）：</p>
-<p><img src="http://img.niran.vip/v2-24a96669241e81439c636e83976ba152_hd.jpg" alt="此处输入图片的描述"></p>
-<p>这里IoC Container可以直接隐藏具体的创建实例的细节，在我们来看它就像一个工厂：<br><img src="http://img.niran.vip/v2-5ca61395f37cef73c7bbe7808f9ea219_hd.jpg" alt="此处输入图片的描述"></p>
-<p>我们就像是工厂的客户。我们只需要向工厂请求一个Car实例，然后它就给我们按照Config创建了一个Car实例。我们完全不用管这个Car实例是怎么一步一步被创建出来。实际项目中，有的Service Class可能是十年前写的，有几百个类作为它的底层。假设我们新写的一个API需要实例化这个Service，我们总不可能回头去搞清楚这几百个类的构造函数吧？</p>
-<p>IoC Container的这个特性就很完美的解决了这类问题——因为这个架构要求你在写class的时候需要写相应的Config文件，所以你要初始化很久以前的Service类的时候，前人都已经写好了Config文件，你直接在需要用的地方注入这个Service就可以了。这大大增加了项目的可维护性且降低了开发难度。</p>
+        
 
-      
-    </div>
-    <div>
-      
-        <div>
-    
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
-    
-</div>
-
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    <div>
+          <!--noindex-->
           
-            
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/19/java面试题1/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+    <div>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
           
     </div>
     
@@ -644,44 +633,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/spring/" rel="tag"><i class="fa fa-tag"></i>spring</a>
-          
-            <a href="/tags/SpringBoot/" rel="tag"><i class="fa fa-tag"></i>SpringBoot</a>
-          
-            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i>java</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/08/31/javaIO/" rel="prev" title="java IO操作">
-                 <i class="fa fa-chevron-left"></i> java IO操作
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/15/springIoC/" rel="next" title="Spring IoC原理">
-                Spring IoC原理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -691,19 +650,199 @@
   </article>
 
 
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://api.niran.vip/2019/04/18/SpringBoot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="倪然">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://img.niran.vip/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="倪然的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/18/SpringBoot/" class="post-title-link" itemprop="http://api.niran.vip/page/15/index.html">Spring Boot + Spring Security解决UsernameNotFoundException无法被捕获的问题</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建于：2019-04-18 13:35:04" itemprop="dateCreated datePublished" datetime="2019-04-18T13:35:04+08:00">2019-04-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2019-08-15 11:34:07" itemprop="dateModified" datetime="2019-08-15T11:34:07+08:00">2019-08-15</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/18/SpringBoot/" class="leancloud_visitors" data-flag-title="Spring Boot + Spring Security解决UsernameNotFoundException无法被捕获的问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃<span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </span></span></div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="https://s0.xinger.ink/acgimg/acgurl.php?q=12" alt="avatar"></p>
+
+        
+
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/18/SpringBoot/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+    <div>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+          
+    </div>
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span>
+  </nav>
+
 
 
           </div>
           
-
-  
-    <div id="gitalk-container">
-    </div>
-    
-  
-
-
 
         </div>
         
@@ -724,17 +863,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -929,22 +1059,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是依赖倒置原则？"><span class="nav-text">什么是依赖倒置原则？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制反转"><span class="nav-text">控制反转</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
         <div class="back-to-top">
@@ -1106,10 +1220,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
-
-
 
   
 
@@ -1132,32 +1242,6 @@
 
 
 
-
-
-  
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
-
-  
-  
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css">
-
-  
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
-    
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: 'eb5bbed58a15239d8ab7',
-          clientSecret: '17b324a4d3178abb03f7766c7b94b876fb33babe',
-          repo: 'niran666.github.io',
-          owner: 'niran666',
-          admin: ['niran666'],
-          id: md5(location.pathname),
-          distractionFreeMode: 'true'
-        })
-        gitalk.render('gitalk-container')           
-       </script>
 
   
 
@@ -1490,37 +1574,43 @@
   
   <script>
     
-    function addCount(Counter) {
+    function showTime(Counter) {
+      var entries = [];
       var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
 
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { "$in": entries } }) })
         .done(function ({ results }) {
-          if (results.length > 0) {
-            var counter = results[0];
-            
-            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
-            
-            .done(function () {
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
-            })
-            
-            .fail(function ({ responseJSON }) {
-                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
-            })
-          } else {
-            
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
-            
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
           }
         })
-      .fail(function ({ responseJSON }) {
-        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
-      });
+        .fail(function ({ responseJSON }) {
+          console.log("LeanCloud Counter Error: " + responseJSON.code + " " + responseJSON.error);
+        });
     }
     
 
@@ -1540,7 +1630,9 @@
             });
           };
           
-          addCount(Counter);
+          if ($('.post-title-link').length >= 1) {
+            showTime(Counter);
+          }
           
         })
     });
@@ -1558,6 +1650,12 @@
   
 
   
+  
+    
+      
+    
+      
+    
   
 
   
