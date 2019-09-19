@@ -181,17 +181,18 @@
 
 
 
-  <meta name="keywords" content="java,hash,equle,java基础">
+  <meta name="description" content="1、====是运算符，用于比较两个变量是否相等，而equals是Object类的方法，用于比较两个对象是否相等。默认Object类的equals方法是比较两个对象的地址，此时和==的结果一样。换句话说：基本类型比较用==，比较的是他们的值。默认下，对象用==比较时，比较的是内存地址，如果需要比较对象内容，需要重写equal方法。">
+<meta name="keywords" content="java,hash,equle,java基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="(整理)java中==和eqauls()的区别,equals()和hashcode的区别">
 <meta property="og:url" content="http://api.niran.vip/2019/04/20/hashequle/index.html">
 <meta property="og:site_name" content="倪然的博客">
+<meta property="og:description" content="1、====是运算符，用于比较两个变量是否相等，而equals是Object类的方法，用于比较两个对象是否相等。默认Object类的equals方法是比较两个对象的地址，此时和==的结果一样。换句话说：基本类型比较用==，比较的是他们的值。默认下，对象用==比较时，比较的是内存地址，如果需要比较对象内容，需要重写equal方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=1">
-<meta property="og:updated_time" content="2019-04-20T11:02:22.501Z">
+<meta property="og:updated_time" content="2019-09-19T03:01:46.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(整理)java中==和eqauls()的区别,equals()和hashcode的区别">
-<meta name="twitter:image" content="https://s0.xinger.ink/acgimg/acgurl.php?q=1">
+<meta name="twitter:description" content="1、====是运算符，用于比较两个变量是否相等，而equals是Object类的方法，用于比较两个对象是否相等。默认Object类的equals方法是比较两个对象的地址，此时和==的结果一样。换句话说：基本类型比较用==，比较的是他们的值。默认下，对象用==比较时，比较的是内存地址，如果需要比较对象内容，需要重写equal方法。">
 
 
 
@@ -512,12 +513,24 @@
                 
               
 
-              <time title="创建于：2019-04-20 13:24:41 / 更新于：19:02:22" itemprop="dateCreated datePublished" datetime="2019-04-20T13:24:41+08:00">2019-04-20</time>
+              <time title="创建于：2019-04-20 13:24:41" itemprop="dateCreated datePublished" datetime="2019-04-20T13:24:41+08:00">2019-04-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2019-09-19 11:01:46" itemprop="dateModified" datetime="2019-09-19T11:01:46+08:00">2019-09-19</time>
               
             
           </span>
@@ -562,9 +575,9 @@
       
 
       
-        <p><img src="https://s0.xinger.ink/acgimg/acgurl.php?q=1" alt="avatar"></p>
+        <p><strong>1、==</strong><br>==是运算符，用于比较两个变量是否相等，而equals是Object类的方法，用于比较两个对象是否相等。默认Object类的equals方法是比较两个对象的地址，此时和==的结果一样。换句话说：基本类型比较用==，比较的是他们的值。默认下，对象用==比较时，比较的是内存地址，如果需要比较对象内容，需要重写equal方法。</p>
 <a id="more"></a>
-<p><strong>1、==</strong><br>==是运算符，用于比较两个变量是否相等，而equals是Object类的方法，用于比较两个对象是否相等。默认Object类的equals方法是比较两个对象的地址，此时和==的结果一样。换句话说：基本类型比较用==，比较的是他们的值。默认下，对象用==比较时，比较的是内存地址，如果需要比较对象内容，需要重写equal方法。</p>
+
 <p><strong>2、equals</strong><br>1、默认情况（没有覆盖equals方法）下equals方法都是调用Object类的equals方法，而Object的equals方法主要用于判断对象的内存地址引用是不是同一个地址（是不是同一个对象）。下面是Object类中equals方法：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">this</span> == obj);  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 

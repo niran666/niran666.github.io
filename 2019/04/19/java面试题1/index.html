@@ -189,12 +189,12 @@
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:description" content="1.面向对象的三个特征封装，继承，多态，这个应该是人人皆知，有时候也会加上抽象。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pq57ykm1i.bkt.clouddn.com/%E4%B8%8B%E8%BD%BD.png">
-<meta property="og:updated_time" content="2019-09-16T08:49:28.366Z">
+<meta property="og:image" content="http://img.niran.vip/%E4%B8%8B%E8%BD%BD.png">
+<meta property="og:updated_time" content="2019-09-17T07:01:56.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(整理)java面试题(一)基本概念">
 <meta name="twitter:description" content="1.面向对象的三个特征封装，继承，多态，这个应该是人人皆知，有时候也会加上抽象。">
-<meta name="twitter:image" content="http://pq57ykm1i.bkt.clouddn.com/%E4%B8%8B%E8%BD%BD.png">
+<meta name="twitter:image" content="http://img.niran.vip/%E4%B8%8B%E8%BD%BD.png">
 
 
 
@@ -532,7 +532,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="更新于：2019-09-16 16:49:28" itemprop="dateModified" datetime="2019-09-16T16:49:28+08:00">2019-09-16</time>
+                <time title="更新于：2019-09-17 15:01:56" itemprop="dateModified" datetime="2019-09-17T15:01:56+08:00">2019-09-17</time>
               
             
           </span>
@@ -614,7 +614,7 @@
 </ol>
 <p><strong>4.接口的意义</strong><br>接口的意义用三个词就可以概括：规范，扩展，回调。<br>1.<a href="https://blog.csdn.net/nvd11/article/details/41129935" target="_blank" rel="noopener">接口的作用</a>   2.<a href="https://blog.csdn.net/whandwho/article/details/80247521" target="_blank" rel="noopener">接口的深入理解</a></p>
 <p><strong>5.抽象类的意义</strong><br>抽象类的意义可以用三句话来概括：<br>为其他子类提供一个公共的类型<br>封装子类中重复定义的内容<br>定义抽象方法,子类虽然有不同的实现，但是定义时一致的</p>
-<p><strong>6.接口和抽象类的区别</strong><br><img src="http://pq57ykm1i.bkt.clouddn.com/%E4%B8%8B%E8%BD%BD.png" alt="avatar"></p>
+<p><strong>6.接口和抽象类的区别</strong><br><img src="http://img.niran.vip/%E4%B8%8B%E8%BD%BD.png" alt="avatar"></p>
 <p><strong>7.父类的静态方法能否被子类重写</strong><br>不能。重写只适用于实例方法,不能用于静态方法，而子类当中含有和父类相同签名的静态方法，我们一般称之为隐藏。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;<span class="comment">//父类对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"父类的静态方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"父类的一般方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;<span class="comment">//子类对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Parent parent = <span class="keyword">new</span> Child();</span><br><span class="line">        parent.show();</span><br><span class="line">        parent.method();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"子类的静态"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"子类的一般方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">输出结果：</span><br><span class="line">    父类的静态方法</span><br><span class="line">    子类的一般方法</span><br></pre></td></tr></table></figure>
 
