@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#fff">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+    <script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "62bd7008"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#fff">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="如果不使用线程同步">
+<meta name="keywords" content="java,多线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(整理)java线程同步">
+<meta property="og:url" content="http://api.niran.vip/2019/09/20/java基础-线程同步/index.html">
+<meta property="og:site_name" content="倪然的博客">
+<meta property="og:description" content="如果不使用线程同步">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-21T06:26:56.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(整理)java线程同步">
+<meta name="twitter:description" content="如果不使用线程同步">
+
+
+
+
+
+
+  <link rel="canonical" href="http://api.niran.vip/2019/09/20/java基础-线程同步/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>(整理)java线程同步 | 倪然的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">倪然的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-futbol-o"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-reading">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/reading/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>读书/观影</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://api.niran.vip/2019/09/20/java基础-线程同步/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="倪然">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://img.niran.vip/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="倪然的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">(整理)java线程同步
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建于：2019-09-20 12:32:33" itemprop="dateCreated datePublished" datetime="2019-09-20T12:32:33+08:00">2019-09-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2019-09-21 14:26:56" itemprop="dateModified" datetime="2019-09-21T14:26:56+08:00">2019-09-21</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java基础/" itemprop="url" rel="index"><span itemprop="name">java基础</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/09/20/java基础-线程同步/" class="leancloud_visitors" data-flag-title="(整理)java线程同步">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃<span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </span></span></div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>如果不使用线程同步</p>
+<a id="more"></a>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SellRunnable sellRunnable = <span class="keyword">new</span> SellRunnable();</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(sellRunnable, <span class="string">"1"</span>);</span><br><span class="line">        Thread thread2 = <span class="keyword">new</span> Thread(sellRunnable, <span class="string">"2"</span>);</span><br><span class="line">        Thread thread3 = <span class="keyword">new</span> Thread(sellRunnable, <span class="string">"3"</span>);</span><br><span class="line">        thread2.start();</span><br><span class="line">        thread1.start();</span><br><span class="line">        thread3.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SellRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="comment">//有十张票</span></span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">sell</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            index--;</span><br><span class="line">            System.out.println(<span class="string">"售货窗口："</span> + Thread.currentThread().getName() + <span class="string">"  卖出了一张票,剩余："</span> + index);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"售货窗口："</span> + Thread.currentThread().getName() + <span class="string">" 买票时没票了"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (index &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"售货窗口："</span> + Thread.currentThread().getName() + <span class="string">" 开始买票"</span>);</span><br><span class="line">            sell();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">运行结果：</span><br><span class="line">售货窗口：<span class="number">2</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">1</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">3</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">2</span>  卖出了一张票,剩余：<span class="number">9</span></span><br><span class="line">售货窗口：<span class="number">2</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">1</span>  卖出了一张票,剩余：<span class="number">8</span></span><br><span class="line">售货窗口：<span class="number">1</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">3</span>  卖出了一张票,剩余：<span class="number">7</span></span><br><span class="line">售货窗口：<span class="number">3</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">2</span>  卖出了一张票,剩余：<span class="number">4</span></span><br><span class="line">售货窗口：<span class="number">2</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">1</span>  卖出了一张票,剩余：<span class="number">4</span></span><br><span class="line">售货窗口：<span class="number">1</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">3</span>  卖出了一张票,剩余：<span class="number">4</span></span><br><span class="line">售货窗口：<span class="number">3</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">2</span>  卖出了一张票,剩余：<span class="number">1</span></span><br><span class="line">售货窗口：<span class="number">2</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">3</span>  卖出了一张票,剩余：<span class="number">1</span></span><br><span class="line">售货窗口：<span class="number">3</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">1</span>  卖出了一张票,剩余：<span class="number">1</span></span><br><span class="line">售货窗口：<span class="number">1</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">1</span>  卖出了一张票,剩余：<span class="number">0</span></span><br><span class="line">售货窗口：<span class="number">2</span>  卖出了一张票,剩余：<span class="number">0</span></span><br><span class="line">售货窗口：<span class="number">3</span>  卖出了一张票,剩余：-<span class="number">1</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看到运行结果是错误的</p>
+<h2 id="1-使用synchronized关键字"><a href="#1-使用synchronized关键字" class="headerlink" title="1. 使用synchronized关键字"></a>1. 使用synchronized关键字</h2><h3 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h3><p>由于java的每个对象都有一个内置锁，当用此关键字修饰方法时， 内置锁会保护整个方法。在调用该方法前，需要获得内置锁，否则就处于阻塞状态</p>
+<p>给一个方法增加synchronized修饰符之后就可以使它成为同步方法，这个方法可以是静态方法和非静态方法，但是不能是抽象类的抽象方法，也不能是接口中的接口方法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">sell</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        index--;</span><br><span class="line">        System.out.println(<span class="string">"售货窗口："</span> + Thread.currentThread().getName() + <span class="string">"  卖出了一张票,剩余："</span> + index);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"售货窗口："</span> + Thread.currentThread().getName() + <span class="string">" 买票时没票了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注： synchronized关键字也可以修饰静态方法，此时<font color="red">如果调用该静态方法，将会锁住整个类</font>。</p>
+<h3 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">public  void sell() &#123;</span><br><span class="line">    synchronized (this) &#123;</span><br><span class="line">        if (index &gt;= 1) &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                Thread.sleep(1000);</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            index--;</span><br><span class="line">            System.out.println(&quot;售货窗口：&quot; + Thread.currentThread().getName() + &quot;  卖出了一张票,剩余：&quot; + index);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            System.out.println(&quot;售货窗口：&quot; + Thread.currentThread().getName() + &quot; 买票时没票了&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>注：同步是一种高开销的操作，因此应该尽量减少同步的内容。通常没有必要同步整个方法，使用synchronized代码块同步关键代码即可。</em></p>
+<p>线程在执行同步方法时是具有排它性的。当任意一个线程进入到一个对象的任意一个同步方法时，这个对象的所有同步方法都被锁定了，在此期间，其他任何线程都不能访问这个对象的任意一个同步方法，直到这个线程执行完它所调用的同步方法并从中退出，从而导致它释放了该对象的同步锁之后。<strong>在一个对象被某个线程锁定之后，其他线程是可以访问这个对象的所有非同步方法的。</strong></p>
+<p>如果一个对象既有同步方法，又有同步块，那么当其中任意一个同步方法或者同步块被某个线程执行时，这个对象就被锁定了，其他线程无法在此时访问这个对象的同步方法，也不能执行同步块。</p>
+<h2 id="2-同步锁Lock"><a href="#2-同步锁Lock" class="headerlink" title="2. 同步锁Lock"></a>2. 同步锁Lock</h2><p>在JavaSE5.0中新增了一个java.util.concurrent包来支持同步。ReentrantLock类是可重入、互斥、实现了Lock接口的锁，它与使用synchronized方法和快具有相同的基本行为和语义，并且扩展了其能力。ReenreantLock类的常用方法有： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ReentrantLock() : 创建一个ReentrantLock实例         </span><br><span class="line">lock() : 获得锁        </span><br><span class="line">unlock() : 释放锁</span><br></pre></td></tr></table></figure>
+
+<p><em>注：ReentrantLock()还有一个可以创建公平锁的构造方法，但由于能大幅度降低程序运行效率，不推荐使用</em> </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">sell</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    lock.lock();<span class="comment">//加锁</span></span><br><span class="line">    <span class="keyword">if</span> (index &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        index--;</span><br><span class="line">        System.out.println(<span class="string">"售货窗口："</span> + Thread.currentThread().getName() + <span class="string">"  卖出了一张票,剩余："</span> + index);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"售货窗口："</span> + Thread.currentThread().getName() + <span class="string">" 买票时没票了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    lock.unlock();<span class="comment">//释放锁</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：关于Lock对象和synchronized关键字的选择：</strong><br>a.最好两个都不用，使用一种java.util.concurrent包提供的数据结构(如BlockingQueue)，能够帮助用户处理所有与锁相关的代码。<br>b.如果synchronized关键字能满足用户的需求，就用synchronized，因为它能简化代码<br>c.如果需要更高级的功能，就用ReentrantLock类，此时要注意及时释放锁，否则会出现死锁，通常在finally代码释放锁 </p>
+<h2 id="3-使用特殊域变量-volatile-实现线程同步"><a href="#3-使用特殊域变量-volatile-实现线程同步" class="headerlink" title="3. 使用特殊域变量(volatile)实现线程同步"></a>3. 使用特殊域变量(volatile)实现线程同步</h2><ul>
+<li>volatile关键字为域变量的访问提供了一种免锁机制；</li>
+<li>使用volatile修饰域相当于告诉虚拟机该域可能会被其他线程更新；</li>
+<li>因此每次使用该域就要重新计算，而不是使用寄存器中的值；</li>
+<li>volatile不会提供任何原子操作，它也不能用来修饰final类型的变量。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bank</span> </span>&#123;</span><br><span class="line">    <span class="comment">//需要同步的变量加上volatile</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> account = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAccount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> account;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//这里不再需要synchronized </span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(<span class="keyword">int</span> money)</span> </span>&#123;</span><br><span class="line">        account += money;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-使用阻塞队列实现线程同步"><a href="#4-使用阻塞队列实现线程同步" class="headerlink" title="4. 使用阻塞队列实现线程同步"></a>4. 使用阻塞队列实现线程同步</h2><p>前面几种同步方式都是在底层实现的线程同步，但是我们在实际开发当中，应当尽量远离底层结构。 使用javaSE5.0版本中新增的java.util.concurrent包将有助于简化开发。</p>
+<p><strong>核心方法</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将给定元素设置到队列中，如果设置成功返回true, 否则返回false。如果是往限定了长度的队列中设置值，推荐使用offer()方法。</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将给定的元素设置到队列中，如果设置成功返回true, 否则返回false. e的值不能为空，否则抛出空指针异常。</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将元素设置到队列中，如果队列中没有多余的空间，该方法会一直阻塞，直到队列中有多余的空间。</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(E e)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将给定元素在给定的时间内设置到队列中，如果设置成功返回true, 否则返回false.</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e, <span class="keyword">long</span> timeout, TimeUnit unit)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//从队列中获取值，如果队列中没有值，线程会一直阻塞，直到队列中有值，并且该方法取得了该值。</span></span><br><span class="line">    <span class="function">E <span class="title">take</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//在给定的时间里，从队列中获取值，时间到了直接调用普通的poll方法，为null则直接返回null。</span></span><br><span class="line">    <span class="function">E <span class="title">poll</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取队列中剩余的空间。</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">remainingCapacity</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//从队列中移除指定的值。</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断队列中是否拥有该值。</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将队列中值，全部移除，并发设置到给定的集合中。</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">drainTo</span><span class="params">(Collection&lt;? <span class="keyword">super</span> E&gt; c)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//指定最多数量限制将队列中值，全部移除，并发设置到给定的集合中。</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">drainTo</span><span class="params">(Collection&lt;? <span class="keyword">super</span> E&gt; c, <span class="keyword">int</span> maxElements)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实例</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SellRunnable sellRunnable = <span class="keyword">new</span> SellRunnable();</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(sellRunnable, <span class="string">"1"</span>);</span><br><span class="line">        Thread thread2 = <span class="keyword">new</span> Thread(sellRunnable, <span class="string">"2"</span>);</span><br><span class="line">        Thread thread3 = <span class="keyword">new</span> Thread(sellRunnable, <span class="string">"3"</span>);</span><br><span class="line">        thread2.start();</span><br><span class="line">        thread1.start();</span><br><span class="line">        thread3.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SellRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    BlockingQueue&lt;Integer&gt; index=<span class="keyword">new</span> LinkedBlockingDeque&lt;&gt;(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SellRunnable</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">            index.add(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">sell</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"售货窗口："</span> + Thread.currentThread().getName() + <span class="string">"  卖出了"</span> + index.take() + <span class="string">"号票"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (index.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"售货窗口："</span> + Thread.currentThread().getName() + <span class="string">" 开始买票"</span>);</span><br><span class="line">            sell();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">运行结果：</span><br><span class="line">售货窗口：<span class="number">2</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">1</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">3</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">3</span>  卖出了<span class="number">0</span>号票</span><br><span class="line">售货窗口：<span class="number">3</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">1</span>  卖出了<span class="number">1</span>号票</span><br><span class="line">售货窗口：<span class="number">1</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">2</span>  卖出了<span class="number">2</span>号票</span><br><span class="line">售货窗口：<span class="number">2</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">1</span>  卖出了<span class="number">3</span>号票</span><br><span class="line">售货窗口：<span class="number">1</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">3</span>  卖出了<span class="number">5</span>号票</span><br><span class="line">售货窗口：<span class="number">3</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">2</span>  卖出了<span class="number">4</span>号票</span><br><span class="line">售货窗口：<span class="number">2</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">2</span>  卖出了<span class="number">6</span>号票</span><br><span class="line">售货窗口：<span class="number">3</span>  卖出了<span class="number">7</span>号票</span><br><span class="line">售货窗口：<span class="number">3</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">1</span>  卖出了<span class="number">8</span>号票</span><br><span class="line">售货窗口：<span class="number">1</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">2</span> 开始买票</span><br><span class="line">售货窗口：<span class="number">2</span>  卖出了<span class="number">9</span>号票</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-使用原子变量实现线程同步"><a href="#5-使用原子变量实现线程同步" class="headerlink" title="5. 使用原子变量实现线程同步"></a>5. 使用原子变量实现线程同步</h2><p>需要使用线程同步的根本原因在于对普通变量的操作不是原子的。</p>
+<p>那么什么是原子操作呢？原子操作就是指将读取变量值、修改变量值、保存变量值看成一个整体来操作即-这几种行为要么同时完成，要么都不完成。在java的util.concurrent.atomic包中提供了创建了原子类型变量的工具类，使用该类可以简化线程同步。其中AtomicInteger 表可以用原子方式更新int的值，可用在应用程序中(如以原子方式增加的计数器)，但不能用于替换Integer；可扩展Number，允许那些处理机遇数字类的工具和实用工具进行统一访问。</p>
+<p>AtomicInteger类常用方法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">AtomicInteger(int initialValue) //创建具有给定初始值的新的</span><br><span class="line">AtomicInteger addAddGet(int dalta) //以原子方式将给定值与当前值相加</span><br><span class="line">get() // 获取当前值</span><br></pre></td></tr></table></figure>
+
+<p>代码实例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SellRunnable sellRunnable = <span class="keyword">new</span> SellRunnable();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(sellRunnable).start();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        sellRunnable.print();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SellRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    AtomicInteger index1=<span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> index2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10000</span>;i++)&#123;</span><br><span class="line">            index1.addAndGet(<span class="number">1</span>);</span><br><span class="line">            index2++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"index1:"</span>+index1.get());</span><br><span class="line">        System.out.println(<span class="string">"index2:"</span>+index2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">index1:<span class="number">100000</span></span><br><span class="line">index2:<span class="number">89458</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+          
+            
+          
+    </div>
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i>java</a>
+          
+            <a href="/tags/多线程/" rel="tag"><i class="fa fa-tag"></i>多线程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/21/java基础-反射/" rel="prev" title="(整理)java基础——反射">
+                 <i class="fa fa-chevron-left"></i> (整理)java基础——反射
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/06/江苏大学爬虫/" rel="next" title="一次破解学校官网密码加密">
+                一次破解学校官网密码加密 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div id="gitalk-container">
+    </div>
+    
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+            <a href="/">
+              <img class="site-author-image" itemprop="image" src="http://img.niran.vip/touxiang.jpg" alt="倪然">
+            </a>
+            
+              <p class="site-author-name" itemprop="name">倪然</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">47</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/niran666" title="GitHub &rarr; https://github.com/niran666" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:1261614525@qq.com" title="E-Mail &rarr; mailto:1261614525@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://plus.google.com" title="Google &rarr; https://plus.google.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/ni1291614525" title="Twitter &rarr; https://twitter.com/ni1291614525" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="http://www.baidu.com/" rel="noopener" target="_blank">baidu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="http://example.com/" rel="noopener" target="_blank">google</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-使用synchronized关键字"><span class="nav-text">1. 使用synchronized关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步方法"><span class="nav-text">同步方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步代码块"><span class="nav-text">同步代码块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-同步锁Lock"><span class="nav-text">2. 同步锁Lock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用特殊域变量-volatile-实现线程同步"><span class="nav-text">3. 使用特殊域变量(volatile)实现线程同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用阻塞队列实现线程同步"><span class="nav-text">4. 使用阻塞队列实现线程同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-使用原子变量实现线程同步"><span class="nav-text">5. 使用原子变量实现线程同步</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">倪然</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+
+  
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css">
+
+  
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+    
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'eb5bbed58a15239d8ab7',
+          clientSecret: '17b324a4d3178abb03f7766c7b94b876fb33babe',
+          repo: 'niran666.github.io',
+          owner: 'niran666',
+          admin: ['niran666'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "mtpW2sIlIHeJQk0FGq2ddMVQ-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "mtpW2sIlIHeJQk0FGq2ddMVQ-gzGzoHsz",
+                'X-LC-Key': "S8VWUb1LK61DctReez2JM8P1",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
