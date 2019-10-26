@@ -189,7 +189,7 @@
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:description" content="1. 概述1.1 定义 JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为java语言的反射机制。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-21T06:31:24.000Z">
+<meta property="og:updated_time" content="2019-10-25T05:16:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(整理)java基础——反射">
 <meta name="twitter:description" content="1. 概述1.1 定义 JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为java语言的反射机制。">
@@ -513,12 +513,24 @@
                 
               
 
-              <time title="创建于：2019-09-21 10:04:36 / 更新于：14:31:24" itemprop="dateCreated datePublished" datetime="2019-09-21T10:04:36+08:00">2019-09-21</time>
+              <time title="创建于：2019-09-21 10:04:36" itemprop="dateCreated datePublished" datetime="2019-09-21T10:04:36+08:00">2019-09-21</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2019-10-25 13:16:16" itemprop="dateModified" datetime="2019-10-25T13:16:16+08:00">2019-10-25</time>
               
             
           </span>
@@ -873,7 +885,7 @@
 <td>根据传递的参数创建类的对象</td>
 </tr>
 </tbody></table>
-<h2 id="3-获取Class字节码文件对象的方式"><a href="#3-获取Class字节码文件对象的方式" class="headerlink" title="3. 获取Class字节码文件对象的方式"></a>3. 获取Class字节码文件对象的方式</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws IllegalArgumentException, SecurityException, ClassNotFoundException &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line"></span><br><span class="line">        //第一种方式获取Class对象</span><br><span class="line">        Person person = new Person();//这一new 产生一个Student对象，一个Class对象。</span><br><span class="line">        Class personClass1 = person.getClass();//获取Class对象</span><br><span class="line">        System.out.println(personClass1.getName());</span><br><span class="line"></span><br><span class="line">        //第二种方式获取Class对象</span><br><span class="line">        Class personClass2 = Person.class;</span><br><span class="line">        System.out.println(personClass1 == personClass2);//判断第一种方式获取的Class对象和第二种方式获取的是否是同一个</span><br><span class="line"></span><br><span class="line">        //第三种方式获取Class对象</span><br><span class="line">        Class personClass3 = Class.forName(&quot;Test.Person&quot;);//注意此字符串必须是真实路径，就是带包名的类路径，包名.类名</span><br><span class="line">        System.out.println(personClass3 == personClass2);//判断三种方式是否获取的是同一个Class对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">Test.Person</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<h2 id="3-获取Class字节码文件对象的方式"><a href="#3-获取Class字节码文件对象的方式" class="headerlink" title="3. 获取Class字节码文件对象的方式"></a>3. 获取Class字节码文件对象的方式</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IllegalArgumentException, SecurityException, ClassNotFoundException </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//第一种方式获取Class对象</span></span><br><span class="line">        Person person = <span class="keyword">new</span> Person();<span class="comment">//这一new 产生一个Student对象，一个Class对象。</span></span><br><span class="line">        Class personClass1 = person.getClass();<span class="comment">//获取Class对象</span></span><br><span class="line">        System.out.println(personClass1.getName());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//第二种方式获取Class对象</span></span><br><span class="line">        Class personClass2 = Person.class;</span><br><span class="line">        System.out.println(personClass1 == personClass2);<span class="comment">//判断第一种方式获取的Class对象和第二种方式获取的是否是同一个</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//第三种方式获取Class对象</span></span><br><span class="line">        Class personClass3 = Class.forName(<span class="string">"Test.Person"</span>);<span class="comment">//注意此字符串必须是真实路径，就是带包名的类路径，包名.类名</span></span><br><span class="line">        System.out.println(personClass3 == personClass2);<span class="comment">//判断三种方式是否获取的是同一个Class对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">Test.Person</span><br><span class="line"><span class="keyword">true</span></span><br><span class="line"><span class="keyword">true</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="4-使用示例"><a href="#4-使用示例" class="headerlink" title="4. 使用示例"></a>4. 使用示例</h2><p><strong>反射实例</strong></p>
 <p>Person.java</p>
@@ -1043,7 +1055,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-count">51</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
