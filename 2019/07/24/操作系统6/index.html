@@ -189,10 +189,20 @@
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:description" content="1. I/O管理概述">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.niran.vip/IO5.jpg">
+<meta property="og:image" content="http://img.niran.vip/%E7%A3%81%E7%9B%98.jpg">
+<meta property="og:image" content="http://img.niran.vip/fcfs.JPG">
+<meta property="og:image" content="http://img.niran.vip/ffcs.JPG">
+<meta property="og:image" content="http://img.niran.vip/scan.JPG">
+<meta property="og:image" content="http://img.niran.vip/lock.JPG">
+<meta property="og:image" content="http://img.niran.vip/cscan.JPG">
+<meta property="og:image" content="http://img.niran.vip/c-look.JPG">
+<meta property="og:image" content="http://img.niran.vip/%E7%A3%81%E7%9B%98%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95.jpg">
 <meta property="og:updated_time" content="2019-07-24T03:28:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统 I&#x2F;O管理">
 <meta name="twitter:description" content="1. I/O管理概述">
+<meta name="twitter:image" content="http://img.niran.vip/IO5.jpg">
 
 
 
@@ -581,20 +591,20 @@
       
 
       
-        <html><head><meta name="generator" content="Hexo 3.9.0"></head><body><h1 id="1-I-O管理概述"><a href="#1-I-O管理概述" class="headerlink" title="1. I/O管理概述"></a>1. I/O管理概述</h1><p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/IO5.jpg" class="lazyload"></p>
+        <h1 id="1-I-O管理概述"><a href="#1-I-O管理概述" class="headerlink" title="1. I/O管理概述"></a>1. I/O管理概述</h1><p><img src="http://img.niran.vip/IO5.jpg" alt="此处输入图片的描述"></p>
 <a id="more"></a>
 
-<h1 id="2-磁盘存储器的管理"><a href="#2-磁盘存储器的管理" class="headerlink" title="2. 磁盘存储器的管理"></a>2. 磁盘存储器的管理</h1><h2 id="2-1-磁盘结构"><a href="#2-1-磁盘结构" class="headerlink" title="2.1 磁盘结构"></a>2.1 磁盘结构</h2><p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E7%A3%81%E7%9B%98.jpg" class="lazyload"></p>
+<h1 id="2-磁盘存储器的管理"><a href="#2-磁盘存储器的管理" class="headerlink" title="2. 磁盘存储器的管理"></a>2. 磁盘存储器的管理</h1><h2 id="2-1-磁盘结构"><a href="#2-1-磁盘结构" class="headerlink" title="2.1 磁盘结构"></a>2.1 磁盘结构</h2><p><img src="http://img.niran.vip/%E7%A3%81%E7%9B%98.jpg" alt="此处输入图片的描述"></p>
 <h2 id="2-2-磁盘调度算法"><a href="#2-2-磁盘调度算法" class="headerlink" title="2.2 磁盘调度算法"></a>2.2 磁盘调度算法</h2><h3 id="2-2-1-先来先服务算法（FCFS）"><a href="#2-2-1-先来先服务算法（FCFS）" class="headerlink" title="2.2.1 先来先服务算法（FCFS）"></a>2.2.1 先来先服务算法（FCFS）</h3><blockquote>
 <p>根据进程请求访问磁盘的先后顺序进行调度。</p>
 </blockquote>
 <p>假设磁头的初始位置是100号磁道，有多个进程先后陆续地请求访问 55、58、39、18、90、160、 150、38、184  号磁道<br>按照 FCFS 的规则，按照请求到达的顺序，磁头需要依次移动到 55、58、39、18、90、160、150、 38、184 号磁道</p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/fcfs.JPG" class="lazyload"></p>
+<p><img src="http://img.niran.vip/fcfs.JPG" alt="此处输入图片的描述"></p>
 <p>磁头总共移动了 45+3+19+21+72+70+10+112+146   = 498   个磁道<br>响应一个请求平均需要移动 498/9 = 55.3 个磁道（平均寻找长度）<br><font color="red">优点</font>：公平：如果请求访问的磁道比较集中的话，算法性能还算过的去<br><font color="red">缺点</font>：如果有大量进程竞争使用磁盘，请求访问的磁道很分散，则FCFS在性能上很差，寻道时间长。</p>
 <h3 id="2-2-2-最短寻找时间优先-SSTF"><a href="#2-2-2-最短寻找时间优先-SSTF" class="headerlink" title="2.2.2 最短寻找时间优先(SSTF)"></a>2.2.2 最短寻找时间优先(SSTF)</h3><blockquote>
 <p>SSTF 算法会优先处理的磁道是与当前磁头最近的磁道。可以保证每次的寻道时间最短，但是并不能保证总的寻道时间最短。（其实就是贪心算法的思想，只是选择眼前最优，但是总体未必最优）</p>
 </blockquote>
-<p>假设磁头的初始位置是100号磁道，有多个进程先后陆续地请求访问 55、58、39、18、90、160、 150、38、184 号磁道<br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/ffcs.JPG" class="lazyload"></p>
+<p>假设磁头的初始位置是100号磁道，有多个进程先后陆续地请求访问 55、58、39、18、90、160、 150、38、184 号磁道<br><img src="http://img.niran.vip/ffcs.JPG" alt="此处输入图片的描述"></p>
 <p>磁头总共移动了 (100-18)  + (184-18)  = 248 个磁道<br>响应一个请求平均需要移动 248/9  = 27.5  个磁道（平均寻找长度） </p>
 <p><font color="red">优点</font>：性能较好，平均寻道时间短<br><font color="red">缺点</font>：可能产生“饥饿”现象</p>
 <p>Eg：本例中，如果在处理18号磁道的访问请求时又来了一个38号磁道的访问请求，处理38号磁道的访问请求时又来了一个18号磁道的访问请求。如果有源源不断的18号、38号磁道的访问请求到来的话，150、160、184号磁道的访问请求就永远得不到满足，从而产生“饥饿”现象。</p>
@@ -602,29 +612,29 @@
 <p>SSTF 算法会产生饥饿的原因在于：磁头有可能在一个小区域内来回来去地移动。为了防止这个问题，可以规定，<font color="red">只有磁头移动到最外侧磁道的时候才能往内移动</font>，移动到最内侧磁道的时候才能往外移动。这就是扫描算法（SCAN）的思想。由于磁头移动的方式很像电梯，因此也叫<font color="red">电梯算法</font>。</p>
 </blockquote>
 <p>假设某磁盘的磁道为 0~200号，磁头的初始位置是100号磁道，且此时磁头正在往磁道号增大的方向移动，有多个进程先后陆续地请求访问 55、58、39、18、90、160、150、38、184  号磁道</p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/scan.JPG" class="lazyload"></p>
+<p><img src="http://img.niran.vip/scan.JPG" alt="此处输入图片的描述"></p>
 <p>磁头总共移动了 (200-100)  + (200-18)  = 282 个磁道</p>
 <p>响应一个请求平均需要移动 282/9 = 31.3 个磁道（平均寻找长度）<br><font color="red">优点</font>：性能较好，平均寻道时间较短，不会产生饥饿现象<br><font color="red">缺点</font>：<br>①只有到达最边上的磁道时才能改变磁头移动方向，事实上，处理了184号磁道的访问请 求之后就不需要再往右移动磁头了。<br>②SCAN算法对于各个位置磁道的响应频率不平均（如：假设此时磁头正在往右移动，且刚处理过90号磁道，那么下次处理90号磁道的请求就需要等磁头移动很长一段距离：而响应了184号磁道的请求之后，很快又可以再次响应 184 号磁道的请求了）</p>
 <h3 id="2-2-4-look调度算法"><a href="#2-2-4-look调度算法" class="headerlink" title="2.2.4 look调度算法"></a>2.2.4 look调度算法</h3><blockquote>
 <p>扫描算法（SCAN）中，只有到达最边上的磁道时才能改变磁头移动方向，事实上，处理了184号磁道的访问请求之后就不需要再往右移动磁头了。LOOK调度算法就是为了解决这个问题，如果在磁头移动方向上己经没有别的请求，就可以立即改变磁头移动方向。（边移动边观察，因此叫  LOOK）</p>
 </blockquote>
-<p>假设某磁盘的磁道为 0~200号，磁头的初始位置是100号磁道，且此时磁头正在往磁道号增大的方向 移动，有多个进程先后陆续地请求访问  55、58、39、18、90、160、150、38、184 号磁道<br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/lock.JPG" class="lazyload"></p>
+<p>假设某磁盘的磁道为 0~200号，磁头的初始位置是100号磁道，且此时磁头正在往磁道号增大的方向 移动，有多个进程先后陆续地请求访问  55、58、39、18、90、160、150、38、184 号磁道<br><img src="http://img.niran.vip/lock.JPG" alt="此处输入图片的描述"></p>
 <p>磁头总共移动了 (184-100) + (184-18) = 250 个磁道 响应一个请求平均需要移动 250/9  = 27.5 个磁道（平均寻找长度）<br><font color="red">优点</font>：比起SCAN算法来，不需要每次都移动到最外侧或最内侧才改变磁头方向，使寻道时间进一步缩短</p>
 <h3 id="2-2-5-循环扫描算法（C-SCAN）"><a href="#2-2-5-循环扫描算法（C-SCAN）" class="headerlink" title="2.2.5 循环扫描算法（C-SCAN）"></a>2.2.5 循环扫描算法（C-SCAN）</h3><blockquote>
 <p>SCAN算法对于各个位置磁道的响应频率不平均，而C-SCAN算法就是为了解决这个问题。规定只有磁头朝某个特定方向移动时才处理磁道访问请求，而返回时直接快速移动至起始端而不处理任何请求。</p>
 </blockquote>
 <p>假设某磁盘的磁道为 0~200号，磁头的初始位置是100号磁道，且此时磁头正在往磁道号增大的方向 移动，有多个进程先后陆续地请求访问 55、58、39、18、90、160、150、38、184 号磁道</p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/cscan.JPG" class="lazyload"><br>磁头总共移动了 (200-100)  + (200-0)  + (90-0)=  390 个磁道 </p>
+<p><img src="http://img.niran.vip/cscan.JPG" alt="此处输入图片的描述"><br>磁头总共移动了 (200-100)  + (200-0)  + (90-0)=  390 个磁道 </p>
 <p>响应一个请求平均需要移动 390/9 = 43.3 个磁道（平均寻找长度） </p>
 <p><font color="red">优点</font>：比起SCAN  来，对于各个位置磁道的响应频率很平均。<br><font color="red">缺点</font>：只有到达最边上的磁道时才能改变磁头移动方向，事实上，处理了184号磁道的访问请求 之后就不需要再往右移动磁头了；并且，磁头返回时其实只需要返回到18号磁道即可，不需要返<br>回到最边缘的磁道。另外，比起SCAN算法来，平均寻道时间更长。</p>
 <h3 id="2-2-6-C-LOOK调度算法"><a href="#2-2-6-C-LOOK调度算法" class="headerlink" title="2.2.6 C-LOOK调度算法"></a>2.2.6 C-LOOK调度算法</h3><blockquote>
 <p>C-SCAN 算法的主要缺点是只有到达最边上的磁道时才能改变磁头移动方向，并且磁头返回时不一定需要返回到最边缘的磁道上。C-LOOK 算法就是为了解决这个问题。如果磁头移动的方向上己经没有磁道访问请求了，就可以立即让磁头返回，并且磁头只需要返回到有磁道访问请求的位置即可。</p>
 </blockquote>
 <p>假设某磁盘的磁道为0~200号，磁头的初始位置是100号磁道，且此时磁头正在往磁道号增大的方向 移动，有多个进程先后陆续地请求访问  55、58、39、18、90、160、150、38、184  号磁道</p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/c-look.JPG" class="lazyload"></p>
+<p><img src="http://img.niran.vip/c-look.JPG" alt="此处输入图片的描述"></p>
 <p>磁头总共移动了 (184-100)  + (184-18)  + (90-18)=  322 个磁道<br>响应一个请求平均需要移动 322/9  = 35.8 个磁道（平均寻找长度）<br><font color="red">优点</font>：比起C-SCAN算法来，不需要每次都移动到最外侧或最内侧才改变磁头方向，使寻道时间缩短</p>
-<h3 id="2-2-7-小结"><a href="#2-2-7-小结" class="headerlink" title="2.2.7 小结"></a>2.2.7 小结</h3><p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E7%A3%81%E7%9B%98%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95.jpg" class="lazyload"></p>
-</body></html>
+<h3 id="2-2-7-小结"><a href="#2-2-7-小结" class="headerlink" title="2.2.7 小结"></a>2.2.7 小结</h3><p><img src="http://img.niran.vip/%E7%A3%81%E7%9B%98%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95.jpg" alt="此处输入图片的描述"></p>
+
       
     </div>
     <div>

@@ -189,10 +189,12 @@
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:description" content="1、java中int char,long各占多少字节?">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://pq57ykm1i.bkt.clouddn.com/%E6%8D%95%E8%8E%B7.PNG">
 <meta property="og:updated_time" content="2019-08-09T04:19:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(整理)java面试题(三)数据类型相关">
 <meta name="twitter:description" content="1、java中int char,long各占多少字节?">
+<meta name="twitter:image" content="http://pq57ykm1i.bkt.clouddn.com/%E6%8D%95%E8%8E%B7.PNG">
 
 
 
@@ -593,8 +595,8 @@
       
 
       
-        <html><head><meta name="generator" content="Hexo 3.9.0"></head><body><p><strong>1、java中int char,long各占多少字节?</strong></p>
-<p><img alt="此处输入图片的描述" data-src="http://pq57ykm1i.bkt.clouddn.com/%E6%8D%95%E8%8E%B7.PNG" class="lazyload"></p>
+        <p><strong>1、java中int char,long各占多少字节?</strong></p>
+<p><img src="http://pq57ykm1i.bkt.clouddn.com/%E6%8D%95%E8%8E%B7.PNG" alt="此处输入图片的描述"></p>
 <a id="more"></a>
 
 
@@ -609,23 +611,23 @@
 </ul>
 <p>　　自动拆箱和自动装箱是 JDK1.5 以后才有的功能，也就是java当中众多的语法糖之一，它的执行是在编译期，会根据代码的语法，在生成class文件的时候，决定是否进行拆箱和装箱动作。</p>
 <p>　　①、自动装箱<br>　　一般我们创建一个类的时候是通过new关键字，比如：</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">Integer a = <span class="number">128</span>;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer a = <span class="number">128</span>;</span><br></pre></td></tr></table></figure>
 
 <p>　　为什么可以这样，通过反编译工具，我们可以看到，生成的class文件是：</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">Integer a = Integer.valueOf(<span class="number">128</span>);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer a = Integer.valueOf(<span class="number">128</span>);</span><br></pre></td></tr></table></figure>
 
 <p>　　这就是基本数据类型的自动装箱，128是基本数据类型，然后被解析成Integer类。<br>　　②、自动拆箱<br>　　我们将 Integer 类表示的数据赋值给基本数据类型int，就执行了自动拆箱。</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">Integer a = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line"><span class="keyword">int</span> m = a;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer a = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line"><span class="keyword">int</span> m = a;</span><br></pre></td></tr></table></figure>
 
 <p>　　反编译生成的class文件：</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">Integer a = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line"><span class="keyword">int</span> m = a.intValue();</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer a = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line"><span class="keyword">int</span> m = a.intValue();</span><br></pre></td></tr></table></figure>
 
 <p>　　简单来讲：自动装箱就是Integer.valueOf(int i);自动拆箱就是 i.intValue();</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Integer i = <span class="number">10</span>;</span><br><span class="line">        Integer j = <span class="number">10</span>;</span><br><span class="line">        System.out.println(i == j);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">        Integer a = <span class="number">128</span>;</span><br><span class="line">        Integer b = <span class="number">128</span>;</span><br><span class="line">        System.out.println(a == b);<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">10</span>;</span><br><span class="line">        System.out.println(k == i);<span class="comment">//true</span></span><br><span class="line">        <span class="keyword">int</span> kk = <span class="number">128</span>;</span><br><span class="line">        System.out.println(kk == a);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">        Integer m = <span class="keyword">new</span> Integer(<span class="number">10</span>);</span><br><span class="line">        Integer n = <span class="keyword">new</span> Integer(<span class="number">10</span>);</span><br><span class="line">        System.out.println(m == n);<span class="comment">//false</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer i = <span class="number">10</span>;</span><br><span class="line">        Integer j = <span class="number">10</span>;</span><br><span class="line">        System.out.println(i == j);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">        Integer a = <span class="number">128</span>;</span><br><span class="line">        Integer b = <span class="number">128</span>;</span><br><span class="line">        System.out.println(a == b);<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">10</span>;</span><br><span class="line">        System.out.println(k == i);<span class="comment">//true</span></span><br><span class="line">        <span class="keyword">int</span> kk = <span class="number">128</span>;</span><br><span class="line">        System.out.println(kk == a);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">        Integer m = <span class="keyword">new</span> Integer(<span class="number">10</span>);</span><br><span class="line">        Integer n = <span class="keyword">new</span> Integer(<span class="number">10</span>);</span><br><span class="line">        System.out.println(m == n);<span class="comment">//false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>①、第一个打印结果为 true<br>　　分析源码我们可以知道在 i >= -128 并且 i <= 127 的时候，第一次声明会将 i 的值放入缓存中，第二次直接取缓存里面的数据，而不是重新创建一个ingeter 对象。那么第一个打印结果因为 在缓存表示范围内，所以为 true。< p>
+<p>①、第一个打印结果为 true<br>　　分析源码我们可以知道在 i &gt;= -128 并且 i &lt;= 127 的时候，第一次声明会将 i 的值放入缓存中，第二次直接取缓存里面的数据，而不是重新创建一个Ingeter 对象。那么第一个打印结果因为 i = 10 在缓存表示范围内，所以为 true。</p>
 <p>②、第二个打印结果为 false<br>　　从上面的分析我们知道，128是不在-128到127之间的，所以第一次创建对象的时候没有缓存，第二次创建了一个新的Integer对象。故打印结果为false<br>　　<br>③、第三个打印结果为 true<br>Integer 的自动拆箱功能，也就是比较两个基本数据类型，结果当然为true</p>
 <p>④、第四个打印结果为 true<br>解释和第三个一样。int和integer(无论new否)比，都为true，因为会把Integer自动拆箱为int再去比较。</p>
 <p>⑤、第五个打印结果为 false<br>　　因为这个虽然值为10，但是我们都是通过 new关键字来创建的两个对象，是不存在缓存的概念的。两个用new关键字创建的对象用 == 进行比较，结果当然为 false。<br><strong>4、int 和Integer谁占用的内存更多?</strong><br>Integer 对象会占用更多的内存。Integer是一个对象，需要存储对象的元数据。但是 int 是一个原始类型的数据，所以占用的空间更少。</p>
@@ -633,23 +635,23 @@
 <p><strong>6、String和StringBuffer</strong><br>String和StringBuffer主要区别是性能：String是不可变对象，每次对String类型进行操作都等同于产生了一个新的String对象，然后指向新的String对象。所以尽量不在对String进行大量的拼接操作，否则会产生很多临时对象，导致GC开始工作，影响系统性能。</p>
 <p>StringBuffer是对对象本身操作，而不是产生新的对象，因此在有大量拼接的情况下，建议使用StringBuffer。</p>
 <p>但是需要注意现在JVM会对String拼接做一定的优化：<br>String s=“This is only ”+”simple”+”test”会被虚拟机直接优化成String s=“This is only simple test”，此时就不存在拼接过程。<br>以下面代码为例：</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">String str=<span class="string">"abc"</span>;</span><br><span class="line">System.out.println(str);</span><br><span class="line">str=str+<span class="string">"de"</span>;</span><br><span class="line">System.out.println(str);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String str=<span class="string">"abc"</span>;</span><br><span class="line">System.out.println(str);</span><br><span class="line">str=str+<span class="string">"de"</span>;</span><br><span class="line">System.out.println(str);</span><br></pre></td></tr></table></figure>
 
 <p>如果运行这段代码会发现先输出“abc”，然后又输出“abcde”，好像是str这个对象被更改了，其实，这只是一种假象罢了，JVM对于这几行代码是这样处理的，首先创建一个String对象str，并把“abc”赋值给str，然后在第三行中，其实JVM又创建了一个新的对象也名为str，然后再把原来的str的值和“de”加起来再赋值给新的str，而原来的str就会被JVM的垃圾回收机制（GC）给回收掉了，所以，str实际上并没有被更改，也就是前面说的String对象一旦创建之后就不可更改了。所以，Java中对String对象进行的操作实际上是一个不断创建新的对象并且将旧的对象回收的一个过程，所以执行速度很慢。</p>
 <p><strong>7、StringBuffer和StringBuilder</strong><br>StringBuffer是线程安全的可变字符串，其内部实现是可变数组。StringBuilder是jdk 1.5新增的，其功能和StringBuffer类似，但是非线程安全。因此，在没有多线程问题的前提下，使用StringBuilder会取得更好的性能。</p>
 <p><strong>8、什么是编译器常量？使用它有什么风险？</strong><br>公共静态不可变（public static final ）变量也就是我们所说的编译期常量，这里的 public 可选的。实际上这些变量在编译时会被替换掉，因为编译器知道这些变量的值，并且知道这些变量在运行时不能改变。这种方式存在的一个问题是你使用了一个内部的或第三方库中的公有编译时常量，但是这个值后面被其他人改变了，但是你的客户端仍然在使用老的值，甚至你已经部署了一个新的jar。为了避免这种情况，当你在更新依赖 JAR 文件时，确保重新编译你的程序。</p>
 <p><strong>9、java当中使用什么类型表示价格比较好?</strong><br>如果不是特别关心内存和性能的话，使用BigDecimal，否则使用预定义精度的 double 类型。</p>
 <p><strong>10、如何将byte转为String</strong><br>可以使用 String 接收 byte[] 参数的构造器来进行转换，需要注意的点是要使用的正确的编码，否则会使用平台默认编码，这个编码可能跟原来的编码相同，也可能不同。<br>string转化为byte[]数组</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">String str = <span class="string">"abcd"</span>;</span><br><span class="line"><span class="keyword">byte</span>[] bs = str.getBytes();</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String str = <span class="string">"abcd"</span>;</span><br><span class="line"><span class="keyword">byte</span>[] bs = str.getBytes();</span><br></pre></td></tr></table></figure>
 
 <p>byte[]数组转化为string字符串</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/*String str1 = "abcd";</span></span><br><span class="line"><span class="comment">byte[] bs1 = str1.getBytes();*/</span></span><br><span class="line"><span class="keyword">byte</span>[] bs1 = {<span class="number">97</span>,<span class="number">98</span>,<span class="number">100</span>};</span><br><span class="line">String s = <span class="keyword">new</span> String(bs1);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*String str1 = "abcd";</span></span><br><span class="line"><span class="comment">byte[] bs1 = str1.getBytes();*/</span></span><br><span class="line"><span class="keyword">byte</span>[] bs1 = &#123;<span class="number">97</span>,<span class="number">98</span>,<span class="number">100</span>&#125;;</span><br><span class="line">String s = <span class="keyword">new</span> String(bs1);</span><br></pre></td></tr></table></figure>
 
 <p>设置格式</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">byte</span>[] srtbyte = {<span class="number">97</span>,<span class="number">98</span>,<span class="number">98</span>};</span><br><span class="line">String res = <span class="keyword">new</span> String(srtbyte,<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">byte</span>[] srtbyte = &#123;<span class="number">97</span>,<span class="number">98</span>,<span class="number">98</span>&#125;;</span><br><span class="line">String res = <span class="keyword">new</span> String(srtbyte,<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
 
 <p><strong>11、可以将int强转为byte类型么?会产生什么问题?</strong><br>我们可以做强制转换，但是Java中int是32位的而byte是8 位的，所以,如果强制转化int类型的高24位将会被丢弃，byte 类型的范围是从-128到128</p>
-</=></p></body></html>
+
       
     </div>
     <div>

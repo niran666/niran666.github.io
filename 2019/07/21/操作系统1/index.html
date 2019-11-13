@@ -189,10 +189,33 @@
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:description" content="1. 进程1.1 为什么要引入进程？刻画系统的动态性，发挥系统的并发性，提高资源利用率它能解决系统的“共享性”，正确描述程序的执行状态">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.niran.vip/%E8%BF%9B%E7%A8%8B.PNG">
+<meta property="og:image" content="http://img.niran.vip/%E8%BF%9B%E7%A8%8B2.PNG">
+<meta property="og:image" content="http://img.niran.vip/%E4%BB%85%E9%99%90.PNG">
+<meta property="og:image" content="http://img.niran.vip/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B1.PNG">
+<meta property="og:image" content="http://img.niran.vip/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B.PNG">
+<meta property="og:image" content="http://img.niran.vip/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B3.PNG">
+<meta property="og:image" content="http://img.niran.vip/tempsnip.png">
+<meta property="og:image" content="http://img.niran.vip/FCFS.PNG">
+<meta property="og:image" content="http://img.niran.vip/FCFS2.PNG">
+<meta property="og:image" content="http://img.niran.vip/SJF1.PNG">
+<meta property="og:image" content="http://img.niran.vip/SJF2.PNG">
+<meta property="og:image" content="http://img.niran.vip/SRTN1.PNG">
+<meta property="og:image" content="http://img.niran.vip/HRRN2.PNG">
+<meta property="og:image" content="http://img.niran.vip/HRRN.PNG">
+<meta property="og:image" content="http://img.niran.vip/RR1.PNG">
+<meta property="og:image" content="http://img.niran.vip/RR2.PNG">
+<meta property="og:image" content="http://img.niran.vip/RR3.PNG">
+<meta property="og:image" content="http://img.niran.vip/youxian.PNG">
+<meta property="og:image" content="http://img.niran.vip/youxian2.PNG">
+<meta property="og:image" content="http://img.niran.vip/youxian3.PNG">
+<meta property="og:image" content="http://img.niran.vip/duoji1.PNG">
+<meta property="og:image" content="http://img.niran.vip/duoji2.PNG">
 <meta property="og:updated_time" content="2019-08-12T02:00:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统 处理器管理(一)">
 <meta name="twitter:description" content="1. 进程1.1 为什么要引入进程？刻画系统的动态性，发挥系统的并发性，提高资源利用率它能解决系统的“共享性”，正确描述程序的执行状态">
+<meta name="twitter:image" content="http://img.niran.vip/%E8%BF%9B%E7%A8%8B.PNG">
 
 
 
@@ -593,7 +616,7 @@
       
 
       
-        <html><head><meta name="generator" content="Hexo 3.9.0"></head><body><h1 id="1-进程"><a href="#1-进程" class="headerlink" title="1. 进程"></a>1. 进程</h1><h2 id="1-1-为什么要引入进程？"><a href="#1-1-为什么要引入进程？" class="headerlink" title="1.1 为什么要引入进程？"></a>1.1 为什么要引入进程？</h2><p>刻画系统的动态性，发挥系统的并发性，提高资源利用率<br>它能解决系统的“共享性”，正确描述程序的执行状态</p>
+        <h1 id="1-进程"><a href="#1-进程" class="headerlink" title="1. 进程"></a>1. 进程</h1><h2 id="1-1-为什么要引入进程？"><a href="#1-1-为什么要引入进程？" class="headerlink" title="1.1 为什么要引入进程？"></a>1.1 为什么要引入进程？</h2><p>刻画系统的动态性，发挥系统的并发性，提高资源利用率<br>它能解决系统的“共享性”，正确描述程序的执行状态</p>
 <a id="more"></a>
 <h2 id="1-2-进程定义"><a href="#1-2-进程定义" class="headerlink" title="1.2 进程定义"></a>1.2 进程定义</h2><p>进程是可并发执行的程序在某个数据集合上的一次计算活动，也是操作系统进行资源分<br>配和保护的基本单位<br>进程是一个既能用来共享资源，又能描述程序并发执行过程的一个基本单位。</p>
 <h2 id="1-3-特性"><a href="#1-3-特性" class="headerlink" title="1.3 特性"></a>1.3 特性</h2><ul>
@@ -610,7 +633,7 @@
 <li><p>运行态：进程已获得CPU，正在CPU上运行</p>
 </li>
 <li><p>等待态（阻塞态）：由于发生某事件而暂时无法继续执行时处于的暂停状态</p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E8%BF%9B%E7%A8%8B.PNG" class="lazyload"></p>
+<p><img src="http://img.niran.vip/%E8%BF%9B%E7%A8%8B.PNG" alt="此处输入图片的描述"></p>
 </li>
 </ul>
 <blockquote>
@@ -622,7 +645,7 @@
 <li>就绪态—→运行态：CPU 空闲时选择一个就绪进程。</li>
 </ul>
 </blockquote>
-<h3 id="1-4-2-五态模型"><a href="#1-4-2-五态模型" class="headerlink" title="1.4.2 五态模型"></a>1.4.2 五态模型</h3><p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E8%BF%9B%E7%A8%8B2.PNG" class="lazyload"></p>
+<h3 id="1-4-2-五态模型"><a href="#1-4-2-五态模型" class="headerlink" title="1.4.2 五态模型"></a>1.4.2 五态模型</h3><p><img src="http://img.niran.vip/%E8%BF%9B%E7%A8%8B2.PNG" alt="此处输入图片的描述"></p>
 <p>新建态对应于进程刚刚被创建的状态。创建一个进程要通过两个步骤， </p>
 <ol>
 <li>为一个新进程创建必要的管理信息， </li>
@@ -661,7 +684,7 @@
 </ol>
 <h4 id="1-4-4-3-消息传递系统"><a href="#1-4-4-3-消息传递系统" class="headerlink" title="1.4.4.3 消息传递系统"></a>1.4.4.3 消息传递系统</h4><p>消息传递系统是当前应用最为广泛的一种进程间的通信机制，进程之间的数据交换以格式化的消息为单位，程序员直接利用操作系统提供的一组通信命令实现消息的传递。可以根据实现方式的不同分为直接通信方式和间接通信方式</p>
 <p><strong>直接通信方式</strong><br>发送进程利用OS所提供的发送命令，直接把消息发送给目标进程，此时发送进程和接收进程都以显示方式提供对方的标识符。可以用如下两条原语表示：</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">Send(Receiver, message);  <span class="comment">//发送消息，Receiver指定发给哪个进程</span></span><br><span class="line">Receiver(Sender, message);  <span class="comment">//接收消息</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Send(Receiver, message);  <span class="comment">//发送消息，Receiver指定发给哪个进程</span></span><br><span class="line">Receiver(Sender, message);  <span class="comment">//接收消息</span></span><br></pre></td></tr></table></figure>
 
 <p>接收进程无法事先指定发送进程，Receiver(Sender, message);中的Sender指的是源进程的参数，也是完成通信后的返回值</p>
 <p><strong>间接通信方式(信箱通信方式)</strong><br>间接通信方式指进程之间的通信需要通过作为共享数据结构的实体，该实体用于暂存发送进程发送给目标进程的消息，接收进程则从实体中取出对方发送给自己的消息，通常把这种实体称为信箱。</p>
@@ -679,7 +702,7 @@
 <blockquote>
 <p>操作系统中再引入线程，则是为了减少程序并发执行时所付出的时空开销，使得并发粒度更细、并发性更好。引入线程后不仅是进程之间可以并发，进程内的个线程也可以并发，从而进一步提升了系统的并发度，使得一个进程内也可以并发处理各种任务（如QQ视频、文字聊天、传文件等）。引入线程后，进程只作为除CPU之外的系统资源的分配单元</p>
 </blockquote>
-<p><strong>引入后变化</strong><br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E4%BB%85%E9%99%90.PNG" class="lazyload"></p>
+<p><strong>引入后变化</strong><br><img src="http://img.niran.vip/%E4%BB%85%E9%99%90.PNG" alt="此处输入图片的描述"></p>
 <h2 id="2-2-线程属性"><a href="#2-2-线程属性" class="headerlink" title="2.2 线程属性"></a>2.2 线程属性</h2><ul>
 <li>线程是处理机调度的单位</li>
 <li>多CPU计算机中，各个线程可占用不同的CPU</li>
@@ -694,25 +717,25 @@
 </ul>
 <h2 id="2-3-线程实现方式"><a href="#2-3-线程实现方式" class="headerlink" title="2.3 线程实现方式"></a>2.3 线程实现方式</h2><p><strong>用户级线程</strong><br>用户级线程由应用程序通过线程库实现。所有的线程管理工作都由应用程序负责(包括线程切换)用户级线程中,线程切换可以在用户态下即可完成,无需操作系统干预。在用户看来,是有多个线程。但是在操作系统内核看来,并意识不到线程的存在。(用户级线程对用户不透明,对操作系统透明)<br><strong>内核级线程</strong><br>内核线程：操作系统直接支持。管理由操作系统完成。内核在其空间内执行线程创建，调度和管理。内核线程的创建和管理比在用户级创建和管理用户线程要慢，但正是由于内核管理线程，当一个线程执行等待的系统调用时，内核能调度应用程序内的另一个线程去运行。</p>
 <p><font color="red">重点重点重点</font>:操作系统只“看得见”内核级线程,因此只有内核级线程才是处理机分配的单位。例如:一个进程由两个内核级线程,三个用户级线程,在用户看来,这个进程中有三个线程。但即使该进程在一个4核处理机的计算机上运行,也最多只能被分配到两个核,最多只能有两个用户线程并行执行。</p>
-<h2 id="2-4-多线程模型"><a href="#2-4-多线程模型" class="headerlink" title="2.4 多线程模型"></a>2.4 多线程模型</h2><p><strong>多对一模型：</strong><br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B1.PNG" class="lazyload"></p>
+<h2 id="2-4-多线程模型"><a href="#2-4-多线程模型" class="headerlink" title="2.4 多线程模型"></a>2.4 多线程模型</h2><p><strong>多对一模型：</strong><br><img src="http://img.niran.vip/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B1.PNG" alt="此处输入图片的描述"></p>
 <p>多对一模型:多个用户及线程映射到一个内核级线程。每个用户进程只对应一个内核级线程。</p>
 <ul>
 <li>优点:用户级线程的切换在用户空间即可完成,不需要切换到核心态,线程管理的系统开销小,效率高</li>
 <li>缺点:当一个用户级线程被阻塞后,整个进程都会被阻塞,并发度不高。多个线程不可在多核处理机上并行运行</li>
 </ul>
-<p><strong>一对一模型</strong>：<br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B.PNG" class="lazyload"></p>
+<p><strong>一对一模型</strong>：<br><img src="http://img.niran.vip/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B.PNG" alt="此处输入图片的描述"></p>
 <p> 一对一模型:一个用户及线程映射到一个内核级线程。每个用户进程有与用户级线程同数量的内核级线程。</p>
 <ul>
 <li>优点:当一个线程被阻塞后,别的线程还可以继续执行,并发能力强。多线程可在多核处理机上并行执行。</li>
 <li>缺点:一个用户进程会占用多个内核级线程,线程切换由操作系统内核完成,需要切换到核心态,因此线程管理的成本高,开销大。</li>
 </ul>
 <p><strong>多对多模型：</strong></p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B3.PNG" class="lazyload"></p>
-<p>多对多模型:n用户及线程映射到m个内核级线程(n>=m)。每个用户进程对应m个内核级线程。</p>
+<p><img src="http://img.niran.vip/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B3.PNG" alt="此处输入图片的描述"></p>
+<p>多对多模型:n用户及线程映射到m个内核级线程(n&gt;=m)。每个用户进程对应m个内核级线程。</p>
 <blockquote>
 <p>克服了多对一模型并发度不高的缺点,又克服了一对一模型中一个用户进程占用太多内核级线程,开销太大的缺点。</p>
 </blockquote>
-<h1 id="3-调度算法的评价指标"><a href="#3-调度算法的评价指标" class="headerlink" title="3. 调度算法的评价指标"></a>3. 调度算法的评价指标</h1><p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/tempsnip.png" class="lazyload"></p>
+<h1 id="3-调度算法的评价指标"><a href="#3-调度算法的评价指标" class="headerlink" title="3. 调度算法的评价指标"></a>3. 调度算法的评价指标</h1><p><img src="http://img.niran.vip/tempsnip.png" alt="此处输入图片的描述"></p>
 <h2 id="3-1-CPU利用率"><a href="#3-1-CPU利用率" class="headerlink" title="3.1 CPU利用率"></a>3.1 CPU利用率</h2><p>CPU利用率：指CPU忙碌的时间占总时间的比例</p>
 <p>利用率=忙碌时间/总时间</p>
 <p>Eg：某计算机只支持单道程序，某个作业刚开始需要在CPU上运行5秒， 再用打印机打印输出5秒，之后再执行5秒，才能结束。在此过程中， CPU利用率、打印机利用率分别是多少？<br>CPU利用率 =（5+5）/（5+5+5）= 66.66%<br>打印机利用率 =5/15= 33.33%</p>
@@ -721,11 +744,11 @@
 <p>对于进程来说，等待时间就是指进程建立后等待被服务的时间之和，在等待I/O完成的期间其实进 程也是在被服务的，所以不计入等待时间。<br>对于作业来说，不仅要考虑建立进程后的等待时间，还要加上作业在外存后备队列中等待的时间。</p>
 <p>一个作业总共需要被CPU服务多久，被I/O设备服务多久一般是确定不变的，因此调度算法其实只会 影响作业/进程的等待时间。当然，与前面指标类似，也有“平均等待时间”来评价整体性能。</p>
 <h2 id="3-4-响应时间"><a href="#3-4-响应时间" class="headerlink" title="3.4 响应时间"></a>3.4 响应时间</h2><p>对于计算机用户来说，会希望自己的提交的请求（比如通过键盘输入了一个调试命令）尽早地开始被系 统服务、回应。<br>响应时间:指从用户提交请求到首次产生响应所用的时间。</p>
-<h1 id="4-调度算法"><a href="#4-调度算法" class="headerlink" title="4. 调度算法"></a>4. 调度算法</h1><h2 id="4-1-先来先服务-FCFS"><a href="#4-1-先来先服务-FCFS" class="headerlink" title="4.1 先来先服务(FCFS)"></a>4.1 先来先服务(FCFS)</h2><p> 先来先服务是最简单的策略，也成为先进先出FIFO。首先它是一个非抢占的。如字面的意思，它根据进程到达时间决定先运行哪一个进程。<br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/FCFS.PNG" class="lazyload"></p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/FCFS2.PNG" class="lazyload"></p>
-<h2 id="4-2-短作业优先-SJF"><a href="#4-2-短作业优先-SJF" class="headerlink" title="4.2 短作业优先(SJF)"></a>4.2 短作业优先(SJF)</h2><p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/SJF1.PNG" class="lazyload"></p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/SJF2.PNG" class="lazyload"></p>
-<h2 id="4-3-最短剩余时间优先-SRTN"><a href="#4-3-最短剩余时间优先-SRTN" class="headerlink" title="4.3 最短剩余时间优先(SRTN)"></a>4.3 最短剩余时间优先(SRTN)</h2><p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/SRTN1.PNG" class="lazyload"></p>
+<h1 id="4-调度算法"><a href="#4-调度算法" class="headerlink" title="4. 调度算法"></a>4. 调度算法</h1><h2 id="4-1-先来先服务-FCFS"><a href="#4-1-先来先服务-FCFS" class="headerlink" title="4.1 先来先服务(FCFS)"></a>4.1 先来先服务(FCFS)</h2><p> 先来先服务是最简单的策略，也成为先进先出FIFO。首先它是一个非抢占的。如字面的意思，它根据进程到达时间决定先运行哪一个进程。<br><img src="http://img.niran.vip/FCFS.PNG" alt="此处输入图片的描述"></p>
+<p><img src="http://img.niran.vip/FCFS2.PNG" alt="此处输入图片的描述"></p>
+<h2 id="4-2-短作业优先-SJF"><a href="#4-2-短作业优先-SJF" class="headerlink" title="4.2 短作业优先(SJF)"></a>4.2 短作业优先(SJF)</h2><p><img src="http://img.niran.vip/SJF1.PNG" alt="此处输入图片的描述"></p>
+<p><img src="http://img.niran.vip/SJF2.PNG" alt="此处输入图片的描述"></p>
+<h2 id="4-3-最短剩余时间优先-SRTN"><a href="#4-3-最短剩余时间优先-SRTN" class="headerlink" title="4.3 最短剩余时间优先(SRTN)"></a>4.3 最短剩余时间优先(SRTN)</h2><p><img src="http://img.niran.vip/SRTN1.PNG" alt="此处输入图片的描述"></p>
 <p><font color="red">注意几个小节：</font></p>
 <ol>
 <li><p>如果题目中未特别说明，所提到的“短作业/进程优先算法”默认是非抢占式的</p>
@@ -739,17 +762,17 @@
 </ol>
 <h2 id="4-4-高响应比优先-HRRN"><a href="#4-4-高响应比优先-HRRN" class="headerlink" title="4.4 高响应比优先(HRRN)"></a>4.4 高响应比优先(HRRN)</h2><p>高响应比优先调度算法</p>
 <p>高响应比优先调度算法主要用于作业调度，该算法是对FCFS调度算法和SJF调度算法的一种综合平衡，同时考虑每个作业的等待时间和估计的运行时间。在每次进行作业调度时，先计算后备作业队列中每个作业的响应比，从中选出响应比最高的作业投入运行。<br>$$响应比 =\frac{等待时间+要求服务时间 }{要求服务时间}$$</p>
-<p>根据公式可知：<br>当作业的等待时间相同时，则要求服务时间越短，其响应比越高，有利于短作业。<br>当要求服务时间相同时，作业的响应比由其等待时间决定，等待时间越长，其响应比越高，因而它实现的是先来先服务。<br>对于长作业，作业的响应比可以随等待时间的增加而提高，当其等待时间足够长时，其响应比便可升到很高，从而也可获得处理机。克服了饥饿状态，兼顾了长作业。<br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/HRRN2.PNG" class="lazyload"></p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/HRRN.PNG" class="lazyload"></p>
+<p>根据公式可知：<br>当作业的等待时间相同时，则要求服务时间越短，其响应比越高，有利于短作业。<br>当要求服务时间相同时，作业的响应比由其等待时间决定，等待时间越长，其响应比越高，因而它实现的是先来先服务。<br>对于长作业，作业的响应比可以随等待时间的增加而提高，当其等待时间足够长时，其响应比便可升到很高，从而也可获得处理机。克服了饥饿状态，兼顾了长作业。<br><img src="http://img.niran.vip/HRRN2.PNG" alt="此处输入图片的描述"></p>
+<p><img src="http://img.niran.vip/HRRN.PNG" alt="此处输入图片的描述"></p>
 <table>
 <thead>
 <tr>
 <th>算法</th>
-<th>思想&规则</th>
+<th>思想&amp;规则</th>
 <th>可抢占</th>
 <th>优点</th>
 <th>缺点</th>
-<th>考虑到等待时间&运行时间？</th>
+<th>考虑到等待时间&amp;运行时间？</th>
 <th>会导致饥饿？</th>
 </tr>
 </thead>
@@ -783,7 +806,7 @@
 </tbody></table>
 <p>注：这几种算法主要关心对用户的公平性、平均周转时间、平均等待时间等评价系统整体性能的指标，但 是不关心“响应时间”，也并不区分任务的紧急程度，因此对于用户来说，交互性很糟糕。因此这三种算<br>法一般适合用于早期的批处理系统，当然，FCFS算法也常结合其他的算法使用，在现在也扮演着很重要的 角色。而适合用于交互式系统的调度算法将在下个小节介”…</p>
 <h2 id="4-5-时间片轮转法（RR"><a href="#4-5-时间片轮转法（RR" class="headerlink" title="4.5 时间片轮转法（RR)"></a>4.5 时间片轮转法（RR)</h2><p>对于轮转法，最重要的是时间片的长度。轮转算法以一个周期（q）产生中断，当中断发生时，当前运行的程序置于就绪队列（队尾）中，然后基于FCFS选择下一个就绪作业运行。</p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/RR1.PNG" class="lazyload"></p>
+<p><img src="http://img.niran.vip/RR1.PNG" alt="此处输入图片的描述"></p>
 <ul>
 <li>0时刻（P1(5)):0时刻只有P1到达就绪队列，让P1上处理机运行一个时间片</li>
 <li>2时刻（P2(4) →P1(3)):2时刻P2到达就绪队列，P1运行完一个时间片，被剥夺处理机，重新放到队尾。<br>此时P2排在队头，因此让P2上处理机。（注意：2时刻，P1下处理机，同一时刻新进程P2到达，如果在题目中遇到这种情况，默认新到达的进程先进入就绪队列)</li>
@@ -797,26 +820,26 @@
 <li>14时刻（)：就绪队列为空，因此让P4接着运行一个时间片。</li>
 <li>16时刻：所有进程运行结束</li>
 </ul>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/RR2.PNG" class="lazyload"></p>
+<p><img src="http://img.niran.vip/RR2.PNG" alt="此处输入图片的描述"></p>
 <p><font color="red">注意：</font>如果时间片太大，使得每个进程都可以在一个时间片内就完成，则时间片轮转调度算法退化为先来先服务调度算比法，并且会增大进程响应时间。因此时间片不能太大。<br>另一方面，进程调度、切换是有时间代价的（保存、恢复运行环境），因此如果时间片太小，会导<br>致进程切换过于频繁，系统会花大量时间处理进程切换，，从而导致实际应用于进程执行的时间比<br>例减少。可见时间片也不能太小</p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/RR3.PNG" class="lazyload"></p>
-<h2 id="4-5-优先级调度算法"><a href="#4-5-优先级调度算法" class="headerlink" title="4.5 优先级调度算法"></a>4.5 优先级调度算法</h2><p><strong>非抢占式优先级调度算法</strong><br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/youxian.PNG" class="lazyload"></p>
-<p><strong>抢占式优先级调度</strong><br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/youxian2.PNG" class="lazyload"></p>
+<p><img src="http://img.niran.vip/RR3.PNG" alt="此处输入图片的描述"></p>
+<h2 id="4-5-优先级调度算法"><a href="#4-5-优先级调度算法" class="headerlink" title="4.5 优先级调度算法"></a>4.5 优先级调度算法</h2><p><strong>非抢占式优先级调度算法</strong><br><img src="http://img.niran.vip/youxian.PNG" alt="此处输入图片的描述"></p>
+<p><strong>抢占式优先级调度</strong><br><img src="http://img.niran.vip/youxian2.PNG" alt="此处输入图片的描述"></p>
 <p><strong>补充：</strong><br>就绪队列未必只有一个，可以按照不同优先级来组织。另外，也可以把优先级 高的进程排在更靠近队头的位置 根据优先级是否可以动态改变，可将优先级分为静态优先级和动态优先级两种<br>静态优先级：创建进程时确定，之后一直不变。 动态优先级：创建进程时有一个初始值，之后会根据情况动态地调整优先级。</p>
 <p>通常：<br>系统进程优先级高于用户进程<br>前台进程优先级高于后台进程<br>操作系统更偏好 I/O型进程（或称 I/O繁忙型进程）<br>注：与I/O型进程相对的是计算型进程（或称 CPU繁忙型进程）</p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/youxian3.PNG" class="lazyload"></p>
+<p><img src="http://img.niran.vip/youxian3.PNG" alt="此处输入图片的描述"></p>
 <h2 id="4-6-多级反馈队列"><a href="#4-6-多级反馈队列" class="headerlink" title="4.6 多级反馈队列"></a>4.6 多级反馈队列</h2><ol>
 <li>在采用 FB 的系统中，设置了多个不同优先级的就绪队列，并赋予各个队列大小不同的时间片，使优先级越高的时间片越小。</li>
 <li>新就绪的进程总是进入最高优先级队列的队尾，并按 FCFS<br>原则等待调度；当轮到该进程执行时，若它能在规定的时间片内完成，便可准备撤离系统，否则将他转入第二级队列末尾，再同样按 FCFS原则等待调度；如果它在第二级队列上运行一个时间片后仍未完成，再依次将它转入第三级队列，……，如此下去，当一个长作业从第一级队列降到最后一级队列时，便在该队列中采取 RR 算法运行。</li>
 <li>系统总是调度第一级队列中的进程执行，仅当第一级队列空时，才调度第二级上队列上的进程执行。以此类推，仅当第 1~（i -1）级队列空时，才调度第 i 级队列上的程序执行。</li>
 </ol>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/duoji1.PNG" class="lazyload"></p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/duoji2.PNG" class="lazyload"></p>
+<p><img src="http://img.niran.vip/duoji1.PNG" alt="此处输入图片的描述"></p>
+<p><img src="http://img.niran.vip/duoji2.PNG" alt="此处输入图片的描述"></p>
 <table>
 <thead>
 <tr>
 <th>算法</th>
-<th>思想&规则</th>
+<th>思想&amp;规则</th>
 <th>可抢占</th>
 <th>优点</th>
 <th>缺点</th>
@@ -853,7 +876,7 @@
 </tr>
 </tbody></table>
 <p>注：比起早期的批处理操作系统来说，由于计算机造价大幅降低，因此之后出现的交互式操作系统（包括<br>分时操作系统、实时操作系统等）更注重系统的响应时间、公平性、平衡性等指标。而这几种算法恰好也 能较好地满足交互式系统的需求。因此这三种算法适合用于交互式系统。（比如UNIX使用的就是多级反馈<br>队列调度算法）</p>
-</body></html>
+
       
     </div>
     <div>

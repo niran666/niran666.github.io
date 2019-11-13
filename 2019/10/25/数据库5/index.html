@@ -189,10 +189,14 @@
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:description" content="1. having与where的区别 where：  是作用在查询结果进行分组之前，过滤掉不符合条件的数据。where中不能包含聚合函数。（注意是：where后面子句不能有聚合函数，而在含有where中可以使用聚合函数） 作用在group by和having字句前 是作用于对表与视图">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.niran.vip/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-10-25%2012.14.38.png">
+<meta property="og:image" content="http://img.niran.vip/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-10-25%2012.19.25.png">
+<meta property="og:image" content="http://img.niran.vip/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-10-25%2013.01.10.png">
 <meta property="og:updated_time" content="2019-10-25T05:22:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL数据库——HAVING用法">
 <meta name="twitter:description" content="1. having与where的区别 where：  是作用在查询结果进行分组之前，过滤掉不符合条件的数据。where中不能包含聚合函数。（注意是：where后面子句不能有聚合函数，而在含有where中可以使用聚合函数） 作用在group by和having字句前 是作用于对表与视图">
+<meta name="twitter:image" content="http://img.niran.vip/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-10-25%2012.14.38.png">
 
 
 
@@ -581,7 +585,7 @@
       
 
       
-        <html><head><meta name="generator" content="Hexo 3.9.0"></head><body><p><strong>1. having与where的区别</strong></p>
+        <p><strong>1. having与where的区别</strong></p>
 <p>where：</p>
 <blockquote>
 <p>是作用在查询结果进行分组之前，过滤掉不符合条件的数据。where中不能包含聚合函数。（注意是：where后面子句不能有聚合函数，而在含有where中可以使用聚合函数） 作用在group by和having字句前 是作用于对表与视图</p>
@@ -593,22 +597,22 @@
 <p>是作用在查询结果分组之后，筛选满足条件的组，过滤掉数据。通常跟聚合函数一起使用。having子句在聚合后对组记录进行筛选。</p>
 </blockquote>
 <p><strong>2. having使用示例</strong></p>
-<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-10-25%2012.14.38.png" class="lazyload"></p>
+<p><img src="http://img.niran.vip/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-10-25%2012.14.38.png" alt="此处输入图片的描述"></p>
 <p>e.g. 查找平均年龄大于19的省份</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> adress,<span class="keyword">AVG</span>(age) <span class="keyword">FROM</span> tb_user <span class="keyword">GROUP</span> <span class="keyword">BY</span> adress <span class="keyword">HAVING</span> (<span class="keyword">AVG</span>(age)><span class="number">19</span>)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> adress,<span class="keyword">AVG</span>(age) <span class="keyword">FROM</span> tb_user <span class="keyword">GROUP</span> <span class="keyword">BY</span> adress <span class="keyword">HAVING</span> (<span class="keyword">AVG</span>(age)&gt;<span class="number">19</span>)</span><br></pre></td></tr></table></figure>
 
-<p>查询结果<br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-10-25%2012.19.25.png" class="lazyload"></p>
+<p>查询结果<br><img src="http://img.niran.vip/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-10-25%2012.19.25.png" alt="此处输入图片的描述"></p>
 <p>e.g. 查询姓名重复的记录</p>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,<span class="string">`name`</span> <span class="keyword">FROM</span> tb_user <span class="keyword">WHERE</span> <span class="string">`name`</span> <span class="keyword">in</span> (<span class="keyword">SELECT</span> <span class="string">`name`</span> <span class="keyword">FROM</span> tb_user  <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="string">`name`</span> <span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*)><span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,<span class="string">`name`</span> <span class="keyword">FROM</span> tb_user <span class="keyword">WHERE</span> <span class="string">`name`</span> <span class="keyword">in</span> (<span class="keyword">SELECT</span> <span class="string">`name`</span> <span class="keyword">FROM</span> tb_user  <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="string">`name`</span> <span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*)&gt;<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
-<p>查询结果<br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-10-25%2013.01.10.png" class="lazyload"></p>
+<p>查询结果<br><img src="http://img.niran.vip/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-10-25%2013.01.10.png" alt="此处输入图片的描述"></p>
 <p><strong><font style="color:red">注意事项 ：</font></strong></p>
 <ol>
 <li>where 后不能跟聚合函数，因为where执行顺序大于聚合函数。</li>
 <li>where 子句的作用是在对查询结果进行分组前，将不符合where条件的行去掉，即在分组之前过滤数据，条件中不能包含聚组函数，使用where条件显示特定的行。</li>
 <li>having 子句的作用是筛选满足条件的组，即在分组之后过滤数据，条件中经常包含聚组函数，使用having 条件显示特定的组，也可以使用多个分组标准进行分组。</li>
 </ol>
-</body></html>
+
       
     </div>
     <div>
