@@ -189,18 +189,10 @@
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:description" content="前言最近学校官网换了新的信息门户，在登陆时对密码进行了加密并且多加验证参数。原来用python写的爬虫已经不能使用，最近抽了个空用java重写了一遍。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://img.niran.vip/20191802.JPG">
-<meta property="og:image" content="http://img.niran.vip/20191814.JPG">
-<meta property="og:image" content="http://img.niran.vip/20191821.JPG">
-<meta property="og:image" content="http://img.niran.vip/20191829JPG.JPG">
-<meta property="og:image" content="http://img.niran.vip/20191839.JPG">
-<meta property="og:image" content="http://img.niran.vip/20191845.JPG">
-<meta property="og:image" content="http://img.niran.vip/20191851.JPG">
 <meta property="og:updated_time" content="2019-09-06T09:31:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一次破解学校官网密码加密">
 <meta name="twitter:description" content="前言最近学校官网换了新的信息门户，在登陆时对密码进行了加密并且多加验证参数。原来用python写的爬虫已经不能使用，最近抽了个空用java重写了一遍。">
-<meta name="twitter:image" content="http://img.niran.vip/20191802.JPG">
 
 
 
@@ -589,23 +581,23 @@
       
 
       
-        <p><strong>前言</strong><br>最近学校官网换了新的信息门户，在登陆时对密码进行了加密并且多加验证参数。原来用python写的爬虫已经不能使用，最近抽了个空用java重写了一遍。</p>
+        <html><head><meta name="generator" content="Hexo 3.9.0"></head><body><p><strong>前言</strong><br>最近学校官网换了新的信息门户，在登陆时对密码进行了加密并且多加验证参数。原来用python写的爬虫已经不能使用，最近抽了个空用java重写了一遍。</p>
 <a id="more"></a>
 
 <p><strong>正题</strong></p>
-<p>用谷歌开发者工具来抓取登录时提交的表单，如下图所示。可以看到密码并不是明文密码。而且还有几个不知道什么作用的参数。<br><img src="http://img.niran.vip/20191802.JPG" alt="此处输入图片的描述"></p>
+<p>用谷歌开发者工具来抓取登录时提交的表单，如下图所示。可以看到密码并不是明文密码。而且还有几个不知道什么作用的参数。<br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/20191802.JPG" class="lazyload"></p>
 <p>表单参数的加密肯定是在前端进行的，要想知道密码如何加密我们只需要知道当我们点击了登录按钮到表单提交这个过程浏览器干了什么事情即可。</p>
-<p><img src="http://img.niran.vip/20191814.JPG" alt="此处输入图片的描述"></p>
+<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/20191814.JPG" class="lazyload"></p>
 <p>用开发者工具来给鼠标添加监听事件，然后点击登录按钮，通过点击下图的按钮可以一步一步进行debug(ps.这个过程要有耐心）。图中的Call Stack可以看到执行的函数栈。</p>
-<p><img src="http://img.niran.vip/20191821.JPG" alt="此处输入图片的描述"></p>
+<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/20191821.JPG" class="lazyload"></p>
 <p>一步步debug后终于看到了个与登录有关的函数doLogin(),先看一下具体代码，如下图</p>
-<p><img src="http://img.niran.vip/20191829JPG.JPG" alt="此处输入图片的描述"></p>
-<p>图中标红的前三行分别是获取用户名、密码和验证码。最后这个_etd2()函数参数是码和一个pwdDefaultEncryptSalt参数，可以猜测这个密码和加密有关。这个pwdDefaultEncryptSalt参数哪来的呢？图中是直接从页面获取，我们也来看一下登录页面源码。<br><img src="http://img.niran.vip/20191839.JPG" alt="此处输入图片的描述"></p>
-<p>通过在源码中搜索pwdDefaultEncryptSalt关键词我们可以找到图上这些参数。这些参数正是登录是需要的参数。从pwdDefaultEncryptSalt本身含义也可以猜出这个是后端提供的加密盐值。具体是如何加密的现在我们还不知道。继续看一下_etd2()函数的实现。<br><img src="http://img.niran.vip/20191845.JPG" alt="此处输入图片的描述"></p>
+<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/20191829JPG.JPG" class="lazyload"></p>
+<p>图中标红的前三行分别是获取用户名、密码和验证码。最后这个_etd2()函数参数是码和一个pwdDefaultEncryptSalt参数，可以猜测这个密码和加密有关。这个pwdDefaultEncryptSalt参数哪来的呢？图中是直接从页面获取，我们也来看一下登录页面源码。<br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/20191839.JPG" class="lazyload"></p>
+<p>通过在源码中搜索pwdDefaultEncryptSalt关键词我们可以找到图上这些参数。这些参数正是登录是需要的参数。从pwdDefaultEncryptSalt本身含义也可以猜出这个是后端提供的加密盐值。具体是如何加密的现在我们还不知道。继续看一下_etd2()函数的实现。<br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/20191845.JPG" class="lazyload"></p>
 <p>可以看出执行encryptAES(_p0,_p1)后就将表单的密码值改变了。<br>嗯!看来这个encryptAES()就是加密函数了。</p>
-<p>继续看encryptAES()的实现！<br><img src="http://img.niran.vip/20191851.JPG" alt="此处输入图片的描述"></p>
+<p>继续看encryptAES()的实现！<br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/20191851.JPG" class="lazyload"></p>
 <p>encryptAES()函数是在一个单独的encrypt.js文件里，encryptAES()就是密码的加密方法了。通过详细观看代码可知这是把密码和盐值以及随机数进行对称加密。我们可以直接用Java来执行这个encrypt.js文件，把密码和网页提取的盐值作为参数来调用encryptAES()方法进行加密。</p>
-
+</body></html>
       
     </div>
     <div>
@@ -692,10 +684,6 @@
           </div>
           
 
-  
-    <div id="gitalk-container">
-    </div>
-    
   
 
 
@@ -1108,32 +1096,6 @@
 
 
 
-
-
-  
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
-
-  
-  
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css">
-
-  
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
-    
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: 'eb5bbed58a15239d8ab7',
-          clientSecret: '17b324a4d3178abb03f7766c7b94b876fb33babe',
-          repo: 'niran666.github.io',
-          owner: 'niran666',
-          admin: ['niran666'],
-          id: md5(location.pathname),
-          distractionFreeMode: 'true'
-        })
-        gitalk.render('gitalk-container')           
-       </script>
 
   
 

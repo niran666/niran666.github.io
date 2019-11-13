@@ -189,12 +189,10 @@
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:description" content="1. Java 异常异常机制是指当程序出现错误后，程序如何处理。具体来说，异常机制提供了程序退出的安全通道。当出现错误后，程序执行的流程发生改变，程序的控制权转移到异常处理器。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://img.niran.vip/%E5%BC%82%E5%B8%B8.JPG">
 <meta property="og:updated_time" content="2019-09-21T06:26:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(整理)java基础——异常">
 <meta name="twitter:description" content="1. Java 异常异常机制是指当程序出现错误后，程序如何处理。具体来说，异常机制提供了程序退出的安全通道。当出现错误后，程序执行的流程发生改变，程序的控制权转移到异常处理器。">
-<meta name="twitter:image" content="http://img.niran.vip/%E5%BC%82%E5%B8%B8.JPG">
 
 
 
@@ -583,11 +581,11 @@
       
 
       
-        <h2 id="1-Java-异常"><a href="#1-Java-异常" class="headerlink" title="1. Java 异常"></a>1. Java 异常</h2><p>异常机制是指当程序出现错误后，程序如何处理。具体来说，异常机制提供了程序退出的安全通道。当出现错误后，程序执行的流程发生改变，程序的控制权转移到异常处理器。</p>
+        <html><head><meta name="generator" content="Hexo 3.9.0"></head><body><h2 id="1-Java-异常"><a href="#1-Java-异常" class="headerlink" title="1. Java 异常"></a>1. Java 异常</h2><p>异常机制是指当程序出现错误后，程序如何处理。具体来说，异常机制提供了程序退出的安全通道。当出现错误后，程序执行的流程发生改变，程序的控制权转移到异常处理器。</p>
 <a id="more"></a>
 
 <p>程序错误分为三种：1.编译错误；2.运行时错误；3.逻辑错误。<br>（1）编译错误是因为程序没有遵循语法规则，编译程序能够自己发现并且提示我们错误的原因和位置，这个也是大家在刚接触编程语言最常遇到的问题。<br>（2）运行时错误是因为程序在执行时，运行环境发现了不能执行的操作。<br>（3）逻辑错误是因为程序没有按照预期的逻辑顺序执行。异常也就是指程序运行时发生错误，而异常处理就是对这些错误进行处理和控制。</p>
-<h2 id="2-Java异常结构"><a href="#2-Java异常结构" class="headerlink" title="2. Java异常结构"></a>2. Java异常结构</h2><p>在 Java 中，所有的异常都有一个共同的祖先 Throwable（可抛出）。Throwable 指定代码中可用异常传播机制通过 Java 应用程序传输的任何问题的共性。<br><img src="http://img.niran.vip/%E5%BC%82%E5%B8%B8.JPG" alt="此处输入图片的描述"><br>Throwable： 有两个重要的子类：Exception（异常）和 Error（错误），二者都是 Java 异常处理的重要子类，各自都包含大量子类。异常和错误的区别是：异常能被程序本身可以处理，错误是无法处理。</p>
+<h2 id="2-Java异常结构"><a href="#2-Java异常结构" class="headerlink" title="2. Java异常结构"></a>2. Java异常结构</h2><p>在 Java 中，所有的异常都有一个共同的祖先 Throwable（可抛出）。Throwable 指定代码中可用异常传播机制通过 Java 应用程序传输的任何问题的共性。<br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E5%BC%82%E5%B8%B8.JPG" class="lazyload"><br>Throwable： 有两个重要的子类：Exception（异常）和 Error（错误），二者都是 Java 异常处理的重要子类，各自都包含大量子类。异常和错误的区别是：异常能被程序本身可以处理，错误是无法处理。</p>
 <h3 id="2-1-Error"><a href="#2-1-Error" class="headerlink" title="2.1 Error"></a>2.1 Error</h3><blockquote>
 <p>Error（错误）:是程序无法处理的错误，表示运行应用程序中较严重问题。大多数错误与代码编写者执行的操作无关，而表示代码运行时 JVM（Java 虚拟机）出现的问题。</p>
 </blockquote>
@@ -607,27 +605,27 @@
 </ol>
 <h2 id="3-异常处理"><a href="#3-异常处理" class="headerlink" title="3. 异常处理"></a>3. 异常处理</h2><h3 id="3-1-try…catch关键字"><a href="#3-1-try…catch关键字" class="headerlink" title="3.1 try…catch关键字"></a>3.1 try…catch关键字</h3><p>使用 try 和 catch 关键字可以捕获异常。try/catch 代码块放在异常可能发生的地方。</p>
 <p>try/catch代码块中的代码称为保护代码，使用 try/catch 的语法如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">   <span class="comment">// 程序代码</span></span><br><span class="line">&#125;<span class="keyword">catch</span>(ExceptionName e1)&#123;</span><br><span class="line">   <span class="comment">//Catch 块</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>{</span><br><span class="line">   <span class="comment">// 程序代码</span></span><br><span class="line">}<span class="keyword">catch</span>(ExceptionName e1){</span><br><span class="line">   <span class="comment">//Catch 块</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>Catch 语句包含要捕获异常类型的声明。当保护代码块中发生一个异常时，try 后面的 catch 块就会被检查。<br>如果发生的异常包含在 catch 块中，异常会被传递到该 catch 块，这和传递一个参数到方法是一样。</p>
 <p><strong>多重捕获块</strong><br>一个 try 代码块后面跟随多个 catch 代码块的情况就叫多重捕获。<br>多重捕获块的语法如下所示：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">   <span class="comment">// 程序代码</span></span><br><span class="line">&#125;<span class="keyword">catch</span>(异常类型<span class="number">1</span> 异常的变量名<span class="number">1</span>)&#123;</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">&#125;<span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>)&#123;</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">&#125;<span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>)&#123;</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>{</span><br><span class="line">   <span class="comment">// 程序代码</span></span><br><span class="line">}<span class="keyword">catch</span>(异常类型<span class="number">1</span> 异常的变量名<span class="number">1</span>){</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">}<span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>){</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">}<span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>){</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>上面的代码段包含了 3 个 catch块。<br>可以在 try 语句后面添加任意数量的 catch 块。如果保护代码中发生异常，异常被抛给第一个 catch 块。如果抛出异常的数据类型与 ExceptionType1 匹配，它在这里就会被捕获。如果不匹配，它会被传递给第二个 catch 块。如此，直到异常被捕获或者通过所有的 catch 块。</p>
 <h3 id="3-2-throws-throw-关键字"><a href="#3-2-throws-throw-关键字" class="headerlink" title="3.2 throws/throw 关键字"></a>3.2 throws/throw 关键字</h3><p>如果一个方法没有捕获到一个检查性异常，那么该方法必须使用 throws 关键字来声明。throws 关键字放在方法签名的尾部。</p>
 <p>也可以使用 throw 关键字抛出一个异常，无论它是新实例化的还是刚捕获到的。</p>
 <p>下面方法的声明抛出一个 RemoteException 异常：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">double</span> amount)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> RemoteException();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span></span>{</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">double</span> amount)</span> <span class="keyword">throws</span> RemoteException </span>{</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> RemoteException();</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>一个方法可以声明抛出多个异常，多个异常之间用逗号隔开。</p>
 <p>例如，下面的方法声明抛出 RemoteException 和 InsufficientFundsException：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">double</span> amount)</span> <span class="keyword">throws</span> RemoteException,InsufficientFundsException </span>&#123;</span><br><span class="line"> </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span></span></span><br><span class="line"><span class="class"></span>{</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">double</span> amount)</span> <span class="keyword">throws</span> RemoteException,InsufficientFundsException </span>{</span><br><span class="line"> </span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>finally关键字</strong><br>finally 关键字用来创建在 try 代码块后面执行的代码块。无论是否发生异常，finally 代码块中的代码总会被执行。<br>在 finally 代码块中，可以运行清理类型等收尾善后性质的语句。finally 代码块出现在 catch 代码块最后，语法如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">&#125;<span class="keyword">catch</span>(异常类型<span class="number">1</span> 异常的变量名<span class="number">1</span>)&#123;</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">&#125;<span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>)&#123;</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>{</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">}<span class="keyword">catch</span>(异常类型<span class="number">1</span> 异常的变量名<span class="number">1</span>){</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">}<span class="keyword">catch</span>(异常类型<span class="number">2</span> 异常的变量名<span class="number">2</span>){</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">}<span class="keyword">finally</span>{</span><br><span class="line">  <span class="comment">// 程序代码</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>实例</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcepTest</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">       System.out.println(<span class="string">"Access element three :"</span> + a[<span class="number">3</span>]);</span><br><span class="line">    &#125;<span class="keyword">catch</span>(ArrayIndexOutOfBoundsException e)&#123;</span><br><span class="line">       System.out.println(<span class="string">"Exception thrown  :"</span> + e);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">finally</span>&#123;</span><br><span class="line">       a[<span class="number">0</span>] = <span class="number">6</span>;</span><br><span class="line">       System.out.println(<span class="string">"First element value: "</span> +a[<span class="number">0</span>]);</span><br><span class="line">       System.out.println(<span class="string">"The finally statement is executed"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">运行结果：</span><br><span class="line">Exception thrown  :java.lang.ArrayIndexOutOfBoundsException: <span class="number">3</span></span><br><span class="line">First element value: <span class="number">6</span></span><br><span class="line">The <span class="keyword">finally</span> statement is executed</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcepTest</span></span>{</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>{</span><br><span class="line">    <span class="keyword">int</span> a[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">try</span>{</span><br><span class="line">       System.out.println(<span class="string">"Access element three :"</span> + a[<span class="number">3</span>]);</span><br><span class="line">    }<span class="keyword">catch</span>(ArrayIndexOutOfBoundsException e){</span><br><span class="line">       System.out.println(<span class="string">"Exception thrown  :"</span> + e);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">finally</span>{</span><br><span class="line">       a[<span class="number">0</span>] = <span class="number">6</span>;</span><br><span class="line">       System.out.println(<span class="string">"First element value: "</span> +a[<span class="number">0</span>]);</span><br><span class="line">       System.out.println(<span class="string">"The finally statement is executed"</span>);</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line">运行结果：</span><br><span class="line">Exception thrown  :java.lang.ArrayIndexOutOfBoundsException: <span class="number">3</span></span><br><span class="line">First element value: <span class="number">6</span></span><br><span class="line">The <span class="keyword">finally</span> statement is executed</span><br></pre></td></tr></tbody></table></figure>
 
 <p>注意事项：</p>
 <ol>
@@ -773,7 +771,7 @@
 <td>用当前的调用栈层次填充Throwable 对象栈层次，添加到栈层次任何先前信息中。</td>
 </tr>
 </tbody></table>
-
+</body></html>
       
     </div>
     <div>
@@ -860,10 +858,6 @@
           </div>
           
 
-  
-    <div id="gitalk-container">
-    </div>
-    
   
 
 
@@ -1301,32 +1295,6 @@
 
 
 
-
-
-  
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
-
-  
-  
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css">
-
-  
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
-    
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: 'eb5bbed58a15239d8ab7',
-          clientSecret: '17b324a4d3178abb03f7766c7b94b876fb33babe',
-          repo: 'niran666.github.io',
-          owner: 'niran666',
-          admin: ['niran666'],
-          id: md5(location.pathname),
-          distractionFreeMode: 'true'
-        })
-        gitalk.render('gitalk-container')           
-       </script>
 
   
 

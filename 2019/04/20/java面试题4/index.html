@@ -189,12 +189,10 @@
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:description" content="1、你知道哪些垃圾回收算法?垃圾回收从理论上非常容易理解,具体的方法有以下几种:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pq57ykm1i.bkt.clouddn.com/GC.PNG">
 <meta property="og:updated_time" content="2019-09-16T08:50:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(整理)java面试题(四)垃圾回收">
 <meta name="twitter:description" content="1、你知道哪些垃圾回收算法?垃圾回收从理论上非常容易理解,具体的方法有以下几种:">
-<meta name="twitter:image" content="http://pq57ykm1i.bkt.clouddn.com/GC.PNG">
 
 
 
@@ -595,7 +593,7 @@
       
 
       
-        <p><strong>1、你知道哪些垃圾回收算法?</strong><br>垃圾回收从理论上非常容易理解,具体的方法有以下几种: </p>
+        <html><head><meta name="generator" content="Hexo 3.9.0"></head><body><p><strong>1、你知道哪些垃圾回收算法?</strong><br>垃圾回收从理论上非常容易理解,具体的方法有以下几种: </p>
 <a id="more"></a>
 
 <ol>
@@ -615,12 +613,12 @@
 <p>引用计数法思路是这样的，给对象添加一个引用计数器，有地方引用时，计数器就加1；当引用失效时就减1；当计数为0的时候就判定对象需要被回收</p>
 <p>引用计数法有一个难以解决的问题就是相互循环引用问题。</p>
 <p>例：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">obj1.instance=obj2.instance;</span><br><span class="line">obj2.instance=obj1.instance;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">obj1.instance=obj2.instance;</span><br><span class="line">obj2.instance=obj1.instance;</span><br></pre></td></tr></tbody></table></figure>
 
 <ul>
 <li>可达性分析算法</li>
 </ul>
-<p>这个算法的基本思路是通过一些列称为“GC Roots”的对象作为起始点，从这些点开始向下搜索，搜索走过的路径称为引用链，当一个对象到GC Roots没有任何引用链相连时，则证明对象需要被回收.<br><img src="http://pq57ykm1i.bkt.clouddn.com/GC.PNG" alt="此处输入图片的描述"><br>上图中o3,o4对象没有任何GC Roots可达到，所有这两个对象不可用了，需要被GC回收</p>
+<p>这个算法的基本思路是通过一些列称为“GC Roots”的对象作为起始点，从这些点开始向下搜索，搜索走过的路径称为引用链，当一个对象到GC Roots没有任何引用链相连时，则证明对象需要被回收.<br><img alt="此处输入图片的描述" data-src="http://pq57ykm1i.bkt.clouddn.com/GC.PNG" class="lazyload"><br>上图中o3,o4对象没有任何GC Roots可达到，所有这两个对象不可用了，需要被GC回收</p>
 <p>Java可作为GC Roots的对象包括下面几种：</p>
 <ol>
 <li>虚拟机栈中引用的对象</li>
@@ -630,7 +628,7 @@
 </ol>
 <p><strong>3、简单的解释一下垃圾回收</strong><br>Java 垃圾回收机制最基本的做法是分代回收。内存中的区域被划分成不同的世代，对象根据其存活的时间被保存在对应世代的区域中。一般的实现是划分成3个世代：年轻、年老和永久。内存的分配是发生在年轻世代中的。当一个对象存活时间足够长的时候，它就会被复制到年老世代中。对于不同的世代可以使用不同的垃圾回收算法。进行世代划分的出发点是对应用中对象存活时间进行研究之后得出的统计规律。一般来说，一个应用中的大部分对象的存活时间都很短。比如局部变量的存活时间就只在方法的执行过程中。基于这一点，对于年轻世代的垃圾回收算法就可以很有针对性。</p>
 <p><strong>4、调用System.gc()会发生什么?</strong><br>通知GC开始工作，但是GC真正开始的时间不确定。</p>
-
+</body></html>
       
     </div>
     <div>
@@ -717,10 +715,6 @@
           </div>
           
 
-  
-    <div id="gitalk-container">
-    </div>
-    
   
 
 
@@ -1133,32 +1127,6 @@
 
 
 
-
-
-  
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
-
-  
-  
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css">
-
-  
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
-    
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: 'eb5bbed58a15239d8ab7',
-          clientSecret: '17b324a4d3178abb03f7766c7b94b876fb33babe',
-          repo: 'niran666.github.io',
-          owner: 'niran666',
-          admin: ['niran666'],
-          id: md5(location.pathname),
-          distractionFreeMode: 'true'
-        })
-        gitalk.render('gitalk-container')           
-       </script>
 
   
 

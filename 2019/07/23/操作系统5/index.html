@@ -189,21 +189,10 @@
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:description" content="1. 虚拟存储管理1.1 传统存储管理方式的特征、缺点">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://img.niran.vip/5.jpg">
-<meta property="og:image" content="http://img.niran.vip/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.PNG">
-<meta property="og:image" content="http://img.niran.vip/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%982.jpg">
-<meta property="og:image" content="http://img.niran.vip/20160621155937687.jpg">
-<meta property="og:image" content="http://img.niran.vip/%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD.PNG">
-<meta property="og:image" content="http://img.niran.vip/%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E8%BF%87%E7%A8%8B.PNG">
-<meta property="og:image" content="http://img.niran.vip/%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5.jpg">
-<meta property="og:image" content="http://img.niran.vip/%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95.jpg">
-<meta property="og:image" content="http://download.niran.vip/%E6%97%B6%E9%92%9F.PNG">
-<meta property="og:image" content="http://img.niran.vip/%E9%A1%B5%E9%9D%A2%E5%88%86%E9%85%8D3.jpg">
 <meta property="og:updated_time" content="2019-07-23T09:20:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统 存储管理（二）">
 <meta name="twitter:description" content="1. 虚拟存储管理1.1 传统存储管理方式的特征、缺点">
-<meta name="twitter:image" content="http://img.niran.vip/5.jpg">
 
 
 
@@ -592,7 +581,7 @@
       
 
       
-        <h1 id="1-虚拟存储管理"><a href="#1-虚拟存储管理" class="headerlink" title="1. 虚拟存储管理"></a>1. 虚拟存储管理</h1><h2 id="1-1-传统存储管理方式的特征、缺点"><a href="#1-1-传统存储管理方式的特征、缺点" class="headerlink" title="1.1 传统存储管理方式的特征、缺点"></a>1.1 传统存储管理方式的特征、缺点</h2><p><img src="http://img.niran.vip/5.jpg" alt="此处输入图片的描述"></p>
+        <html><head><meta name="generator" content="Hexo 3.9.0"></head><body><h1 id="1-虚拟存储管理"><a href="#1-虚拟存储管理" class="headerlink" title="1. 虚拟存储管理"></a>1. 虚拟存储管理</h1><h2 id="1-1-传统存储管理方式的特征、缺点"><a href="#1-1-传统存储管理方式的特征、缺点" class="headerlink" title="1.1 传统存储管理方式的特征、缺点"></a>1.1 传统存储管理方式的特征、缺点</h2><p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/5.jpg" class="lazyload"></p>
 <a id="more"></a>
 
 <p><font color="red">一次性</font>：作业必须一次性全部装入内存后才能开始运行。这会造成两个问题：①作业很大时，不能全部装入内存，导致大作业无法运行；②当大量作业要求运行时，由于内存无法容纳所有作业，因此只 有少量作业能运行，导致多道程序并发度下降。 </p>
@@ -607,15 +596,15 @@
 <li>虚拟性：从逻辑上扩充了内存的容量，使用户看到的内存容量，远大于实际的容量。</li>
 </ol>
 <h2 id="1-3-虚拟内存技术的实现"><a href="#1-3-虚拟内存技术的实现" class="headerlink" title="1.3 虚拟内存技术的实现"></a>1.3 虚拟内存技术的实现</h2><p>虚拟内存技术，允许一个作业分多次调入内存。如果采用连续分配方式，会不方便实现。因此，虚拟内存的实现需要建立在<font color="red">传统的非连续分配内存管理方式</font>基础上。</p>
-<p><img src="http://img.niran.vip/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.PNG" alt="此处输入图片的描述"></p>
+<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98.PNG" class="lazyload"></p>
 <p>主要区别：<br>在程序执行过程中，当所访问的信息不在内存时，由操作系统负责将所需信息从外存调入内存，然后继续执行程序。 若内存空间不够，由操作系统负责将内存中暂时用不到的信息换出到外存。</p>
-<h2 id="1-4-小结"><a href="#1-4-小结" class="headerlink" title="1.4 小结"></a>1.4 小结</h2><p><img src="http://img.niran.vip/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%982.jpg" alt="此处输入图片的描述"></p>
+<h2 id="1-4-小结"><a href="#1-4-小结" class="headerlink" title="1.4 小结"></a>1.4 小结</h2><p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%982.jpg" class="lazyload"></p>
 <h1 id="2-请求分页存储管理"><a href="#2-请求分页存储管理" class="headerlink" title="2. 请求分页存储管理"></a>2. 请求分页存储管理</h1><h2 id="2-1-概念"><a href="#2-1-概念" class="headerlink" title="2.1 概念"></a>2.1 概念</h2><blockquote>
 <p>请求分页系统是建立在基本分页的基础上的，为了能支持虚拟存储器功能而增加了请求调页功能和页面置换功能。<br>相应地，每次调入和换出的基本单位都是长度固定的页面，这使得请求分页系统在实现上要比请求分段系统简单（请求分段系统在换进和换出时是可变长度的段）。因此，请求分页便成为目前最常用的一种实现虚拟存储器的方式。</p>
 </blockquote>
 <p>为了实现请求分页，系统必须提供一定的硬件支持。除了需要一台具有一定容量的内存及外存的计算机系统外，还需要有页表机制、缺页中断机构以及地址变换机构。</p>
 <h2 id="2-2-页表机制"><a href="#2-2-页表机制" class="headerlink" title="2.2 页表机制"></a>2.2 页表机制</h2><p>在请求分页系统中所需要的主要数据结构是页表。其基本作用仍然是将用户空间中的逻辑地址变换为内存空间中的物理地址。由于只将应用程序的一部分调入内存，还有一部分仍在外存上，故需在页表中再增加若干项，供程序（数据）在换进、换出时参考。</p>
-<p>在请求分页系统中的每个页表项如下所示：<br><img src="http://img.niran.vip/20160621155937687.jpg" alt="此处输入图片的描述"><br>各字段的说明如下：</p>
+<p>在请求分页系统中的每个页表项如下所示：<br><img alt="此处输入图片的描述" data-src="http://img.niran.vip/20160621155937687.jpg" class="lazyload"><br>各字段的说明如下：</p>
 <ul>
 <li>状态位P：用于指示该页是否已调入内存，供程序访问时参考。</li>
 <li>访问字段A：用于记录本页在一段时间内被访问的次数，或记录本页最近已有多长时间未被访问，供选择换出页面时参考。</li>
@@ -635,13 +624,13 @@
 <h2 id="2-4-地址变换机构"><a href="#2-4-地址变换机构" class="headerlink" title="2.4 地址变换机构"></a>2.4 地址变换机构</h2><blockquote>
 <p>请求分页系统中的地址变换机构，是在分页系统地址变换机构的基础上，为实现虚拟存储器而增加了某些功能而形成的，如产生和处理缺页中断，以及从内存中换出一页的功能等等。</p>
 </blockquote>
-<p><img src="http://img.niran.vip/%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD.PNG" alt="此处输入图片的描述"><br>在进行地址变换时，首先去检索快表，试图从中找出所要访问的页。若找到，便修改页表项中的访问位。对于写指令，还需将修改位置成“1”，然后利用页表项中给出的物理块号和页内地址形成物理地址。地址变换过程到此结束。</p>
+<p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD.PNG" class="lazyload"><br>在进行地址变换时，首先去检索快表，试图从中找出所要访问的页。若找到，便修改页表项中的访问位。对于写指令，还需将修改位置成“1”，然后利用页表项中给出的物理块号和页内地址形成物理地址。地址变换过程到此结束。</p>
 <p>如果在快表中未找到该页的页表项时，应到内存中去查找页表，再根据找到的页表项中的状态位P，了解该页是否已调入内存。</p>
 <p>若该页已调入内存，这时应将此页的页表项写入快表，当快表已满时，应先调出按某种算法所确定的页的页表项；然后再写入该页的页表项。</p>
-<p>若该页尚未调入内存，这时应产生缺页中断，请求OS从外存把该页调入内存。<br> <img src="http://img.niran.vip/%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E8%BF%87%E7%A8%8B.PNG" alt="此处输入图片的描述"></p>
+<p>若该页尚未调入内存，这时应产生缺页中断，请求OS从外存把该页调入内存。<br> <img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E8%BF%87%E7%A8%8B.PNG" class="lazyload"></p>
 <p><font color="red">细节：</font><br>①只有“写指令”才需要修改 “修改位”。并且，一般来说只需修改快表中的数据，只有要将快表项删除时才需要写回内存中的慢表。这样可以减少访存次数。<br>②和普通的中断处理一样，缺页中断处理依然需要保留CPU现场。<br>③需要用某种“页面置换算法” 来决定一个换出页面<br>④换入/换出页面都需要启动慢速的I/O操作，可见，如果换入/ 换出太频繁，会有很大的开销。<br>⑤页面调入内存后，需要修改慢表，同时也需“将表项复制到快表中</p>
-<h2 id="2-5-小结"><a href="#2-5-小结" class="headerlink" title="2.5 小结"></a>2.5 小结</h2><p><img src="http://img.niran.vip/%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5.jpg" alt="此处输入图片的描述"></p>
-<h1 id="3-页面置换算法"><a href="#3-页面置换算法" class="headerlink" title="3.页面置换算法"></a>3.页面置换算法</h1><p><img src="http://img.niran.vip/%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95.jpg" alt="此处输入图片的描述"></p>
+<h2 id="2-5-小结"><a href="#2-5-小结" class="headerlink" title="2.5 小结"></a>2.5 小结</h2><p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5.jpg" class="lazyload"></p>
+<h1 id="3-页面置换算法"><a href="#3-页面置换算法" class="headerlink" title="3.页面置换算法"></a>3.页面置换算法</h1><p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95.jpg" class="lazyload"></p>
 <p><a href="http://download.niran.vip/3.2_3_%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95.pdf" target="_blank" rel="noopener">点此查看PDF</a></p>
 <h2 id="3-1-最佳置换算法"><a href="#3-1-最佳置换算法" class="headerlink" title="3.1 最佳置换算法"></a>3.1 最佳置换算法</h2><p>最佳置换算法（OPT）（理想置换算法）：从主存中移出永远不再需要的页面；如无这样的页面存在，则选择最长时间不需要访问的页面。于所选择的被淘汰页面将是以后永不使用的，或者是在最长时间内不再被访问的页面，这样可以保证获得最低的缺页率。 </p>
 <p>最佳置换算法可以用来评价其他算法。假定系统为某进程分配了三个物理块，并考虑有以下页面号引用串：<br>    7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0, 1<br>进程运行时，先将7, 0, 1三个页面依次装入内存。进程要访问页面2时，产生缺页中断，根据最佳置换算法，选择第18次访问才需调入的页面7予以淘汰。然后，访问页面0时，因为已在内存中所以不必产生缺页中断。访问页面3时又会根据最佳置换算法将页面1淘汰……依此类推，如图3-26所示。从图中可以看出釆用最佳置换算法时的情况。</p>
@@ -1011,7 +1000,7 @@
 </tr>
 </tbody></table>
 <p>实际上，LRU算法根据各页以前的情况，是“向前看”的，而最佳置换算法则根据各页以后的使用情况，是“向后看”的。<br>LRU性能较好，但需要寄存器和栈的硬件支持。LRU是堆栈类的算法。理论上可以证明，堆栈类算法不可能出现Belady异常。FIFO算法基于队列实现，不是堆栈类算法。</p>
-<h2 id="3-4-时钟-CLOCK-置换算法"><a href="#3-4-时钟-CLOCK-置换算法" class="headerlink" title="3.4. 时钟(CLOCK)置换算法"></a>3.4. 时钟(CLOCK)置换算法</h2><p>LRU算法的性能接近于OPT,但是实现起来比较困难，且开销大；FIFO算法实现简单，但性能差。所以操作系统的设计者尝试了很多算法，试图用比较小的开销接近LRU的性能，这类算法都是CLOCK算法的变体。<br><img src="http://download.niran.vip/%E6%97%B6%E9%92%9F.PNG" alt="此处输入图片的描述"></p>
+<h2 id="3-4-时钟-CLOCK-置换算法"><a href="#3-4-时钟-CLOCK-置换算法" class="headerlink" title="3.4. 时钟(CLOCK)置换算法"></a>3.4. 时钟(CLOCK)置换算法</h2><p>LRU算法的性能接近于OPT,但是实现起来比较困难，且开销大；FIFO算法实现简单，但性能差。所以操作系统的设计者尝试了很多算法，试图用比较小的开销接近LRU的性能，这类算法都是CLOCK算法的变体。<br><img alt="此处输入图片的描述" data-src="http://download.niran.vip/%E6%97%B6%E9%92%9F.PNG" class="lazyload"></p>
 <p>简单的CLOCK算法是给每一帧关联一个附加位，称为使用位。当某一页首次装入主存时，该帧的使用位设置为1;当该页随后再被访问到时，它的使用位也被置为1。对于页替换算法，用于替换的候选帧集合看做一个循环缓冲区，并且有一个指针与之相关联。当某一页被替换时，该指针被设置成指向缓冲区中的下一帧。当需要替换一页时，操作系统扫描缓冲区，以查找使用位被置为0的一帧。每当遇到一个使用位为1的帧时，操作系统就将该位重新置为0；如果在这个过程开始时，缓冲区中所有帧的使用位均为0，则选择遇到的第一个帧替换；如果所有帧的使用位均为1,则指针在缓冲区中完整地循环一周，把所有使用位都置为0，并且停留在最初的位置上，替换该帧中的页。由于该算法循环地检查各页面的情况，故称为CLOCK算法，又称为最近未用(Not Recently Used, NRU)算法。</p>
 <h2 id="3-5-改进型时钟置换算法"><a href="#3-5-改进型时钟置换算法" class="headerlink" title="3.5 改进型时钟置换算法"></a>3.5 改进型时钟置换算法</h2><p>CLOCK算法的性能比较接近LRU，而通过增加访问的位数目，可以使得CLOCK算法更加高效。在访问位的基础上再增加一个修改位，用(访问位，修改位)方式表示，则得到改进型的CLOCK置换算法。这样，每一帧都处于以下四种情况之一：</p>
 <ol>
@@ -1061,7 +1050,7 @@
 <td>算法开销较小，性能也不错</td>
 </tr>
 </tbody></table>
-<h1 id="4-页面分配"><a href="#4-页面分配" class="headerlink" title="4. 页面分配"></a>4. 页面分配</h1><p><img src="http://img.niran.vip/%E9%A1%B5%E9%9D%A2%E5%88%86%E9%85%8D3.jpg" alt="此处输入图片的描述"></p>
+<h1 id="4-页面分配"><a href="#4-页面分配" class="headerlink" title="4. 页面分配"></a>4. 页面分配</h1><p><img alt="此处输入图片的描述" data-src="http://img.niran.vip/%E9%A1%B5%E9%9D%A2%E5%88%86%E9%85%8D3.jpg" class="lazyload"></p>
 <p><a href="http://download.niran.vip/3.2_4_%E9%A1%B5%E9%9D%A2%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5.pdf" target="_blank" rel="noopener">点此查看pdf</a></p>
 <h2 id="4-1-驻留集大小"><a href="#4-1-驻留集大小" class="headerlink" title="4.1 驻留集大小"></a>4.1 驻留集大小</h2><p>对于分页式的虚拟内存，在准备执行时，不需要也不可能把一个进程的所有页都读取到主存，因此，操作系统必须决定读取多少页。也就是说，给特定的进程分配多大的主存空间，这需要考虑以下几点：</p>
 <ol>
@@ -1086,7 +1075,7 @@
 <li>系统缺少足够的对换区空间：凡不会被修改的文件都直接从文件区调入；而当换出这些页面时，由于它们未被修改而不必再将它们换出。但对于那些可能被修改的部分，在将它们换出时须调到对换区，以后需要时再从对换区调入。</li>
 <li>UNIX方式：与进程有关的文件都放在文件区，故未运行过的页面，都应从文件区调入。曾经运行过但又被换出的页面，由于是被放在对换区，因此下次调入时应从对换区调入。进程请求的共享页面若被其他进程调入内存，则无需再从对换区调入。</li>
 </ol>
-
+</body></html>
       
     </div>
     <div>
@@ -1173,10 +1162,6 @@
           </div>
           
 
-  
-    <div id="gitalk-container">
-    </div>
-    
   
 
 
@@ -1614,32 +1599,6 @@
 
 
 
-
-
-  
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
-
-  
-  
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css">
-
-  
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
-    
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: 'eb5bbed58a15239d8ab7',
-          clientSecret: '17b324a4d3178abb03f7766c7b94b876fb33babe',
-          repo: 'niran666.github.io',
-          owner: 'niran666',
-          admin: ['niran666'],
-          id: md5(location.pathname),
-          distractionFreeMode: 'true'
-        })
-        gitalk.render('gitalk-container')           
-       </script>
 
   
 

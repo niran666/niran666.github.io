@@ -189,12 +189,10 @@
 <meta property="og:site_name" content="倪然的博客">
 <meta property="og:description" content="REST，即Representational State Transfer的缩写。直接翻译的意思是”表现层状态转化”。它是一种互联网应用程序的API设计理念：URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2888542-27f4990d17ca67ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/550/format/webp">
 <meta property="og:updated_time" content="2019-09-19T03:01:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(转)什么是Restful?">
 <meta name="twitter:description" content="REST，即Representational State Transfer的缩写。直接翻译的意思是”表现层状态转化”。它是一种互联网应用程序的API设计理念：URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2888542-27f4990d17ca67ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/550/format/webp">
 
 
 
@@ -595,8 +593,8 @@
       
 
       
-        <blockquote>
-<p>REST，即Representational State Transfer的缩写。直接翻译的意思是”表现层状态转化”。<br>它是一种互联网应用程序的API设计理念：URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。<img src="https://upload-images.jianshu.io/upload_images/2888542-27f4990d17ca67ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/550/format/webp" alt="1.png"></p>
+        <html><head><meta name="generator" content="Hexo 3.9.0"></head><body><blockquote>
+<p>REST，即Representational State Transfer的缩写。直接翻译的意思是”表现层状态转化”。<br>它是一种互联网应用程序的API设计理念：URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。<img alt="1.png" data-src="https://upload-images.jianshu.io/upload_images/2888542-27f4990d17ca67ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/550/format/webp" class="lazyload"></p>
 </blockquote>
 <a id="more"></a>
 
@@ -607,11 +605,11 @@
 <li>POST（CREATE）：在服务器新建一个资源。    </li>
 <li>PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。    </li>
 <li>PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。 </li>
-<li>DELETE（DELETE）：从服务器删除资。<br>简单来说就是url地址中只包含名词表示资源，使用http动词表示动作进行操作资源<br>举个例子：左边是错误的设计，而右边是正确的<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET /blog/getArticles --&gt; GET /blog/Articles  获取所有文章</span><br><span class="line">GET /blog/addArticles --&gt; POST /blog/Articles  添加一篇文章</span><br><span class="line">GET /blog/editArticles --&gt; PUT /blog/Articles  修改一篇文章 </span><br><span class="line">GET /rest/api/deleteArticles?id=1 --&gt; DELETE /blog/Articles/1  删除一篇文章</span><br></pre></td></tr></table></figure>
+<li>DELETE（DELETE）：从服务器删除资。<br>简单来说就是url地址中只包含名词表示资源，使用http动词表示动作进行操作资源<br>举个例子：左边是错误的设计，而右边是正确的<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">GET /blog/getArticles --> GET /blog/Articles  获取所有文章</span><br><span class="line">GET /blog/addArticles --> POST /blog/Articles  添加一篇文章</span><br><span class="line">GET /blog/editArticles --> PUT /blog/Articles  修改一篇文章 </span><br><span class="line">GET /rest/api/deleteArticles?id=1 --> DELETE /blog/Articles/1  删除一篇文章</span><br></pre></td></tr></tbody></table></figure>
 
 </li>
 </ul>
-
+</body></html>
       
     </div>
     <div>
@@ -698,10 +696,6 @@
           </div>
           
 
-  
-    <div id="gitalk-container">
-    </div>
-    
   
 
 
@@ -1114,32 +1108,6 @@
 
 
 
-
-
-  
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
-
-  
-  
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css">
-
-  
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
-    
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: 'eb5bbed58a15239d8ab7',
-          clientSecret: '17b324a4d3178abb03f7766c7b94b876fb33babe',
-          repo: 'niran666.github.io',
-          owner: 'niran666',
-          admin: ['niran666'],
-          id: md5(location.pathname),
-          distractionFreeMode: 'true'
-        })
-        gitalk.render('gitalk-container')           
-       </script>
 
   
 
